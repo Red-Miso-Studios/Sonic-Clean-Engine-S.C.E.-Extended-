@@ -1,5 +1,7 @@
 # SONIC-CLEAN-ENGINE-S.C.E.-EXTENDED-
 
+![Title](https://i.imgur.com/CMy95r0.png)
+
 ## Disclaimer
 
 Source code with the returned the Sonic & Tails, Tails and Knuckles characters, Life/Continue count, Continue screen, Super/Hyper transformation.
