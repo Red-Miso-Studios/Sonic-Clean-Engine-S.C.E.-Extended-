@@ -92,22 +92,22 @@ ArtKosPM_DEZTitleCard:			binclude "Objects/Title Card/KosinskiPM Art/Levels/DEZ 
 ; Kosinski Plus Module compressed Level Select screen graphics
 ; ===========================================================================
 
-ArtKosPM_LevelSelectText:			binclude "Data/Screens/Level Select/KosinskiPM Art/Text.kospm"
+ArtKosPM_LevelSelectText:			binclude "General/Screens/Level Select/KosinskiPM Art/Text.kospm"
 	even
 
 ; ===========================================================================
 ; Kosinski Plus Module compressed Continue screen graphics
 ; ===========================================================================
 
-ArtKosPM_ContinueSprites:		binclude "Data/Screens/Continue/KosinskiPM Art/Player Sprites.kospm"
+ArtKosPM_ContinueSprites:		binclude "General/Screens/Continue/KosinskiPM Art/Player Sprites.kospm"
 	even
-ArtKosPM_ContinueIcons:			binclude "Data/Screens/Continue/KosinskiPM Art/Player Icons.kospm"
+ArtKosPM_ContinueIcons:			binclude "General/Screens/Continue/KosinskiPM Art/Player Icons.kospm"
 	even
-ArtKosPM_ContinueDigits:			binclude "Data/Screens/Continue/KosinskiPM Art/Digits.kospm"
+ArtKosPM_ContinueDigits:			binclude "General/Screens/Continue/KosinskiPM Art/Digits.kospm"
 	even
-ArtKosPM_EggRoboBadnik:		binclude "Data/Screens/Continue/KosinskiPM Art/Egg Robo Badnik.kospm"
+ArtKosPM_EggRoboBadnik:		binclude "General/Screens/Continue/KosinskiPM Art/Egg Robo Badnik.kospm"
 	even
-ArtKosPM_LargeTextCredits:		binclude "Data/Screens/Continue/KosinskiPM Art/Large Text.kospm"
+ArtKosPM_LargeTextCredits:		binclude "General/Screens/Continue/KosinskiPM Art/Large Text.kospm"
 	even
 
 ; ===========================================================================
