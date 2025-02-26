@@ -10,9 +10,9 @@ Pal_Knuckles:		bincludeEntry "Objects/Knuckles/Palettes/Knuckles.pal"
 	even
 Pal_WaterKnuckles:	bincludeEntry "Objects/Knuckles/Palettes/Water Knuckles.pal"
 	even
-Pal_LevelSelect:		bincludeEntry "Data/Screens/Level Select/Palettes/1.pal"
+Pal_LevelSelect:		bincludeEntry "General/Screens/Level Select/Palettes/1.pal"
 	even
-Pal_Continue:		bincludeEntry "Data/Screens/Continue/Palettes/1.pal"
+Pal_Continue:		bincludeEntry "General/Screens/Continue/Palettes/1.pal"
 	even
 Pal_DEZ:			bincludeEntry "Levels/DEZ/Palettes/Death Egg Zone.pal"
 	even
