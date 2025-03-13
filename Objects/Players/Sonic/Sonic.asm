@@ -2642,8 +2642,10 @@ loc_12432:
 		subq.b	#1,(Life_count).w
 		bne.s	loc_12498
 		clr.w	restart_timer(a0)
-		move.l	#Obj_GameOver,(Reserved_object_3+address).w
-		move.b	#1,(Reserved_object_3+mapping_frame).w
+		moveq	#0,d1										; current slot
+		move.l	#Render_GameOver,d0						; load GAME OVER
+		jsr	(AddSlot_ExtraRender).w
+		clr.b	(GameOver_RAM.status).w
 		clr.b	(Time_over_flag).w
 
 loc_12478:
@@ -2659,8 +2661,10 @@ loc_12498:
 		tst.b	(Time_over_flag).w
 		beq.s	locret_1258E
 		clr.w	restart_timer(a0)
-		move.l	#Obj_GameOver,(Reserved_object_3+address).w
-		move.b	#3,(Reserved_object_3+mapping_frame).w
+		moveq	#0,d1										; current slot
+		move.l	#Render_GameOver,d0						; load TIME OVER
+		jsr	(AddSlot_ExtraRender).w
+		clr.b	(GameOver_RAM.status).w
 		bra.s	loc_12478
 
 ; =============== S U B R O U T I N E =======================================

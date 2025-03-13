@@ -12,6 +12,8 @@ ArtKosPM_TailsLifeIcon:			binclude "Objects/Renders/HUD/KosinskiPM Art/Tails Lif
 	even
 ArtKosPM_KnucklesLifeIcon:		binclude "Objects/Renders/HUD/KosinskiPM Art/Knuckles Life Icon.kospm"
 	even
+ArtKosPM_GameOver:				binclude "Objects/Renders/Game Over/KosinskiPM Art/Game Over.kospm"
+	even
 
 ; ===========================================================================
 ; Kosinski Plus Module compressed Main graphics
@@ -28,8 +30,6 @@ ArtKosPM_BossExplosion:			binclude "Objects/Main/Explosion/KosinskiPM Art/Boss E
 ArtKosPM_Explosion:				binclude "Objects/Main/Explosion/KosinskiPM Art/Explosion.kospm"
 	even
 ArtKosPM_EnemyPtsStarPost:		binclude "Objects/Main/StarPost/KosinskiPM Art/Enemy points.kospm"
-	even
-ArtKosPM_GameOver:				binclude "Objects/Main/Game Over/KosinskiPM Art/Game Over.kospm"
 	even
 ArtKosPM_GrayButton:			binclude "Objects/Main/Button/KosinskiPM Art/Gray Button.kospm"
 	even
