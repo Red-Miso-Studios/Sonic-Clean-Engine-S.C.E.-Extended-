@@ -2,6 +2,8 @@
 ; Render objects data
 ; ===========================================================================
 
+		include "Objects/Renders/HUD/Load HUD.asm"
+		include "Objects/Renders/Game Over/Load Game Over.asm"
 
 ; ===========================================================================
 ; Main objects data
@@ -17,7 +19,6 @@
 		include "Objects/Main/Invisible Blocks/Invisible Block(Solid).asm"
 		include "Objects/Main/Invisible Blocks/Invisible Block(Hurt).asm"
 		include "Objects/Main/Invisible Blocks/Invisible Block(Kill).asm"
-		include "Objects/Main/Game Over/Game Over.asm"
 		include "Objects/Main/Title Card/Title Card.asm"
 		include "Objects/Main/Signpost/Signpost.asm"
 		include "Objects/Main/Results/Results.asm"
