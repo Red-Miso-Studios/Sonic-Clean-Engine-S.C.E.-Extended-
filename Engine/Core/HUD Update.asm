@@ -281,7 +281,7 @@ HUD_Initial_Parts:
 HUD_Zero_Rings:
 		dc.b "  0"		; (zero rings)
 HUD_Initial_Parts_end
-		even
+	even
 
 		CHARSET	; reset character set
 
