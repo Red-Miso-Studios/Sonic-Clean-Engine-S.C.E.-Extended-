@@ -175,15 +175,15 @@ LevelSelect_Controls:
 
 .return
 		rts		; nop
-		bra.s	.getmusic											; 2
+		bra.s	.getmusic											; 4
 		rts		; nop
-		bra.w	.getsound											; 4
+		bra.w	.getsound											; 8
 
 ; ---------------------------------------------------------------------------
 ; Play sample
 ; ---------------------------------------------------------------------------
 
-		; get sample													; 8
+		; get sample													; C
 		moveq	#LevelSelect_MaxSampleNumber,d2						; set max count
 		move.w	(LevelSelect_sample_count).w,d3
 		lea	(LevelSelect_control_timer).w,a3
@@ -438,7 +438,7 @@ LevelSelect_MarkFields:
 ; Draw sample
 ; ---------------------------------------------------------------------------
 
-.drawsample											; 8
+.drawsample											; 6
 		lea	(LevelSelect_buffer2+planeLoc(64,24,26)).l,a5
 		move.w	(LevelSelect_sample_count).w,d0
 		bra.s	.drawnumbers
