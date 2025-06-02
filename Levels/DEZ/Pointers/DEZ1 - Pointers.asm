@@ -24,14 +24,14 @@
 
 		; Level 1st 8x8 data, 2nd 8x8 data, Blocks pointer, 1st 16x16 data, 2nd 16x16 data, Chunks pointer, 1st 128x128 data, 2nd 128x128 data, Palette, Water palette, Music
 		levartptrs \
-		DEZ_8x8_KosPM, \
-		0, \
-		DEZ_16x16_Unc, \
-		0, \
-		0, \
-		Chunk_table, \
-		DEZ_128x128_KosP, \
-		0, \
+ 		DEZ_8x8_KosPM, \
+ 		0, \
+ 		DEZ_16x16_Unc, \
+ 		0, \
+ 		0, \
+ 		Chunk_table, \
+ 		DEZ_128x128_KosP, \
+ 		0, \
 		PalID_DEZ, \
 		PalID_WaterDEZ, \
 		mus_DEZ1
@@ -39,7 +39,7 @@
 		; Level data 2
 		dc.l DEZ_Solid								; Level solid
 		dc.l DEZ1_Layout								; Level layout
-		dc.l DEZ1_Sprites								; Level sprites
+		dc.l DEZ1_Objects								; Level sprites
 		dc.l DEZ1_Rings								; Level rings
 
 		; PLC
