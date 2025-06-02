@@ -24,14 +24,14 @@
 
 		; Level 1st 8x8 data, 2nd 8x8 data, Blocks pointer, 1st 16x16 data, 2nd 16x16 data, Chunks pointer, 1st 128x128 data, 2nd 128x128 data, Palette, Water palette, Music
 		levartptrs \
- 		DEZ_8x8_KosPM, \
- 		0, \
- 		DEZ_16x16_Unc, \
- 		0, \
- 		0, \
- 		Chunk_table, \
- 		DEZ_128x128_KosP, \
- 		0, \
+		DEZ_8x8_KosPM, \
+		0, \
+		DEZ_16x16_Unc, \
+		0, \
+		0, \
+		Chunk_table, \
+		DEZ_128x128_KosP, \
+		0, \
 		PalID_DEZ, \
 		PalID_WaterDEZ, \
 		mus_DEZ1
@@ -58,11 +58,11 @@
 
 		; Sonic palette, Knuckles palette
 		dc.b PalID_Sonic
-		dc.b PalID_Knuckles
+		dc.b PalID_Sonic								; Unused
 
 		; Water Sonic palette, Water Knuckles palette
 		dc.b PalID_WaterSonic
-		dc.b PalID_WaterKnuckles
+		dc.b PalID_WaterSonic						; Unused
 
 		; Players start location
 		binclude "Levels/DEZ/Start Location/2.bin"
