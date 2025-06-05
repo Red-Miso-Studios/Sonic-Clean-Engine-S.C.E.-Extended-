@@ -16,7 +16,7 @@
                     ],
                     "format": "Sonic 3&K Player.js",
                     "art": {
-                        "path": "../Objects/Players/Sonic/Uncompressed Art/Sonic.bin",
+                        "path": "../Objects/Players/Sonic/Uncompressed Art/Sonic.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -41,7 +41,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails.bin",
+                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -66,7 +66,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails Extra.bin",
+                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails Extra.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -91,7 +91,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails tails.bin",
+                        "path": "../Objects/Players/Tails/Uncompressed Art/Tails tails.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -111,12 +111,12 @@
                     "name": "Knuckles",
                     "palettes": [
                         {
-                            "path": "../Objects/Players/Knuckles/Palettes/Knuckles.bin",
+                            "path": "../Objects/Players/Knuckles/Palettes/Knuckles.pal",
                             "length": 1
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Knuckles/Uncompressed Art/Knuckles.bin",
+                        "path": "../Objects/Players/Knuckles/Uncompressed Art/Knuckles.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -149,7 +149,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Shields/Uncompressed Art/Fire Shield.bin",
+                        "path": "../Objects/Players/Shields/Uncompressed Art/Fire Shield.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -174,7 +174,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Shields/Uncompressed Art/Lightning Shield.bin",
+                        "path": "../Objects/Players/Shields/Uncompressed Art/Lightning Shield.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -199,7 +199,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Shields/Uncompressed Art/Bubble Shield.bin",
+                        "path": "../Objects/Players/Shields/Uncompressed Art/Bubble Shield.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -224,7 +224,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Shields/Uncompressed Art/Insta-Shield.bin",
+                        "path": "../Objects/Players/Shields/Uncompressed Art/Insta-Shield.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -249,7 +249,7 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Players/Shields/Uncompressed Art/Invincibility.bin",
+                        "path": "../Objects/Players/Shields/Uncompressed Art/Invincibility.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -282,8 +282,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Explosion/KosinskiPM Art/Boss Explosion.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Explosion/KosinskiPM Art/Boss Explosion.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -306,13 +306,13 @@
                             "length": 1
                         },
                         {
-                            "path": "../Objects/Players/Knuckles/Palettes/Knuckles.bin",
+                            "path": "../Objects/Players/Knuckles/Palettes/Knuckles.pal",
                             "length": 1
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Bosses/Robotnik/KosinskiPM Art/Egg Robo Head.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Bosses/Robotnik/KosinskiPM Art/Egg Robo Head.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -336,8 +336,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Bosses/Robotnik/KosinskiPM Art/Robotnik Ship.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Bosses/Robotnik/KosinskiPM Art/Robotnik Ship.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -369,8 +369,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Egg Capsule/KosinskiPM Art/Egg Capsule.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Egg Capsule/KosinskiPM Art/Egg Capsule.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -385,16 +385,21 @@
                     "uuid": "6355e6ce-e3a8-4fd7-8d6d-9cd8865fb147"
                 },
                 {
-                    "format": "Sonic 1.js",
+                    "format": "Sonic 3&K Object.js",
                     "name": "Explosion",
-                    "palettes": [],
+                    "palettes": [
+                        {
+                            "path": "../Objects/Players/Sonic/Palettes/Sonic.pal",
+                            "length": 1
+                        }
+                    ],
                     "art": {
-                        "path": "",
-                        "compression": "Uncompressed",
+                        "path": "../Objects/Main/Explosion/KosinskiPM Art/Explosion.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "",
+                        "path": "../Objects/Main/Explosion/Object Data/Map - Explosion.asm",
                         "label": ""
                     },
                     "dplcs": {
@@ -414,8 +419,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Monitor/KosinskiPM Art/Monitors.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Monitor/KosinskiPM Art/Monitors.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -439,8 +444,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Monitor/KosinskiPM Art/Monitors.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Monitor/KosinskiPM Art/Monitors.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -459,12 +464,12 @@
                     "format": "Sonic 3&K Object.js",
                     "palettes": [
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "path": "../Levels/DEZ/Palettes/Death Egg Zone.pal",
                             "length": 1
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Rings/Uncompressed Art/Rings.bin",
+                        "path": "../Objects/Main/Rings/Uncompressed Art/Rings.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -489,7 +494,7 @@
                     ],
                     "format": "Sonic 3&K Object.js",
                     "art": {
-                        "path": "../Objects/Main/Signpost/Uncompressed Art/End Signs.bin",
+                        "path": "../Objects/Main/Signpost/Uncompressed Art/End Signs.unc",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
@@ -514,8 +519,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Spikes/KosinskiPM Art/SpikesSprings.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Spikes/KosinskiPM Art/SpikesSprings.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -539,8 +544,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Spikes/KosinskiPM Art/SpikesSprings.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Spikes/KosinskiPM Art/SpikesSprings.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -564,8 +569,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/StarPost/KosinskiPM Art/Enemy points.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/StarPost/KosinskiPM Art/Enemy points.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -597,8 +602,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Enemies/Spikebonker/KosinskiPM Art/Spikebonker.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Enemies/Spikebonker/KosinskiPM Art/Spikebonker.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -614,7 +619,8 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false
+            "expanded": false,
+            "uuid": "596ca85f-4523-4c49-80fc-eecfc88bfc80"
         },
         {
             "name": "Ending",
@@ -629,8 +635,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Blue Flicky.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Blue Flicky.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -654,8 +660,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Chicken.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Chicken.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -679,8 +685,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Penguin.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Penguin.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -704,8 +710,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Pig.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Pig.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -729,8 +735,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Rabbit.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Rabbit.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -754,8 +760,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Seal.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Seal.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
@@ -779,8 +785,8 @@
                         }
                     ],
                     "art": {
-                        "path": "../Objects/Main/Animals/KosinskiPM Art/Squirrel.bin",
-                        "compression": "Kosinski-M",
+                        "path": "../Objects/Main/Animals/KosinskiPM Art/Squirrel.kospm",
+                        "compression": "KosinskiPlus-M",
                         "offset": 0
                     },
                     "mappings": {
