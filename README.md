@@ -2,6 +2,10 @@
 
 ![Title](https://i.imgur.com/CMy95r0.png)
 
+# Download
+
+- [Current version](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/archive/refs/heads/flamedriver.zip)
+
 ## Disclaimer
 
 Source code with the returned the Sonic & Tails, Tails and Knuckles characters, Life/Continue count, Continue screen, Super/Hyper transformation.
