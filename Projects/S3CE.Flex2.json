@@ -1,7 +1,7 @@
 {
     "Flex": 2,
-    "name": "SCEE",
-    "node": "da472ab9-f363-45e6-8ee3-a83fd70d6d9c",
+    "name": "S3CE",
+    "node": "55e6cee3-a83f-470d-ad9c-d8865fb14792",
     "objects": [
         {
             "name": "Player",
@@ -360,6 +360,31 @@
             "name": "Common",
             "children": [
                 {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Diagonal Spring",
+                    "palettes": [
+                        {
+                            "path": "../Objects/Players/Sonic/Palettes/Sonic.pal",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "../Objects/Main/Spring/KosinskiPM Art/Diagonal Spring.kospm",
+                        "compression": "KosinskiPlus-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "../Objects/Main/Spring/Object Data/Map - Spring(Red).asm",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "935262f5-ca29-4b9f-84b3-54122aef9761"
+                },
+                {
                     "name": "Egg Capsule",
                     "format": "Sonic 3&K Object.js",
                     "palettes": [
@@ -586,7 +611,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "14da472a-b9f3-4355-a6ce-e3a83fd70d6d"
         },
         {
