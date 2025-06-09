@@ -100,7 +100,7 @@ sub_1CDDA:
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blt.s		locret_1CE6A
+		blt.s	locret_1CE6A
 		cmp.w	d3,d4
 		bge.s	locret_1CE6A
 		move.b	subtype(a0),d0
@@ -137,7 +137,7 @@ locret_1CE6A:
 
 loc_1CE6C:
 		cmp.w	x_pos(a1),d1
-		bls.s		locret_1CEF0
+		bls.s	locret_1CEF0
 		clr.b	-1(a2)
 		move.w	y_pos(a0),d2
 		move.w	d2,d3
@@ -146,7 +146,7 @@ loc_1CE6C:
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blt.s		locret_1CEF0
+		blt.s	locret_1CEF0
 		cmp.w	d3,d4
 		bge.s	locret_1CEF0
 		move.b	subtype(a0),d0
@@ -211,7 +211,7 @@ sub_1CF42:
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
 		cmp.w	d2,d4
-		blt.s		locret_1CFD2
+		blt.s	locret_1CFD2
 		cmp.w	d3,d4
 		bge.s	locret_1CFD2
 		move.b	subtype(a0),d0
@@ -248,7 +248,7 @@ locret_1CFD2:
 
 loc_1CFD4:
 		cmp.w	y_pos(a1),d1
-		bls.s		locret_1D058
+		bls.s	locret_1D058
 		clr.b	-1(a2)
 		move.w	x_pos(a0),d2
 		move.w	d2,d3
@@ -257,7 +257,7 @@ loc_1CFD4:
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
 		cmp.w	d2,d4
-		blt.s		locret_1D058
+		blt.s	locret_1D058
 		cmp.w	d3,d4
 		bge.s	locret_1D058
 		move.b	subtype(a0),d0

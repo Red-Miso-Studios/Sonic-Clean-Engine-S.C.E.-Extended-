@@ -221,7 +221,7 @@ Sonic_ChkInvin:										; checks if invincibility has expired and disables it i
 		tst.b	(Boss_flag).w								; don't change music if in a boss fight
 		bne.s	Sonic_RmvInvin
 		cmpi.b	#12,air_left(a0)						; don't change music if drowning
-		blo.s		Sonic_RmvInvin
+		blo.s	Sonic_RmvInvin
 		move.w	(Current_music).w,d0
 		jsr	(Play_Music).w							; stop playing invincibility theme and resume normal level music
 
@@ -377,7 +377,7 @@ Sonic_OutWater:
 		bne.s	loc_10EFC
 		move.w	y_vel(a0),d0
 		cmpi.w	#-$400,d0
-		blt.s		loc_10EFC
+		blt.s	loc_10EFC
 		asl.w	y_vel(a0)
 
 loc_10EFC:
@@ -642,7 +642,7 @@ Sonic_NotRight:
 		tst.b	(Super_Sonic_Knux_flag).w		; is Sonic Super/Hyper?
 		bne.s	SuperSonic_Balance			; if so, branch
 		cmpi.w	#2,d1						; is Sonic within two units of object's left edge?
-		blt.s		Sonic_BalanceOnObjLeft		; if so, branch
+		blt.s	Sonic_BalanceOnObjLeft		; if so, branch
 		cmp.w	d2,d1
 		bge.s	Sonic_BalanceOnObjRight		; if Sonic is within two units of object's right edge, branch (Realistically, it checks this, and BEYOND the right edge of the object)
 		bra.w	loc_11276					; if Sonic is more than 2 units from both edges, branch
@@ -793,7 +793,7 @@ loc_11276:
 		move.b	#AniIDSonAni_Duck,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_112F0
+		blo.s	loc_112F0
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_112A6
@@ -816,7 +816,7 @@ loc_112B0:
 		move.b	#AniIDSonAni_LookUp,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_112F0
+		blo.s	loc_112F0
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_112E0
@@ -968,7 +968,7 @@ loc_11412:
 		bgt.s	loc_11424
 		add.w	d5,d0
 		cmp.w	d1,d0
-		ble.s		loc_11424
+		ble.s	loc_11424
 		move.w	d1,d0
 
 loc_11424:
@@ -989,14 +989,14 @@ loc_11438:
 		andi.b	#$C0,d1
 		bne.s	locret_11480
 		cmpi.w	#$400,d0
-		blt.s		locret_11480
+		blt.s	locret_11480
 		tst.b	flip_type(a0)
 		bmi.s	locret_11480
 		sfx	sfx_Skid
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bclr	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_11480							; if less than 12, branch
+		blo.s	locret_11480							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust
 		move.b	#$15,mapping_frame(a6)				; Dust
 
@@ -1016,7 +1016,7 @@ sub_11482:
 loc_1149C:
 		add.w	d5,d0
 		cmp.w	d6,d0
-		blt.s		loc_114AA
+		blt.s	loc_114AA
 		sub.w	d5,d0
 		cmp.w	d6,d0
 		bge.s	loc_114AA
@@ -1047,7 +1047,7 @@ loc_114BE:
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bset	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_11506							; if less than 12, branch
+		blo.s	locret_11506							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust
 		move.b	#$15,mapping_frame(a6)				; Dust
 
@@ -1155,7 +1155,7 @@ loc_115D2:
 		jsr	(GetSineCosine).w
 		move.w	ground_vel(a0),d2		; devon fix
 		cmpi.w	#$1000,d2
-		ble.s		loc_115F6
+		ble.s	loc_115F6
 		move.w	#$1000,d2
 
 loc_115F6:
@@ -1241,7 +1241,7 @@ Sonic_ChgJumpDir:
 		bgt.s	loc_11682								; if new speed is less than the maximum, branch
 		add.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d1,d0									; compare speed with top speed
-		ble.s		loc_11682								; if speed was already greater than the maximum, branch
+		ble.s	loc_11682								; if speed was already greater than the maximum, branch
 		move.w	d1,d0
 
 loc_11682:
@@ -1250,7 +1250,7 @@ loc_11682:
 		bclr	#Status_Facing,status(a0)
 		add.w	d5,d0									; accelerate right in the air
 		cmp.w	d6,d0									; compare new speed with top speed
-		blt.s		loc_1169E								; if new speed is less than the maximum, branch
+		blt.s	loc_1169E								; if new speed is less than the maximum, branch
 		sub.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d6,d0									; compare speed with top speed
 		bge.s	loc_1169E								; if speed was already greater than the maximum, branch
@@ -1270,7 +1270,7 @@ loc_116AC:
 
 Sonic_JumpPeakDecelerate:
 		cmpi.w	#-$400,y_vel(a0)							; is Sonic moving faster than -$400 upwards?
-		blo.s		locret_116DC								; if yes, return
+		blo.s	locret_116DC								; if yes, return
 		move.w	x_vel(a0),d0
 		move.w	d0,d1
 		asr.w	#5,d1									; d1 = x_velocity / 32
@@ -1287,7 +1287,7 @@ loc_116CA:
 
 Sonic_JumpPeakDecelerateLeft:
 		sub.w	d1,d0									; reduce x velocity by d1
-		blo.s		loc_116D8
+		blo.s	loc_116D8
 		moveq	#0,d0
 
 loc_116D8:
@@ -1318,7 +1318,7 @@ Player_LevelBound:
 		move.w	(Camera_max_X_pos).w,d0
 		addi.w	#320-24,d0
 		cmp.w	d1,d0
-		blo.s		Player_Boundary_Sides
+		blo.s	Player_Boundary_Sides
 
 Player_Boundary_CheckBottom:
 		tst.b	(Disable_death_plane).w
@@ -1327,10 +1327,10 @@ Player_Boundary_CheckBottom:
 		bne.s	loc_11722
 		move.w	(Camera_max_Y_pos).w,d0
 		cmp.w	(Camera_target_max_Y_pos).w,d0
-		blt.s		locret_11720
+		blt.s	locret_11720
 		addi.w	#224,d0
 		cmp.w	y_pos(a0),d0								; has Sonic/Knux touched the bottom boundary?
-		blt.s		Player_Boundary_Bottom					; if yes, branch
+		blt.s	Player_Boundary_Bottom					; if yes, branch
 
 locret_11720:
 		rts
@@ -1339,7 +1339,7 @@ locret_11720:
 loc_11722:
 		move.w	(Camera_min_Y_pos).w,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		locret_11720
+		blt.s	locret_11720
 
 Player_Boundary_Bottom:
 		movea.w	a0,a2
@@ -1448,7 +1448,7 @@ loc_117FC:
 		bsr.w	CalcRoomOverHead
 		movem.l	(sp)+,a4-a6
 		cmpi.w	#6,d1									; does Sonic have enough room to jump?
-		blt.s		locret_117D8								; if not, branch
+		blt.s	locret_117D8								; if not, branch
 		move.w	#$680,d2
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_11822
@@ -1508,7 +1508,7 @@ Sonic_JumpHeight:
 
 loc_118D2:
 		cmp.w	y_vel(a0),d1								; is y speed greater than 4? (2 if underwater)
-		ble.s		Sonic_InstaAndShieldMoves				; if not, branch
+		ble.s	Sonic_InstaAndShieldMoves				; if not, branch
 		moveq	#btnABC,d0								; are buttons A, B or C being pressed?
 		and.b	(Ctrl_1_logical).w,d0
 		bne.s	locret_118E8								; if yes, branch
@@ -1594,11 +1594,11 @@ Sonic_CheckTransform:
 
 	if CheckChaosEmer
 		cmpi.b	#7,(Chaos_emerald_count).w				; does Sonic have all 7 Chaos Emeralds?
-		blo.s		Sonic_InstaShield							; if not, branch
+		blo.s	Sonic_InstaShield							; if not, branch
 	endif
 
 		cmpi.w	#50,(Ring_count).w						; does Sonic have at least 50 rings?
-		blo.s		Sonic_InstaShield							; if not, perform Insta-Shield
+		blo.s	Sonic_InstaShield							; if not, perform Insta-Shield
 		tst.b	(Level_results_flag).w							; is level over?
 		beq.s	Sonic_Transform							; if not, branch
 		endif
@@ -1787,7 +1787,7 @@ SonicKnux_Spindash:
 		move.b	#1,spin_dash_flag(a0)
 		clr.w	spin_dash_counter(a0)
 		cmpi.b	#12,air_left(a0)							; check air remaining
-		blo.s		loc_11C24								; if less than 12, branch
+		blo.s	loc_11C24								; if less than 12, branch
 		move.b	#2,anim(a6)								; Dust
 
 loc_11C24:
@@ -1903,7 +1903,7 @@ loc_11D2E:
 		sfx	sfx_SpinDash
 		addi.w	#$200,spin_dash_counter(a0)
 		cmpi.w	#$800,spin_dash_counter(a0)
-		blo.s		loc_11D5E
+		blo.s	loc_11D5E
 		move.w	#$800,spin_dash_counter(a0)
 
 loc_11D5E:
@@ -1998,7 +1998,7 @@ locret_11DDA:
 loc_11DDC:
 		mvabs.w	d0,d1
 		cmpi.w	#$D,d1
-		blo.s		locret_11DDA
+		blo.s	locret_11DDA
 		add.w	d0,ground_vel(a0)
 		rts
 
@@ -2053,7 +2053,7 @@ Player_SlopeRepel:
 		moveq	#$18,d0
 		add.b	angle(a0),d0
 		cmpi.b	#$30,d0
-		blo.s		locret_11E6E
+		blo.s	locret_11E6E
 		mvabs.w	ground_vel(a0),d0
 		cmpi.w	#$280,d0
 		bhs.s	locret_11E6E
@@ -2061,7 +2061,7 @@ Player_SlopeRepel:
 		moveq	#$30,d0
 		add.b	angle(a0),d0
 		cmpi.b	#$60,d0
-		blo.s		loc_11E70
+		blo.s	loc_11E70
 		bset	#Status_InAir,status(a0)
 
 locret_11E6E:
@@ -2070,7 +2070,7 @@ locret_11E6E:
 
 loc_11E70:
 		cmpi.b	#$30,d0
-		blo.s		loc_11E7E
+		blo.s	loc_11E7E
 		addi.w	#$80,ground_vel(a0)
 		rts
 ; ---------------------------------------------------------------------------
@@ -2200,7 +2200,7 @@ loc_11F56:
 		cmp.b	d2,d1
 		bge.s	loc_11F6E
 		cmp.b	d2,d0
-		blt.s		locret_11FD4
+		blt.s	locret_11FD4
 
 loc_11F6E:
 		move.b	d3,angle(a0)
@@ -2231,7 +2231,7 @@ loc_11F9C:
 loc_11FAE:
 		clr.w	x_vel(a0)	; stop Sonic since he hit a wall
 		cmpi.w	#$FC0,y_vel(a0)
-		ble.s		loc_11FC2
+		ble.s	loc_11FC2
 		move.w	#$FC0,y_vel(a0)
 
 loc_11FC2:
@@ -2574,14 +2574,14 @@ sub_12318:
 		move.w	(Camera_max_Y_pos).w,d0
 		addi.w	#224,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_1238A
+		blt.s	loc_1238A
 		bra.s	loc_12344
 ; ---------------------------------------------------------------------------
 
 loc_12336:
 		move.w	(Camera_min_Y_pos).w,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_12344
+		blt.s	loc_12344
 		bra.s	loc_1238A
 ; ---------------------------------------------------------------------------
 

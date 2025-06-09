@@ -138,7 +138,7 @@ Obj_EggCapsule:
 		; check right side
 		addi.w	#320-48,d0
 		cmp.w	x_pos(a0),d0
-		blo.s		.chgx
+		blo.s	.chgx
 		bra.s	.setx
 ; ---------------------------------------------------------------------------
 
@@ -147,7 +147,7 @@ Obj_EggCapsule:
 		; check left side
 		addi.w	#48,d0
 		cmp.w	x_pos(a0),d0
-		blo.s		.setx
+		blo.s	.setx
 
 .chgx
 		neg.w	d1								; change moving
@@ -236,7 +236,7 @@ sub_866EC:										; Routine $10 (LBZ)
 		moveq	#-96,d0
 		add.w	(Camera_X_pos).w,d0
 		cmp.w	x_pos(a0),d0
-		blo.s		.loc_8670C
+		blo.s	.loc_8670C
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -588,7 +588,7 @@ Obj_EggCapsule_Animals_Flipped:
 		bgt.s	.yvel
 		neg.w	d0
 		cmp.w	d0,d6
-		blt.s		.yvel
+		blt.s	.yvel
 		move.w	d6,x_vel(a0)
 
 .yvel
@@ -605,7 +605,7 @@ Obj_EggCapsule_Animals_Flipped:
 		bgt.s	.xyvel
 		neg.w	d1
 		cmp.w	d1,d6
-		blt.s		.xyvel
+		blt.s	.xyvel
 		move.w	d6,y_vel(a0)
 
 .xyvel

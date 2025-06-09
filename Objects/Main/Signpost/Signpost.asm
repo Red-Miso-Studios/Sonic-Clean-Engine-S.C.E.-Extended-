@@ -330,7 +330,7 @@ EndSign_CheckWall:
 		; check right side
 		addi.w	#320-24,d0
 		cmp.w	x_pos(a0),d0
-		blo.s		.negx
+		blo.s	.negx
 
 		; check right wall
 		moveq	#64/2,d3

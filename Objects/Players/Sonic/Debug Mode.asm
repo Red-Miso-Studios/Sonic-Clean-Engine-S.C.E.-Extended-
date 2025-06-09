@@ -113,7 +113,7 @@ Debug_Mode:
 		addi.w	#223,d0
 		swap	d0
 		cmp.l	d0,d2
-		blt.s		.notdown
+		blt.s	.notdown
 		move.l	d0,d2
 
 .notdown

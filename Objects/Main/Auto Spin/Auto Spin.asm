@@ -104,7 +104,7 @@ sub_1E8C6:
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_1E942
+		blo.s	locret_1E942
 		cmp.w	d3,d4
 		bhs.s	locret_1E942
 		btst	#5,subtype(a0)
@@ -139,7 +139,7 @@ locret_1E942:
 
 AutoSpin_MainX_Alt:
 		cmp.w	x_pos(a1),d1
-		bls.s		locret_1E9B4
+		bls.s	locret_1E9B4
 		clr.b	-1(a2)
 		move.w	y_pos(a0),d2
 		move.w	d2,d3
@@ -148,7 +148,7 @@ AutoSpin_MainX_Alt:
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_1E9B4
+		blo.s	locret_1E9B4
 		cmp.w	d3,d4
 		bhs.s	locret_1E9B4
 		btst	#5,subtype(a0)
@@ -230,7 +230,7 @@ sub_1EA14:
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_1EAAE
+		blo.s	locret_1EAAE
 		cmp.w	d3,d4
 		bhs.s	locret_1EAAE
 		btst	#5,subtype(a0)
@@ -272,7 +272,7 @@ locret_1EAAE:
 
 AutoSpin_MainY_Alt:
 		cmp.w	y_pos(a1),d1
-		bls.s		locret_1EB30
+		bls.s	locret_1EB30
 		clr.b	-1(a2)
 		move.w	x_pos(a0),d2
 		move.w	d2,d3
@@ -281,7 +281,7 @@ AutoSpin_MainY_Alt:
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_1EB30
+		blo.s	locret_1EB30
 		cmp.w	d3,d4
 		bhs.s	locret_1EB30
 		btst	#5,subtype(a0)

@@ -70,7 +70,7 @@ Obj_LevelResults:
 		divu.w	#30,d0								; divide time by 30
 		moveq	#7,d1
 		cmp.w	d1,d0								; if result is above 7, make it 7
-		blo.s		.gettb
+		blo.s	.gettb
 		move.w	d1,d0
 
 .gettb
@@ -224,7 +224,7 @@ Obj_LevResultsCharName:
 		cmpi.w	#PlayerModeID_Tails,(Player_mode).w
 		beq.s	.loc_2DD62
 		cmpi.w	#PlayerModeID_Knuckles,(Player_mode).w
-		blo.s		.loc_2DD7E
+		blo.s	.loc_2DD7E
 		addq.b	#3,mapping_frame(a0)						; Knuckles frame
 		moveq	#48,d0
 		sub.w	d0,x_pos(a0)
@@ -320,7 +320,7 @@ LevelResults_MoveElement:
 
 .loc_2DE20
 		cmp.b	objoff_28(a0),d0						; level element moving out. Test if value of parent queue matches given queue value
-		blo.s		.return
+		blo.s	.return
 		moveq	#-32,d0								; if so, move out
 		tst.b	objoff_05(a0)
 		beq.s	.loc_2DE32
@@ -336,7 +336,7 @@ LevelResults_MoveElement:
 		move.w	x_pos(a0),d0
 		cmp.w	objoff_46(a0),d0
 		beq.s	.loc_2DE4A							; if x position has reached destination, don't do anything else
-		blt.s		.loc_2DE48						; see which direction it needs to go
+		blt.s	.loc_2DE48							; see which direction it needs to go
 		neg.w	d1
 
 .loc_2DE48
@@ -357,7 +357,7 @@ LevResults_GetDecimalScore:
 
 .loop
 		ror.w	d0
-		blo.s		.found
+		blo.s	.found
 		subq.w	#3,a1								; back in 3 bytes
 		bra.s	.next
 ; ---------------------------------------------------------------------------

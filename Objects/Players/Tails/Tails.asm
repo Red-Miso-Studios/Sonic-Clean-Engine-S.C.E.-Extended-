@@ -269,7 +269,7 @@ Tails_ChkInvin:												; checks if invincibility has expired and disables it
 		tst.b	(Boss_flag).w										; don't change music if in a boss fight
 		bne.s	Tails_RmvInvin
 		cmpi.b	#12,air_left(a0)								; don't change music if drowning
-		blo.s		Tails_RmvInvin
+		blo.s	Tails_RmvInvin
 		move.w	(Current_music).w,d0
 		jsr	(Play_Music).w									; stop playing invincibility theme and resume normal level music
 
@@ -424,7 +424,7 @@ Tails_FlySwim_Unknown:
 		bmi.s	loc_13C3A											; if yes, branch
 		addq.w	#1,(Tails_CPU_flight_timer).w
 		cmpi.w	#5*60,(Tails_CPU_flight_timer).w
-		blo.s		loc_13C50
+		blo.s	loc_13C50
 		clr.w	(Tails_CPU_flight_timer).w
 		move.w	#2,(Tails_CPU_routine).w
 		move.b	#$81,object_control(a0)
@@ -456,7 +456,7 @@ loc_13C50:
 		mvabs.w	d0,d2
 		lsr.w	#4,d2
 		cmpi.w	#$C,d2
-		blo.s		loc_13C88
+		blo.s	loc_13C88
 		moveq	#$C,d2
 
 loc_13C88:
@@ -471,7 +471,7 @@ loc_13C90:
 		bmi.s	loc_13CAA
 		bset	#Status_Facing,status(a0)
 		cmp.w	d0,d2
-		blo.s		loc_13CA6
+		blo.s	loc_13CA6
 		move.w	d0,d2
 		moveq	#0,d0
 
@@ -484,7 +484,7 @@ loc_13CAA:
 		bclr	#Status_Facing,status(a0)
 		neg.w	d0
 		cmp.w	d0,d2
-		blo.s		loc_13CBA
+		blo.s	loc_13CBA
 		move.b	d0,d2
 		moveq	#0,d0
 
@@ -536,7 +536,7 @@ loc_13D42:
 
 loc_13D4A:
 		cmpi.b	#PlayerID_Death,(Player_1+routine).w
-		blo.s		loc_13D78
+		blo.s	loc_13D78
 		move.w	#4,(Tails_CPU_routine).w
 		clr.b	spin_dash_flag(a0)
 		clr.w	spin_dash_counter(a0)
@@ -592,7 +592,7 @@ loc_13DF2:
 		bpl.s	loc_13E26
 		neg.w	d2
 		cmpi.w	#48,d2
-		blo.s		loc_13E0A
+		blo.s	loc_13E0A
 		andi.w	#bytes_to_word(btnUD+btnABCS,btnUD+btnABCS),d1
 		ori.w	#bytes_to_word(btnL,btnL),d1
 
@@ -609,7 +609,7 @@ loc_13E0A:
 
 loc_13E26:
 		cmpi.w	#48,d2
-		blo.s		loc_13E34
+		blo.s	loc_13E34
 		andi.w	#bytes_to_word(btnUD+btnABCS,btnUD+btnABCS),d1
 		ori.w	#bytes_to_word(btnR,btnR),d1
 
@@ -652,7 +652,7 @@ loc_13E8C:
 		bpl.s	loc_13EB8
 		neg.w	d3
 		cmpi.w	#32,d3
-		blo.s		loc_13EB8
+		blo.s	loc_13EB8
 
 loc_13E9C:
 		moveq	#$3F,d0
@@ -705,7 +705,7 @@ sub_13EFC:
 loc_13F18:
 		addq.w	#1,(Tails_CPU_flight_timer).w
 		cmpi.w	#5*60,(Tails_CPU_flight_timer).w
-		blo.s		loc_13F2E
+		blo.s	loc_13F2E
 
 loc_13F24:
 		bra.s	sub_13ECA
@@ -737,7 +737,7 @@ loc_13F40:
 		bclr	#Status_Facing,status(a0)
 		move.w	x_pos(a0),d0
 		sub.w	x_pos(a1),d0
-		blo.s		loc_13F74
+		blo.s	loc_13F74
 		bset	#Status_Facing,status(a0)
 
 loc_13F74:
@@ -872,7 +872,7 @@ loc_14128:
 		move.w	(Camera_Y_pos).w,d0
 		addi.w	#$90,d0
 		cmp.w	y_pos(a0),d0
-		blo.s		loc_1413C
+		blo.s	loc_1413C
 		move.w	#$18,(Tails_CPU_routine).w
 
 loc_1413C:
@@ -900,7 +900,7 @@ loc_14164:
 		beq.s	loc_14198
 		addq.b	#1,(Tails_CPU_auto_fly_timer).w
 		cmpi.b	#192,(Tails_CPU_auto_fly_timer).w
-		blo.s		loc_141D2
+		blo.s	loc_141D2
 		clr.b	(Tails_CPU_auto_fly_timer).w
 		ori.w	#bytes_to_word(btnABC,btnABC),(Ctrl_2_logical).w
 		bra.s	loc_141D2
@@ -911,7 +911,7 @@ loc_14198:
 		beq.s	loc_141BA
 		addq.b	#1,(Tails_CPU_auto_fly_timer).w
 		cmpi.b	#32,(Tails_CPU_auto_fly_timer).w
-		blo.s		loc_141D2
+		blo.s	loc_141D2
 		clr.b	(Tails_CPU_auto_fly_timer).w
 		ori.w	#bytes_to_word(btnABC,btnABC),(Ctrl_2_logical).w
 		bra.s	loc_141D2
@@ -920,7 +920,7 @@ loc_14198:
 loc_141BA:
 		addq.b	#1,(Tails_CPU_auto_fly_timer).w
 		cmpi.b	#88,(Tails_CPU_auto_fly_timer).w
-		blo.s		loc_141D2
+		blo.s	loc_141D2
 		clr.b	(Tails_CPU_auto_fly_timer).w
 		ori.w	#bytes_to_word(btnABC,btnABC),(Ctrl_2_logical).w
 
@@ -958,7 +958,7 @@ loc_1423E:
 		move.w	(Camera_Y_pos).w,d0
 		addi.w	#$90,d0
 		cmp.w	y_pos(a0),d0
-		blo.s		locret_14252
+		blo.s	locret_14252
 		move.w	#$1E,(Tails_CPU_routine).w
 
 locret_14252:
@@ -1018,7 +1018,7 @@ loc_142E2:
 		bge.s	loc_14328
 		addq.b	#1,(Tails_CPU_auto_fly_timer).w
 		cmpi.b	#88,(Tails_CPU_auto_fly_timer).w
-		blo.s		loc_1432E
+		blo.s	loc_1432E
 		clr.b	(Tails_CPU_auto_fly_timer).w
 
 loc_14328:
@@ -1061,7 +1061,7 @@ loc_14362:
 		move.w	(Camera_stored_max_X_pos).w,d2
 		bclr	#Status_Facing,status(a0)
 		cmp.w	x_pos(a1),d0
-		blo.s		loc_14390
+		blo.s	loc_14390
 		bset	#Status_Facing,status(a0)
 		neg.w	d2
 
@@ -1071,7 +1071,7 @@ loc_14390:
 		bhs.s	loc_143AA
 		move.w	(Camera_stored_min_X_pos).w,d2
 		cmp.w	y_pos(a1),d1
-		blo.s		loc_143A6
+		blo.s	loc_143A6
 		neg.w	d2
 
 loc_143A6:
@@ -1354,7 +1354,7 @@ loc_146F4:
 loc_1470A:
 		move.w	y_vel(a0),d0
 		cmpi.w	#-$400,d0
-		blt.s		loc_14718
+		blt.s	loc_14718
 		asl.w	y_vel(a0)
 
 loc_14718:
@@ -1486,7 +1486,7 @@ loc_14836:
 		cmpi.b	#1,double_jump_flag(a0)
 		beq.s	loc_14860
 		cmpi.w	#-$100,y_vel(a0)
-		blt.s		loc_14858
+		blt.s	loc_14858
 		subi.w	#$20,y_vel(a0)
 		addq.b	#1,double_jump_flag(a0)
 		cmpi.b	#$20,double_jump_flag(a0)
@@ -1504,7 +1504,7 @@ loc_14860:
 		and.b	(Ctrl_2_pressed_logical).w,d0
 		beq.s	loc_1488C
 		cmpi.w	#-$100,y_vel(a0)
-		blt.s		loc_1488C
+		blt.s	loc_1488C
 		tst.b	double_jump_property(a0)
 		beq.s	loc_1488C
 		btst	#Status_Underwater,status(a0)
@@ -1522,7 +1522,7 @@ loc_14892:
 		moveq	#16,d0
 		add.w	(Camera_min_Y_pos).w,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		Tails_Set_Flying_Animation
+		blt.s	Tails_Set_Flying_Animation
 		tst.w	y_vel(a0)
 		bpl.s	Tails_Set_Flying_Animation
 		clr.w	y_vel(a0)
@@ -1733,7 +1733,7 @@ loc_14A16:
 		add.w	x_pos(a0),d1
 		sub.w	x_pos(a1),d1
 		cmpi.w	#4,d1
-		blt.s		loc_14A92
+		blt.s	loc_14A92
 		cmp.w	d2,d1
 		bge.s	loc_14A82
 		bra.s	loc_14AA0
@@ -1743,7 +1743,7 @@ loc_14A6C:
 		move.w	x_pos(a0),d3
 		bsr.w	ChooseChkFloorEdge
 		cmpi.w	#$C,d1
-		blt.s		loc_14AA0
+		blt.s	loc_14AA0
 		cmpi.b	#3,next_tilt(a0)
 		bne.s	loc_14A8A
 
@@ -1772,7 +1772,7 @@ loc_14AA0:
 		move.b	#AniIDSonAni_Duck,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_14B1A
+		blo.s	loc_14B1A
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_14AD0
@@ -1795,7 +1795,7 @@ loc_14ADA:
 		move.b	#AniIDSonAni_LookUp,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_14B1A
+		blo.s	loc_14B1A
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_14B0A
@@ -1949,7 +1949,7 @@ loc_14C3C:
 		bgt.s	loc_14C4E
 		add.w	d5,d0
 		cmp.w	d1,d0
-		ble.s		loc_14C4E
+		ble.s	loc_14C4E
 		move.w	d1,d0
 
 loc_14C4E:
@@ -1970,14 +1970,14 @@ loc_14C62:
 		andi.b	#$C0,d1
 		bne.s	locret_14CAA
 		cmpi.w	#$400,d0
-		blt.s		locret_14CAA
+		blt.s	locret_14CAA
 		tst.b	flip_type(a0)
 		bmi.s	locret_14CAA
 		sfx	sfx_Skid
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bclr	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_14CAA							; if less than 12, branch
+		blo.s	locret_14CAA							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust_P2
 		move.b	#$15,mapping_frame(a6)				; Dust_P2
 
@@ -1997,7 +1997,7 @@ sub_14CAC:
 loc_14CC6:
 		add.w	d5,d0
 		cmp.w	d6,d0
-		blt.s		loc_14CD4
+		blt.s	loc_14CD4
 		sub.w	d5,d0
 		cmp.w	d6,d0
 		bge.s	loc_14CD4
@@ -2028,7 +2028,7 @@ loc_14CE8:
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bset	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_14D30							; if less than 12, branch
+		blo.s	locret_14D30							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust_P2
 		move.b	#$15,mapping_frame(a6)				; Dust_P2
 
@@ -2134,7 +2134,7 @@ loc_14DFC:
 		jsr	(GetSineCosine).w
 		move.w	ground_vel(a0),d2		; devon fix
 		cmpi.w	#$1000,d2
-		ble.s		loc_14E20
+		ble.s	loc_14E20
 		move.w	#$1000,d2
 
 loc_14E20:
@@ -2220,7 +2220,7 @@ Tails_ChgJumpDir:
 		bgt.s	loc_14EAC								; if new speed is less than the maximum, branch
 		add.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d1,d0									; compare speed with top speed
-		ble.s		loc_14EAC								; if speed was already greater than the maximum, branch
+		ble.s	loc_14EAC								; if speed was already greater than the maximum, branch
 		move.w	d1,d0
 
 loc_14EAC:
@@ -2229,7 +2229,7 @@ loc_14EAC:
 		bclr	#Status_Facing,status(a0)
 		add.w	d5,d0									; accelerate right in the air
 		cmp.w	d6,d0									; compare new speed with top speed
-		blt.s		loc_14EC8								; if new speed is less than the maximum, branch
+		blt.s	loc_14EC8								; if new speed is less than the maximum, branch
 		sub.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d6,d0									; compare speed with top speed
 		bge.s	loc_14EC8								; if speed was already greater than the maximum, branch
@@ -2249,7 +2249,7 @@ loc_14ED6:
 
 Tails_JumpPeakDecelerate:
 		cmpi.w	#-$400,y_vel(a0)							; is Sonic moving faster than -$400 upwards?
-		blo.s		locret_14F06								; if yes, return
+		blo.s	locret_14F06								; if yes, return
 		move.w	x_vel(a0),d0
 		move.w	d0,d1
 		asr.w	#5,d1									; d1 = x_velocity / 32
@@ -2266,7 +2266,7 @@ loc_14EF4:
 
 Tails_JumpPeakDecelerateLeft:
 		sub.w	d1,d0									; reduce x velocity by d1
-		blo.s		loc_14F02
+		blo.s	loc_14F02
 		moveq	#0,d0
 
 loc_14F02:
@@ -2366,7 +2366,7 @@ loc_15024:
 		bsr.w	CalcRoomOverHead
 		movem.l	(sp)+,a4-a6
 		cmpi.w	#6,d1
-		blt.s		locret_15000
+		blt.s	locret_15000
 		move.w	#$680,d2
 		btst	#Status_Underwater,status(a0)					; test if underwater
 		beq.s	loc_1504C
@@ -2419,7 +2419,7 @@ Tails_JumpHeight:
 
 loc_150F0:
 		cmp.w	y_vel(a0),d1
-		ble.s		Tails_Test_For_Flight
+		ble.s	Tails_Test_For_Flight
 		moveq	#btnABC,d0
 		and.b	(Ctrl_2_logical).w,d0
 		bne.s	locret_15104
@@ -2455,11 +2455,11 @@ Tails_Test_For_Flight:
 
 	if CheckChaosEmer
 		cmpi.b	#7,(Chaos_emerald_count).w
-		blo.s		loc_1515C
+		blo.s	loc_1515C
 	endif
 
 		cmpi.w	#50,(Ring_count).w
-		blo.s		loc_1515C
+		blo.s	loc_1515C
 		tst.b	(Level_results_flag).w						; is level over?
 		beq.s	Tails_Transform						; if not, branch
 		endif
@@ -2525,7 +2525,7 @@ Tails_Spindash:
 		move.b	#1,spin_dash_flag(a0)
 		clr.w	spin_dash_counter(a0)
 		cmpi.b	#12,air_left(a0)							; check air remaining
-		blo.s		loc_15242								; if less than 12, branch
+		blo.s	loc_15242								; if less than 12, branch
 		move.b	#2,anim(a6)								; Dust_P2
 
 loc_15242:
@@ -2641,7 +2641,7 @@ loc_1534A:
 		sfx	sfx_SpinDash
 		addi.w	#$200,spin_dash_counter(a0)
 		cmpi.w	#$800,spin_dash_counter(a0)
-		blo.s		loc_1537A
+		blo.s	loc_1537A
 		move.w	#$800,spin_dash_counter(a0)
 
 loc_1537A:
@@ -2743,7 +2743,7 @@ loc_1542C:
 		cmp.b	d2,d1
 		bge.s	loc_15444
 		cmp.b	d2,d0
-		blt.s		locret_154AA
+		blt.s	locret_154AA
 
 loc_15444:
 		move.b	d3,angle(a0)
@@ -2774,7 +2774,7 @@ loc_15472:
 loc_15484:
 		clr.w	x_vel(a0)
 		cmpi.w	#$FC0,y_vel(a0)
-		ble.s		loc_15498
+		ble.s	loc_15498
 		move.w	#$FC0,y_vel(a0)
 
 loc_15498:
@@ -3049,14 +3049,14 @@ sub_15716:
 		move.w	(Camera_max_Y_pos).w,d0
 		addi.w	#224,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_15788
+		blt.s	loc_15788
 		bra.s	loc_15742
 ; ---------------------------------------------------------------------------
 
 loc_15734:
 		move.w	(Camera_min_Y_pos).w,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_15742
+		blt.s	loc_15742
 		bra.s	loc_15788
 ; ---------------------------------------------------------------------------
 
@@ -3301,12 +3301,12 @@ loc_15960:
 		add.b	d3,d3
 		lea	(TailsAni_Walk).l,a1		; use walking animation
 		cmpi.w	#$600,d2
-		blo.s		loc_1598A
+		blo.s	loc_1598A
 		lea	(TailsAni_Run).l,a1		; use running animation
 		move.b	d0,d3
 		add.b	d3,d3
 		cmpi.w	#$700,d2
-		blo.s		loc_1598A
+		blo.s	loc_1598A
 		lea	(TailsAni_Run2).l,a1		; use running 2 animation
 		move.b	d0,d3
 

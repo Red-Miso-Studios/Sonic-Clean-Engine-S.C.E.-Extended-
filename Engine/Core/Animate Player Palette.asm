@@ -20,7 +20,7 @@ SuperHyper_PalCycle:
 		; Tails and Knuckles only
 		; only Sonic has a fade-in; Tails and Knuckles just *pop* into their normal Super/Hyper palette cycle
 		cmpi.w	#PlayerModeID_Tails,(Player_mode).w
-		blo.s		SuperHyper_PalCycle_FadeIn
+		blo.s	SuperHyper_PalCycle_FadeIn
 
 		; set
 		st	(Super_palette_status).w								; -1 = fading done
@@ -42,7 +42,7 @@ SuperHyper_PalCycle_FadeIn:
 		move.w	(Palette_frame).w,d0
 		addq.w	#3*2,(Palette_frame).w									; 1 palette entry = 1 word, Sonic uses 3 shades of blue
 		cmpi.w	#((PalCycle_SuperSonic_end-PalCycle_SuperSonic)-(12*2)),(Palette_frame).w		; has palette cycle reached the 6th frame?
-		blo.s		SuperHyper_PalCycle_SonicApply							; if not, branch
+		blo.s	SuperHyper_PalCycle_SonicApply								; if not, branch
 		st	(Super_palette_status).w								; mark fade-in as done
 		clr.b	(Player_1+object_control).w								; restore Sonic's movement
 
@@ -151,7 +151,7 @@ SuperHyper_PalCycle_HyperSonic:
 		move.w	(Palette_frame).w,d0
 		addq.w	#3*2,(Palette_frame).w									; next frame
 		cmpi.w	#(PalCycle_HyperSonic_end-PalCycle_HyperSonic),(Palette_frame).w			; is it the last frame?
-		blo.s		SuperHyper_PalCycle_HyperSonicApply						; if not, branch
+		blo.s	SuperHyper_PalCycle_HyperSonicApply							; if not, branch
 		clr.w	(Palette_frame).w									; reset frame counter
 
 SuperHyper_PalCycle_HyperSonicApply:
@@ -186,7 +186,7 @@ SuperHyper_PalCycle_NormalTails:
 		move.b	(Palette_frame_Tails).w,d0
 		addq.b	#6,(Palette_frame_Tails).w								; next frame
 		cmpi.b	#(PalCycle_SuperTails_end-PalCycle_SuperTails),(Palette_frame_Tails).w			; is it the last frame?
-		blo.s		SuperHyper_PalCycle_ApplyTails							; if not, branch
+		blo.s	SuperHyper_PalCycle_ApplyTails								; if not, branch
 		clr.b	(Palette_frame_Tails).w									; reset frame counter
 
 		; go straight to SuperHyper_PalCycle_ApplyTails...
@@ -218,7 +218,7 @@ SuperHyper_PalCycle_NormalKnuckles:
 		move.w	(Palette_frame).w,d0
 		addq.w	#3*2,(Palette_frame).w									; next frame
 		cmpi.w	#(PalCycle_SuperHyperKnuckles_end-PalCycle_SuperHyperKnuckles),(Palette_frame).w	; is it the last frame?
-		blo.s		SuperHyper_PalCycle_Apply							; if not, branch
+		blo.s	SuperHyper_PalCycle_Apply								; if not, branch
 		clr.w	(Palette_frame).w									; reset frame counter
 		move.b	#$E,(Palette_timer).w
 

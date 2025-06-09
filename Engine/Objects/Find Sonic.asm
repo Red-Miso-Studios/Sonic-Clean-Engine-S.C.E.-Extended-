@@ -85,7 +85,7 @@ Find_SonicTails8Way:
 		tst.w	d0
 		beq.s	loc_853AE
 		cmpi.w	#$8000,d2				; if y was closer and Sonic is to right of object
-		blo.s		loc_853FE
+		blo.s	loc_853FE
 		tst.w	d0
 		beq.s	loc_853FA
 		bra.s	loc_85402
@@ -93,7 +93,7 @@ Find_SonicTails8Way:
 
 loc_853AE:
 		cmpi.w	#$8000,d2				; if y was closer and Sonic is to left of object
-		blo.s		loc_8540E
+		blo.s	loc_8540E
 		tst.w	d1
 		bne.s	loc_8540A
 		bra.s	loc_85412
@@ -106,7 +106,7 @@ loc_853BC:
 		tst.w	d1
 		bne.s	loc_853D4
 		cmpi.w	#$8000,d2
-		blo.s		loc_853F6
+		blo.s	loc_853F6
 		tst.w	d0
 		bne.s	loc_853FA
 		bra.s	loc_85412
@@ -114,7 +114,7 @@ loc_853BC:
 
 loc_853D4:
 		cmpi.w	#$8000,d2
-		blo.s		loc_85406
+		blo.s	loc_85406
 		tst.w	d0
 		bne.s	loc_85402
 		bra.s	loc_8540A

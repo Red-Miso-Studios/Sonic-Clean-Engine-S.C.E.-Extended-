@@ -116,7 +116,7 @@ loc_2FB5C:
 		; check water
 		move.w	(Water_level).w,d0
 		cmp.w	y_pos(a0),d0
-		blo.s		.draw
+		blo.s	.draw
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@ Obj_Bubbler_Bubbles:
 .chkwater
 		move.w	(Water_level).w,d0
 		cmp.w	y_pos(a0),d0
-		blo.s		loc_2F9E2
+		blo.s	loc_2F9E2
 
 .sanim
 		addq.b	#4,anim(a0)

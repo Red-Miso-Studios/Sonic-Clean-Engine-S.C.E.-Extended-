@@ -619,7 +619,7 @@ SolidObject_TopBottom:
 
 ; SolidObject_InsideTop:
 		cmpi.w	#16,d3										; has Sonic landed on the object?
-		blo.s		SolidObject_Landed							; if yes, branch
+		blo.s	SolidObject_Landed								; if yes, branch
 		bra.s	SolidObject_TestClearPush
 ; ---------------------------------------------------------------------------
 
@@ -1088,7 +1088,7 @@ loc_1E45A:
 		sub.w	d1,d0
 		bhi.s	locret_1E4D4
 		cmpi.w	#-16,d0
-		blo.s		locret_1E4D4
+		blo.s	locret_1E4D4
 		tst.b	object_control(a1)
 		bmi.s	locret_1E4D4
 		cmpi.b	#PlayerID_Death,routine(a1)							; has player just died?
@@ -1137,7 +1137,7 @@ loc_1E4D6:
 		sub.w	d0,d1
 		bhi.s	locret_1E4D4
 		cmpi.w	#-16,d1
-		blo.s		locret_1E4D4
+		blo.s	locret_1E4D4
 		tst.b	object_control(a1)
 		bmi.s	locret_1E4D4
 		cmpi.b	#PlayerID_Death,routine(a1)							; has player just died?

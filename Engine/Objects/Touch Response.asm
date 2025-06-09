@@ -79,7 +79,7 @@ Touch_Width:
 		bhs.s	.checkrightside							; if player's left side is to the left of the object, branch
 		add.w	d1,d1								; double object's width value
 		add.w	d1,d0								; add object's width*2 (now at right of object)
-		blo.s		Touch_Height						; if carry, branch (player is within the object's boundaries)
+		blo.s	Touch_Height							; if carry, branch (player is within the object's boundaries)
 		bra.s	Touch_NextObj							; if not, loop and check next object
 ; ---------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ Touch_Height:
 		bhs.s	.checktop							; if bottom of player is under the object, branch
 		add.w	d1,d1								; double object's height value
 		add.w	d1,d0								; add object's height*2 (now at top of object)
-		blo.s		Touch_ChkValue						; if carry, branch (player is within the object's boundaries)
+		blo.s	Touch_ChkValue							; if carry, branch (player is within the object's boundaries)
 		bra.s	Touch_NextObj							; if not, loop and check next object
 ; ---------------------------------------------------------------------------
 

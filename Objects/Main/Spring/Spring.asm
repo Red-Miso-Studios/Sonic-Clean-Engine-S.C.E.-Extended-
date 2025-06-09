@@ -343,12 +343,12 @@ loc_232B6:
 		bmi.s	loc_232E2
 		move.w	x_pos(a1),d4
 		cmp.w	d0,d4
-		blo.s		loc_232E2
+		blo.s	loc_232E2
 		cmp.w	d1,d4
 		bhs.s	loc_232E2
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		loc_232E2
+		blo.s	loc_232E2
 		cmp.w	d3,d4
 		bhs.s	loc_232E2
 		move.w	d0,-(sp)
@@ -373,12 +373,12 @@ loc_232FC:
 		bmi.s	locret_23324
 		move.w	x_pos(a1),d4
 		cmp.w	d0,d4
-		blo.s		locret_23324
+		blo.s	locret_23324
 		cmp.w	d1,d4
 		bhs.s	locret_23324
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_23324
+		blo.s	locret_23324
 		cmp.w	d3,d4
 		bhs.s	locret_23324
 		bra.w	sub_23190

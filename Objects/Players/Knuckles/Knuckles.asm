@@ -218,7 +218,7 @@ Knux_ChkInvin:										; checks if invincibility has expired and disables it if
 		tst.b	(Boss_flag).w								; don't change music if in a boss fight
 		bne.s	Knux_RmvInvin
 		cmpi.b	#12,air_left(a0)						; don't change music if drowning
-		blo.s		Knux_RmvInvin
+		blo.s	Knux_RmvInvin
 		move.w	(Current_music).w,d0
 		jsr	(Play_Music).w							; stop playing invincibility theme and resume normal level music
 
@@ -311,7 +311,7 @@ loc_1676E:
 		bne.s	loc_167C4
 		move.w	y_vel(a0),d0
 		cmpi.w	#-$400,d0
-		blt.s		loc_167C4
+		blt.s	loc_167C4
 		asl.w	y_vel(a0)
 
 loc_167C4:
@@ -1499,7 +1499,7 @@ loc_17174:
 		add.w	x_pos(a0),d1
 		sub.w	x_pos(a1),d1
 		cmpi.w	#2,d1
-		blt.s		loc_171FE
+		blt.s	loc_171FE
 		cmp.w	d2,d1
 		bge.s	loc_171D0
 		bra.w	loc_172A8
@@ -1539,7 +1539,7 @@ loc_1722C:
 		move.w	x_pos(a0),d3
 		bsr.w	ChooseChkFloorEdge
 		cmpi.w	#$C,d1
-		blt.s		loc_172A8
+		blt.s	loc_172A8
 		cmpi.b	#3,next_tilt(a0)
 		bne.s	loc_17272
 		btst	#Status_Facing,status(a0)
@@ -1581,7 +1581,7 @@ loc_172A8:
 		move.b	#AniIDSonAni_Duck,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_17322
+		blo.s	loc_17322
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_172D8
@@ -1604,7 +1604,7 @@ loc_172E2:
 		move.b	#AniIDSonAni_LookUp,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
-		blo.s		loc_17322
+		blo.s	loc_17322
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_17312
@@ -1756,7 +1756,7 @@ loc_17444:
 		bgt.s	loc_17456
 		add.w	d5,d0
 		cmp.w	d1,d0
-		ble.s		loc_17456
+		ble.s	loc_17456
 		move.w	d1,d0
 
 loc_17456:
@@ -1777,14 +1777,14 @@ loc_1746A:
 		andi.b	#$C0,d1
 		bne.s	locret_174B2
 		cmpi.w	#$400,d0
-		blt.s		locret_174B2
+		blt.s	locret_174B2
 		tst.b	flip_type(a0)
 		bmi.s	locret_174B2
 		sfx	sfx_Skid
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bclr	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_174B2							; if less than 12, branch
+		blo.s	locret_174B2							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust
 		move.b	#$15,mapping_frame(a6)				; Dust
 
@@ -1804,7 +1804,7 @@ sub_174B4:
 loc_174CE:
 		add.w	d5,d0
 		cmp.w	d6,d0
-		blt.s		loc_174DC
+		blt.s	loc_174DC
 		sub.w	d5,d0
 		cmp.w	d6,d0
 		bge.s	loc_174DC
@@ -1835,7 +1835,7 @@ loc_174F0:
 		move.b	#AniIDSonAni_Stop,anim(a0)
 		bset	#Status_Facing,status(a0)
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		locret_17538							; if less than 12, branch
+		blo.s	locret_17538							; if less than 12, branch
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust
 		move.b	#$15,mapping_frame(a6)				; Dust
 
@@ -1941,7 +1941,7 @@ loc_17604:
 		jsr	(GetSineCosine).w
 		move.w	ground_vel(a0),d2		; devon fix
 		cmpi.w	#$1000,d2
-		ble.s		loc_17628
+		ble.s	loc_17628
 		move.w	#$1000,d2
 
 loc_17628:
@@ -2027,7 +2027,7 @@ Knux_ChgJumpDir:
 		bgt.s	loc_176B4								; if new speed is less than the maximum, branch
 		add.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d1,d0									; compare speed with top speed
-		ble.s		loc_176B4								; if speed was already greater than the maximum, branch
+		ble.s	loc_176B4								; if speed was already greater than the maximum, branch
 		move.w	d1,d0
 
 loc_176B4:
@@ -2036,7 +2036,7 @@ loc_176B4:
 		bclr	#Status_Facing,status(a0)
 		add.w	d5,d0									; accelerate right in the air
 		cmp.w	d6,d0									; compare new speed with top speed
-		blt.s		loc_176D0								; if new speed is less than the maximum, branch
+		blt.s	loc_176D0								; if new speed is less than the maximum, branch
 		sub.w	d5,d0									; remove this frame's acceleration change
 		cmp.w	d6,d0									; compare speed with top speed
 		bge.s	loc_176D0								; if speed was already greater than the maximum, branch
@@ -2056,7 +2056,7 @@ loc_176DE:
 
 Knux_JumpPeakDecelerate:
 		cmpi.w	#-$400,y_vel(a0)							; is Sonic moving faster than -$400 upwards?
-		blo.s		locret_1770E								; if yes, return
+		blo.s	locret_1770E								; if yes, return
 		move.w	x_vel(a0),d0
 		move.w	d0,d1
 		asr.w	#5,d1									; d1 = x_velocity / 32
@@ -2073,7 +2073,7 @@ loc_176FC:
 
 Knux_JumpPeakDecelerateLeft:
 		sub.w	d1,d0									; reduce x velocity by d1
-		blo.s		loc_1770A
+		blo.s	loc_1770A
 		moveq	#0,d0
 
 loc_1770A:
@@ -2108,7 +2108,7 @@ loc_17732:
 		jsr	(CalcRoomOverHead).w
 		movem.l	(sp)+,a4-a6
 		cmpi.w	#6,d1
-		blt.s		locret_1770E
+		blt.s	locret_1770E
 		move.w	#$600,d2
 		btst	#Status_Underwater,status(a0)
 		beq.s	loc_1775C
@@ -2161,7 +2161,7 @@ Knux_JumpHeight:
 
 loc_17800:
 		cmp.w	y_vel(a0),d1
-		ble.s		Knux_Test_For_Glide
+		ble.s	Knux_Test_For_Glide
 		moveq	#btnABC,d0
 		and.b	(Ctrl_1_logical).w,d0
 		bne.s	locret_17816
@@ -2195,11 +2195,11 @@ Knux_Test_For_Glide:
 
 	if CheckChaosEmer
 		cmpi.b	#7,(Chaos_emerald_count).w
-		blo.s		loc_1786C
+		blo.s	loc_1786C
 	endif
 
 		cmpi.w	#50,(Ring_count).w
-		blo.s		loc_1786C
+		blo.s	loc_1786C
 		tst.b	(Level_results_flag).w							; is level over?
 		beq.s	Knux_Transform							; if not, branch
 
@@ -2497,7 +2497,7 @@ loc_17B6A:
 		move.b	d0,scroll_delay_counter(a0)
 		move.b	d0,double_jump_flag(a0)
 		cmpi.b	#$20,anim(a0)
-		blo.s		locret_17BB4
+		blo.s	locret_17BB4
 		move.b	d0,anim(a0)
 
 locret_17BB4:
@@ -2549,14 +2549,14 @@ sub_17C10:
 		move.w	(Camera_max_Y_pos).w,d0
 		addi.w	#224,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_17C82
+		blt.s	loc_17C82
 		bra.s	loc_17C3C
 ; ---------------------------------------------------------------------------
 
 loc_17C2E:
 		move.w	(Camera_min_Y_pos).w,d0
 		cmp.w	y_pos(a0),d0
-		blt.s		loc_17C3C
+		blt.s	loc_17C3C
 		bra.s	loc_17C82
 ; ---------------------------------------------------------------------------
 
