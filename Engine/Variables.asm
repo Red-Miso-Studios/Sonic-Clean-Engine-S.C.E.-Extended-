@@ -424,7 +424,7 @@ Player_mode:						ds.w 1						; 0 = Sonic and Tails, 1 = Sonic alone, 2 = Tails 
 Player_option:						ds.w 1
 Life_count:						ds.b 1
 Continue_count:						ds.b 1
-Emerald_counts:						 = *							; both chaos and super emeralds
+Emerald_counts:						 = *						; both chaos and super emeralds
 Chaos_emerald_count:					ds.b 1
 							ds.b 1						; even
 Next_extra_life_score:					ds.l 1
