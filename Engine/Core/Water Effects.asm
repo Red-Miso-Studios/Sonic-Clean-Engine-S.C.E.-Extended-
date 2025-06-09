@@ -98,7 +98,7 @@ CheckLevelForWater:
 		; load player water palette
 		lea	(Level_data_addr_RAM.WaterSpal).w,a1					; load Sonic palette
 		cmpi.w	#PlayerModeID_Knuckles,(Player_mode).w
-		blo.s		.notwaterknux
+		blo.s	.notwaterknux
 		addq.w	#1,a1									; load Knuckles palette
 
 .notwaterknux

@@ -42,7 +42,7 @@ SolidObjectFull:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -93,7 +93,7 @@ SolidObjectFull2:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -155,7 +155,7 @@ SolidObjectFullSloped_Spring:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -209,7 +209,7 @@ SolidObjectDoubleSloped:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -256,7 +256,7 @@ SolidObjectFullSloped:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -304,7 +304,7 @@ SolidObjectFull_Offset:
 		bmi.s	.release
 		add.w	d1,d1
 		cmp.w	d1,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -873,7 +873,7 @@ SolidObjectTop:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -924,7 +924,7 @@ SolidObjectTopSloped2:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -975,7 +975,7 @@ SolidObjectTopSloped:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)
@@ -1028,7 +1028,7 @@ sub_1E3AE:
 		add.w	d1,d0
 		bmi.s	.release
 		cmp.w	d2,d0
-		blo.s		.stand
+		blo.s	.stand
 
 .release
 		bclr	#Status_OnObj,status(a1)

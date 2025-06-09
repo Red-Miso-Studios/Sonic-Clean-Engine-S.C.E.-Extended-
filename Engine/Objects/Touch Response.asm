@@ -231,7 +231,7 @@ Touch_Monitor:
 		moveq	#-16,d0								; subtract height of monitor from it
 		add.w	y_pos(a0),d0							; get player's y_pos
 		cmp.w	y_pos(a1),d0
-		blo.s		.locret							; if new value is lower than monitor's y_pos, return
+		blo.s	.locret								; if new value is lower than monitor's y_pos, return
 		bra.s	.monitorfall
 ; ---------------------------------------------------------------------------
 
@@ -368,14 +368,14 @@ Touch_EnemyNormal:
 		move.w	(Chain_bonus_counter).w,d0
 		addq.w	#2,(Chain_bonus_counter).w					; add 2 to item bonus counter
 		cmpi.w	#6,d0
-		blo.s		.notreachedlimit
+		blo.s	.notreachedlimit
 		moveq	#6,d0								; max bonus is lvl6
 
 .notreachedlimit
 		move.w	d0,objoff_3E(a1)
 		move.w	Enemy_Points(pc,d0.w),d0
 		cmpi.w	#16*2,(Chain_bonus_counter).w					; have 16 enemies been destroyed?
-		blo.s		.notreachedlimit2					; if not, branch
+		blo.s	.notreachedlimit2						; if not, branch
 		move.w	#1000,d0							; fix bonus to 10000
 		move.w	#10,objoff_3E(a1)
 
@@ -505,7 +505,7 @@ HurtCharacter:
 .isdry
 		move.w	x_pos(a0),d0
 		cmp.w	x_pos(a2),d0
-		blo.s		.isleft							; if Sonic is left of the object, branch
+		blo.s	.isleft								; if Sonic is left of the object, branch
 		neg.w	x_vel(a0)							; if Sonic is right of the object, reverse
 
 .isleft

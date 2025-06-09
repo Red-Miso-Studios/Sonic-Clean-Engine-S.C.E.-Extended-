@@ -33,8 +33,8 @@ Find_OtherObject:
 ; =============== S U B R O U T I N E =======================================
 
 Find_SonicTails:
-		moveq	#0,d0				; d0 = 0 if Sonic/Tails is left of object, 2 if right of object
-		lea	(Player_1).w,a1			; a1=character
+		moveq	#0,d0					; d0 = 0 if Sonic/Tails is left of object, 2 if right of object
+		lea	(Player_1).w,a1				; a1=character
 		move.w	x_pos(a0),d2
 		sub.w	x_pos(a1),d2
 		bpl.s	.sleft
@@ -42,8 +42,8 @@ Find_SonicTails:
 		addq.w	#2,d0
 
 .sleft
-		moveq	#0,d1				; d1 = 0 if Sonic/Tails is above object, 2 if below object
-		lea	(Player_2).w,a2			; a2=character
+		moveq	#0,d1					; d1 = 0 if Sonic/Tails is above object, 2 if below object
+		lea	(Player_2).w,a2				; a2=character
 		move.w	x_pos(a0),d3
 		sub.w	x_pos(a2),d3
 		bpl.s	.tleft
@@ -52,7 +52,7 @@ Find_SonicTails:
 
 .tleft
 		cmp.w	d3,d2
-		bls.s		.ypos
+		bls.s	.ypos
 		movea.w	a2,a1
 		move.w	d1,d0
 		move.w	d3,d2
@@ -75,7 +75,7 @@ Find_SonicTails:
 ; =============== S U B R O U T I N E =======================================
 
 Find_SonicTails8Way:
-		bsr.s	Find_SonicTails		; this routine seems bugged slightly. Shouldn't the first two cmpi instructions look at d3 and not d2?
+		bsr.s	Find_SonicTails				; this routine seems bugged slightly. Shouldn't the first two cmpi instructions look at d3 and not d2?
 		cmp.w	d2,d3
 		beq.s	loc_853E2
 		bhi.s	loc_853BC
@@ -84,7 +84,7 @@ Find_SonicTails8Way:
 		divu.w	d2,d3
 		tst.w	d0
 		beq.s	loc_853AE
-		cmpi.w	#$8000,d2			; if y was closer and Sonic is to right of object
+		cmpi.w	#$8000,d2				; if y was closer and Sonic is to right of object
 		blo.s		loc_853FE
 		tst.w	d0
 		beq.s	loc_853FA
@@ -92,7 +92,7 @@ Find_SonicTails8Way:
 ; ---------------------------------------------------------------------------
 
 loc_853AE:
-		cmpi.w	#$8000,d2			; if y was closer and Sonic is to left of object
+		cmpi.w	#$8000,d2				; if y was closer and Sonic is to left of object
 		blo.s		loc_8540E
 		tst.w	d1
 		bne.s	loc_8540A

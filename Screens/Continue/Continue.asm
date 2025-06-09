@@ -485,7 +485,7 @@ Obj_Continue_TailsWSonic:
 .run
 		addq.w	#6,x_pos(a0)
 		cmpi.w	#$80+(320+32),x_pos(a0)
-		blo.s		.anim
+		blo.s	.anim
 		move.b	#1,(Continue_routine).w								; set screen routine
 		bra.s	.anim
 
@@ -579,7 +579,7 @@ Obj_Continue_Knuckles:
 		move.w	d0,x_pos(a0)
 		movea.w	(Continue_countdown).w,a1
 		cmpi.w	#$80+(320/2),d0
-		blo.s		.checkpos
+		blo.s	.checkpos
 		bset	#2,objoff_38(a1)								; set Knuckles in the middle of the screen flag
 
 .checkpos
@@ -593,7 +593,7 @@ Obj_Continue_Knuckles:
 .stoprun
 		move.l	#.draw,address(a0)
 		cmpi.w	#PlayerModeID_Knuckles,(Player_mode).w						; is Knuckles?
-		blo.s		.draw									; if not, branch
+		blo.s	.draw										; if not, branch
 		move.b	#1,(Continue_routine).w								; set screen routine
 		bra.s	.draw
 
@@ -705,7 +705,7 @@ Obj_Continue_EggRobo_Legs:
 		bmi.s	.setframe
 		moveq	#5,d0
 		cmpi.w	#$20,d1
-		blo.s		.setframe
+		blo.s	.setframe
 		moveq	#4,d0
 
 .setframe
@@ -799,7 +799,7 @@ Continue_LoadIcons:
 		move.b	(Continue_count).w,d6
 		beq.s	.return
 		cmpi.b	#9,d6
-		blo.s		.create
+		blo.s	.create
 		moveq	#9,d6										; create 9 icons (max)
 
 .create
@@ -849,7 +849,7 @@ Obj_Continue_Icons:
 
 		; check
 		cmpi.w	#PlayerModeID_Knuckles,(Player_mode).w
-		blo.s		.notknux
+		blo.s	.notknux
 		ori.w	#palette_line_3,art_tile(a0)							; for Knuckles
 
 .notknux

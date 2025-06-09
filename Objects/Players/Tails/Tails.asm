@@ -32,7 +32,7 @@ Obj_Tails:
 loc_1368C:
 		addq.b	#1,mapping_frame(a0)									; next frame
 		cmpi.b	#((Map_Tails_end-Map_Tails)/2)-1,mapping_frame(a0)	; have we reached the end of Tails's frames?
-		blo.s		loc_1369E
+		blo.s	loc_1369E
 		clr.b	mapping_frame(a0)										; if so, reset to Tails's first frame
 
 loc_1369E:
@@ -1443,7 +1443,7 @@ Tails_MdAir:
 
 loc_147DE:
 		cmpi.w	#$1000,y_vel(a0)
-		ble.s		.maxy
+		ble.s	.maxy
 		move.w	#$1000,y_vel(a0)
 
 .maxy
@@ -1677,7 +1677,7 @@ loc_149BA:
 
 loc_149DA:
 		cmpi.w	#$1000,y_vel(a0)
-		ble.s		.maxy
+		ble.s	.maxy
 		move.w	#$1000,y_vel(a0)
 
 .maxy
@@ -3467,7 +3467,7 @@ Tails_Load_PLC2:
 		move.w	#tiles_to_bytes(ArtTile_Player_2),d4				; normal
 		move.l	#dmaSource(ArtUnc_Tails),d6
 		cmpi.w	#$D1*2,d0										; mapping frame * 2
-		blo.s		.readentry
+		blo.s	.readentry
 		move.l	#dmaSource(ArtUnc_Tails_Extra),d6
 
 .readentry

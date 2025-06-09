@@ -30,7 +30,7 @@ Obj_Knuckles:
 .next
 		addq.b	#1,mapping_frame(a0)											; next frame
 		cmpi.b	#((Map_Knuckles_end-Map_Knuckles)/2)-1,mapping_frame(a0)		; have we reached the end of Knuckles's frames?
-		blo.s		.draw
+		blo.s	.draw
 		clr.b	mapping_frame(a0)												; if so, reset to Knuckles's first frame
 
 .draw
@@ -390,7 +390,7 @@ Knux_MdAir:
 
 loc_16872:
 		cmpi.w	#$1000,y_vel(a0)
-		ble.s		.maxy
+		ble.s	.maxy
 		move.w	#$1000,y_vel(a0)
 
 .maxy
@@ -478,7 +478,7 @@ loc_1693E:
 		; The drowning countdown uses the dust clouds' VRAM, so don't create
 		; dust if Knuckles is drowning.
 		cmpi.b	#12,air_left(a0)						; check air remaining
-		blo.s		.return								; if less than 12, branch
+		blo.s	.return								; if less than 12, branch
 
 		; Create dust clouds.
 		move.l	#DashDust_CheckSkid,address(a6)		; Dust
@@ -521,7 +521,7 @@ Knuckles_Gliding_HitWall:
 		tst.b	(Super_Sonic_Knux_flag).w
 		bpl.s	.noQuake
 		cmpi.w	#$480,ground_vel(a0)
-		blo.s		.noQuake
+		blo.s	.noQuake
 		move.w	#$14,(Glide_screen_shake).w
 		bsr.w	HyperAttackTouchResponse
 		moveq	#signextendB(sfx_Thump),d0
@@ -1085,7 +1085,7 @@ Knuckles_Wall_Climb:
 
 .noLoop1
 		cmpi.b	#$BC,d1
-		bls.s		.noLoop2
+		bls.s	.noLoop2
 		move.b	#$B7,d1
 
 .noLoop2
@@ -1341,7 +1341,7 @@ Knuckles_Move_Glide:
 		; is Knuckles is falling at a high speed, then create a parachute
 		; effect, where gliding makes Knuckles fall slower.
 		cmpi.w	#$80,y_vel(a0)
-		blt.s		.fallingSlow
+		blt.s	.fallingSlow
 		subi.w	#$20,y_vel(a0)
 		bra.s	.fallingFast
 ; ---------------------------------------------------------------------------
@@ -1361,7 +1361,7 @@ Knuckles_Move_Glide:
 
 		addi.w	#$10,d0
 		cmp.w	y_pos(a0),d0
-		ble.s		.doNotKillspeed
+		ble.s	.doNotKillspeed
 		asr.w	x_vel(a0)
 		asr.w	ground_vel(a0)
 
@@ -1443,7 +1443,7 @@ Knux_MdJump:
 
 loc_17138:
 		cmpi.w	#$1000,y_vel(a0)
-		ble.s		.maxy
+		ble.s	.maxy
 		move.w	#$1000,y_vel(a0)
 
 .maxy

@@ -36,7 +36,7 @@ Obj_Tails_Tail:
 
 		; this is checking if parent (Tails) is in its pushing animation
 		cmpi.b	#$A9,mapping_frame(a2)
-		blo.s		.check
+		blo.s	.check
 		cmpi.b	#$AC,mapping_frame(a2)
 		bhi.s	.check
 		moveq	#4,d0
