@@ -18,25 +18,25 @@
 SolidObjectFull:
 
 		; player 1
-		lea	(Player_1).w,a1											; a1=character
+		lea	(Player_1).w,a1									; a1=character
 		moveq	#p1_standing_bit,d6
 		movem.l	d1-d4,-(sp)
 		bsr.s	.check
 		movem.l	(sp)+,d1-d4
 
 		; player 2
-		lea	(Player_2).w,a1											; a1=character
-		tst.b	render_flags(a1)											; is the player visible on the screen?
-		bpl.s	.return												; if not, branch
+		lea	(Player_2).w,a1									; a1=character
+		tst.b	render_flags(a1)								; is the player visible on the screen?
+		bpl.s	.return										; if not, branch
 		addq.b	#1,d6
 
 .check
-		btst	d6,status(a0)												; is the player standing on the current object?
-		beq.w	SolidObject_OnScreenTest								; if not, branch
+		btst	d6,status(a0)									; is the player standing on the current object?
+		beq.w	SolidObject_OnScreenTest							; if not, branch
 		move.w	d1,d2
 		add.w	d2,d2
-		btst	#Status_InAir,status(a1)									; is the player in the air?
-		bne.s	.release												; if yes, branch
+		btst	#Status_InAir,status(a1)							; is the player in the air?
+		bne.s	.release									; if yes, branch
 		move.w	x_pos(a1),d0
 		sub.w	x_pos(a0),d0
 		add.w	d1,d0

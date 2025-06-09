@@ -58,7 +58,7 @@ ptr_sndend
 
 Sound40:	include "Sound/SFX/Snd - Ring.asm"
 	even
-Sound41:		include "Sound/SFX/Snd - Ring Left Speaker.asm"
+Sound41:	include "Sound/SFX/Snd - Ring Left Speaker.asm"
 	even
 Sound42:	include "Sound/SFX/Snd - Ring Loss.asm"
 	even
@@ -90,7 +90,7 @@ Sound4F:	include "Sound/SFX/Snd - Electric Attack.asm"
 	even
 Sound50:	include "Sound/SFX/Snd - Spike Hit.asm"
 	even
-Sound51:		include "Sound/SFX/Snd - Spike Move.asm"
+Sound51:	include "Sound/SFX/Snd - Spike Move.asm"
 	even
 Sound52:	include "Sound/SFX/Snd - Drown.asm"
 	even
@@ -122,7 +122,7 @@ Sound5F:	include "Sound/SFX/Snd - Flying.asm"
 	even
 Sound60:	include "Sound/SFX/Snd - FlyTired.asm"
 	even
-Sound61:		include "Sound/SFX/Snd - GlideLand.asm"
+Sound61:	include "Sound/SFX/Snd - GlideLand.asm"
 	even
 Sound62:	include "Sound/SFX/Snd - GroundSlide.asm"
 	even

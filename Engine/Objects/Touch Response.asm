@@ -7,24 +7,24 @@
 TouchResponse:
 		bsr.w	Test_Ring_Collisions
 		bsr.w	ShieldTouchResponse
-		tst.b	character_id(a0)								; is the player Sonic?
+		tst.b	character_id(a0)						; is the player Sonic?
 		bne.s	.Touch_NoInstaShield						; if not, branch
-		moveq	#$73,d0									; does the player have any shields or is invincible?
+		moveq	#$73,d0								; does the player have any shields or is invincible?
 		and.b	status_secondary(a0),d0
 		bne.s	.Touch_NoInstaShield						; if so, branch
 
 		; by this point, we're focussing purely on the Insta-Shield
-		cmpi.b	#1,double_jump_flag(a0)					; is the Insta-Shield currently in its 'attacking' mode?
+		cmpi.b	#1,double_jump_flag(a0)						; is the Insta-Shield currently in its 'attacking' mode?
 		bne.s	.Touch_NoInstaShield						; if not, branch
-		bset	#Status_Invincible,status_secondary(a0)			; make the player invincible
-		moveq	#-24,d2									; subtract width of Insta-Shield
-		add.w	x_pos(a0),d2								; get player's x_pos
-		moveq	#-24,d3									; subtract height of Insta-Shield
-		add.w	y_pos(a0),d3								; get player's y_pos
-		moveq	#48,d4									; player's width
-		moveq	#48,d5									; player's height
+		bset	#Status_Invincible,status_secondary(a0)				; make the player invincible
+		moveq	#-24,d2								; subtract width of Insta-Shield
+		add.w	x_pos(a0),d2							; get player's x_pos
+		moveq	#-24,d3								; subtract height of Insta-Shield
+		add.w	y_pos(a0),d3							; get player's y_pos
+		moveq	#48,d4								; player's width
+		moveq	#48,d5								; player's height
 		bsr.s	.Touch_Process
-		bclr	#Status_Invincible,status_secondary(a0)			; make the player vulnerable again
+		bclr	#Status_Invincible,status_secondary(a0)				; make the player vulnerable again
 
 .alreadyinvincible
 		moveq	#0,d0
@@ -32,14 +32,14 @@ TouchResponse:
 ; ---------------------------------------------------------------------------
 
 .Touch_NoInstaShield
-		move.w	x_pos(a0),d2								; get player's x_pos
-		move.w	y_pos(a0),d3								; get player's y_pos
+		move.w	x_pos(a0),d2							; get player's x_pos
+		move.w	y_pos(a0),d3							; get player's y_pos
 		subq.w	#8,d2
 		moveq	#0,d5
 		move.b	y_radius(a0),d5							; load Sonic's height
 		subq.b	#3,d5
 		sub.w	d5,d3
-		cmpi.b	#AniIDSonAni_Duck,anim(a0)				; is player ducking?
+		cmpi.b	#AniIDSonAni_Duck,anim(a0)					; is player ducking?
 		bne.s	.Touch_NotDuck							; if not, branch
 		addi.w	#$C,d3
 		moveq	#$A,d5
