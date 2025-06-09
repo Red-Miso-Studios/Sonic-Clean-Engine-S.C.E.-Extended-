@@ -11,17 +11,17 @@ Chunk_table_end						= *
 ; object variables
 Object_RAM:						= *
 Player_1:						ds.b object_size				; main character in 1 player mode
-Player_2:					ds.b object_size				; Tails in a Sonic and Tails game
+Player_2:						ds.b object_size				; Tails in a Sonic and Tails game
 Reserved_object_3:					ds.b object_size				; during a level, an object whose sole purpose is to clear the collision response list is stored here
 Dynamic_object_RAM:					ds.b object_size*90				; 90 objects
 Dynamic_object_RAM_end					= *
 							ds.b object_size				; unused
 Breathing_bubbles:					ds.b object_size				; for the main character
-Breathing_bubbles_P2:		ds.b object_size				; for Tails in a Sonic and Tails game
-Super_stars:					ds.b object_size				; for Super Sonic and Super Knuckles
-Tails_tails:					ds.b object_size				; Tails' tails
+Breathing_bubbles_P2:					ds.b object_size				; for Tails in a Sonic and Tails game
+Super_stars:						ds.b object_size				; for Super Sonic and Super Knuckles
+Tails_tails:						ds.b object_size				; Tails' tails
 Dust:							ds.b object_size				; for the main character
-Dust_P2:					ds.b object_size				; for Tails in a Sonic and Tails game
+Dust_P2:						ds.b object_size				; for Tails in a Sonic and Tails game
 Shield:							ds.b object_size
 							ds.b object_size				; unused
 Invincibility_stars:					ds.b object_size*4				; 4 objects
@@ -43,7 +43,7 @@ V_scroll_buffer_end					= *
 
 ; table variables
 Collision_response_list:				ds.w $80/2					; only objects in this list are processed by the collision response routines
-Stat_table:							 = *							; used by Tails' AI in a Sonic and Tails game
+Stat_table:						 = *						; used by Tails' AI in a Sonic and Tails game
 Pos_table_P2:						ds.l 64						; recorded player xy position buffer
 Pos_table:						ds.l 64						; recorded player xy position buffer
 Ring_status_table:					ds.w RingTable_Count				; ring status table(1 word)
@@ -88,7 +88,7 @@ H_scroll_frame_offset_P2:				ds.w 1						; if this is non-zero with value x, hor
 Pos_table_index_P2:					ds.b 1
 Pos_table_byte_P2:					ds.b 1
 Distance_from_top:					ds.w 1						; the vertical scroll manager scrolls the screen until the player's distance from the top of the screen is equal to this (or between this and this + $40 when in the air). $60 by default
-Distance_from_top_P2:				ds.w 1
+Distance_from_top_P2:					ds.w 1
 Camera_max_Y_pos_changing:				ds.b 1						; set when the maximum camera Y pos is undergoing a change
 							ds.b 1						; even
 Fast_V_scroll_flag:					ds.b 1						; if this is set vertical scroll when the player is on the ground and has a speed of less than $800 is capped at 24 pixels per frame instead of 6
@@ -180,7 +180,7 @@ H_scroll_value_BG:					ds.w 1
 H_int_counter_command:					ds.b 1						; contains a command to write to VDP register $0A (line interrupt counter)
 H_int_counter:						ds.b 1						; just the counter part of the command
 RNG_seed:						ds.l 1						; used by the random number generator
-Palette_fade_info:					= *							; both index and count (word)
+Palette_fade_info:					= *						; both index and count (word)
 Palette_fade_index:					ds.b 1						; colour to start fading from
 Palette_fade_count:					ds.b 1						; the number of colours to fade
 
@@ -203,8 +203,8 @@ Max_speed:						ds.w 1
 Acceleration:						ds.w 1
 Deceleration:						ds.w 1
 Max_speed_P2:						ds.w 1
-Acceleration_P2:						ds.w 1
-Deceleration_P2:						ds.w 1
+Acceleration_P2:					ds.w 1
+Deceleration_P2:					ds.w 1
 Object_load_addr_front:					ds.l 1						; the address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse + $280
 Object_load_addr_back:					ds.l 1						; the address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse - $80
 Object_respawn_index_front:				ds.w 1						; the object respawn table index for the object at Obj_load_addr_front
@@ -213,8 +213,8 @@ Collision_addr:						ds.l 1						; points to the primary or secondary collision 
 Primary_collision_addr:					ds.l 1
 Secondary_collision_addr:				ds.l 1
 Player_prev_frame:					ds.b 1
-Player_prev_frame_P2:				ds.b 1						; used by DPLC routines to detect whether a DMA transfer is required
-Player_prev_frame_P2_tail:			ds.b 1						; used by DPLC routines to detect whether a DMA transfer is required
+Player_prev_frame_P2:					ds.b 1						; used by DPLC routines to detect whether a DMA transfer is required
+Player_prev_frame_P2_tail:				ds.b 1						; used by DPLC routines to detect whether a DMA transfer is required
 Reverse_gravity_flag:					ds.b 1
 Primary_Angle:						ds.b 1
 Primary_Angle_save:					ds.b 1						; used in FindFloor/FindWall
@@ -243,8 +243,8 @@ Signpost_addr:						ds.w 1
 Render_sprite_first_RAM:				ds.l 8
 Render_sprite_first_RAM_end				= *
 Render_sprite_last_RAM:					ds.l 1
-_unkFAAC:							ds.b 1
-									ds.b 1						; even
+_unkFAAC:						ds.b 1
+							ds.b 1						; even
 Palette_cycle_counters:					ds.b $40
 Palette_frame:						ds.w 1
 Palette_timer:						ds.b 1
@@ -254,8 +254,8 @@ Palette_timer_Tails:					ds.b 1
 Pal_fade_delay:						ds.w 1
 Pal_fade_delay2:					ds.w 1
 Super_frame_count:					ds.w 1
-Super_Sonic_Knux_flag:				ds.b 1
-Super_Tails_flag:						ds.b 1
+Super_Sonic_Knux_flag:					ds.b 1
+Super_Tails_flag:					ds.b 1
 Hyper_Sonic_flash_timer:				ds.b 1
 Negative_flash_timer:					ds.b 1
 Music_results_flag:					ds.b 1
@@ -268,21 +268,21 @@ Ring_bonus_countdown:					ds.w 1						; used on the results screen
 Total_bonus_countup:					ds.w 1
 Tails_CPU_interact:					ds.w 1						; RAM address of the last object Tails stood on while controlled by AI
 Tails_CPU_idle_timer:					ds.w 1						; counts down while controller 2 is idle, when it reaches 0 the AI takes over
-Tails_CPU_flight_timer:				ds.w 1						; counts up while Tails is respawning, when it reaches 300 he drops into the level
-									ds.w 1						; unused
+Tails_CPU_flight_timer:					ds.w 1						; counts up while Tails is respawning, when it reaches 300 he drops into the level
+							ds.w 1						; unused
 Tails_CPU_routine:					ds.w 1						; Tails' current AI routine in a Sonic and Tails game
 Tails_CPU_target_X:					ds.w 1						; Tails' target x-position
 Tails_CPU_target_Y:					ds.w 1						; Tails' target y-position
 Tails_CPU_auto_fly_timer:				ds.b 1						; counts up until AI Tails automatically flies up to maintain altitude, while grabbing Sonic in Marble Garden Act 2's boss
-Tails_CPU_auto_jump_flag:			ds.b 1						; set to #1 when AI Tails needs to jump of his own accord, regardless of whether Sonic jumped or not
-Flying_carrying_Sonic_flag:			ds.b 1						; set when Tails carries Sonic in a Sonic and Tails game
-Flying_picking_Sonic_timer:			ds.b 1						; until this is 0 Tails can't pick Sonic up
-_unkF744:							ds.w 1
-_unkF74A:							ds.b 1
-_unkF74B:							ds.b 1
-_unkF74C:							ds.w 1
+Tails_CPU_auto_jump_flag:				ds.b 1						; set to #1 when AI Tails needs to jump of his own accord, regardless of whether Sonic jumped or not
+Flying_carrying_Sonic_flag:				ds.b 1						; set when Tails carries Sonic in a Sonic and Tails game
+Flying_picking_Sonic_timer:				ds.b 1						; until this is 0 Tails can't pick Sonic up
+_unkF744:						ds.w 1
+_unkF74A:						ds.b 1
+_unkF74B:						ds.b 1
+_unkF74C:						ds.w 1
 Tails_CPU_star_post_flag:				ds.b 1						; copy of Last_star_post_hit, sets Tails' starting behavior in a Sonic and Tails game
-_unkF66C:							ds.b 1
+_unkF66C:						ds.b 1
 Gliding_collision_flags:				ds.b 1
 Disable_wall_grab:					ds.b 1						; if set, disables Knuckles wall grab
 Lag_frame_count_end					= *
@@ -420,13 +420,13 @@ Current_act:						ds.b 1
 Apparent_zone_and_act:					= *
 Apparent_zone:						ds.b 1
 Apparent_act:						ds.b 1
-Player_mode:							ds.w 1						; 0 = Sonic and Tails, 1 = Sonic alone, 2 = Tails alone, 3 = Knuckles alone
+Player_mode:						ds.w 1						; 0 = Sonic and Tails, 1 = Sonic alone, 2 = Tails alone, 3 = Knuckles alone
 Player_option:						ds.w 1
-Life_count:							ds.b 1
+Life_count:						ds.b 1
 Continue_count:						ds.b 1
 Emerald_counts:						 = *							; both chaos and super emeralds
 Chaos_emerald_count:					ds.b 1
-									ds.b 1						; even
+							ds.b 1						; even
 Next_extra_life_score:					ds.l 1
 Debug_saved_mappings:					ds.l 1						; player 1 mappings before entering debug mode
 Debug_saved_priority:					ds.w 1						; player 1 priority before entering debug mode
@@ -442,8 +442,8 @@ Debug_mode_flag:					ds.b 1
 
 ; HUD data variables
 Time_over_flag:						ds.b 1
-Extra_life_flags:						ds.b 1
-Update_HUD_life_count:				ds.b 1
+Extra_life_flags:					ds.b 1
+Update_HUD_life_count:					ds.b 1
 Update_HUD_ring_count:					ds.b 1
 Update_HUD_timer:					ds.b 1
 Update_HUD_score:					ds.b 1
@@ -464,13 +464,13 @@ HUD_RAM:						= *
 
 ; Game Over draw variables
 GameOver_RAM:						= *
-.xpos:								ds.w 1
-.ypos:								ds.w 1
-.xpos2:								ds.w 1
-.mappings:							ds.l 1
-.timer:								ds.w 1
-.status:								ds.b 1
-.frame:								ds.b 1
+.xpos:							ds.w 1
+.ypos:							ds.w 1
+.xpos2:							ds.w 1
+.mappings:						ds.l 1
+.timer:							ds.w 1
+.status:						ds.b 1
+.frame:							ds.b 1
 
 ; level results variables
 DecimalScoreRAM:					ds.l 1
@@ -489,7 +489,7 @@ Saved_camera_X_pos:					ds.w 1
 Saved_camera_Y_pos:					ds.w 1
 Saved_mean_water_level:					ds.w 1
 Saved_water_full_screen_flag:				ds.b 1
-Saved_extra_life_flags:				ds.b 1
+Saved_extra_life_flags:					ds.b 1
 Saved_camera_max_Y_pos:					ds.w 1
 Saved_dynamic_resize:					ds.l 1
 Saved_waterdynamic_resize:				ds.l 1
