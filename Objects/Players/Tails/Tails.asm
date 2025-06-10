@@ -297,7 +297,7 @@ Tails_ChkShoes:											; checks if Speed Shoes have expired and disables them
 
 .nots
 		bclr	#Status_SpeedShoes,status_secondary(a0)
-		tempo	0,1											; slow down tempo
+		tempo	0,1									; slow down tempo
 ; ---------------------------------------------------------------------------
 
 Tails_ExitChk:

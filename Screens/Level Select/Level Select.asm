@@ -197,7 +197,7 @@ LevelSelect_Controls:
 
 		; play sample
 		move.w	d3,d0
-		addq.w	#1,d0							; $80 is reserved for pause
+		addq.w	#1,d0								; $80 is reserved for pause
 		jmp	(Play_Sample).w							; play sample
 
 ; ---------------------------------------------------------------------------

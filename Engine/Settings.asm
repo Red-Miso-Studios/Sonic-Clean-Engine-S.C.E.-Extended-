@@ -11,11 +11,11 @@ SonKnuxTransform:			= 1	; if 1, enable Super/Hyper transformation
 CheckChaosEmer:				= 0	; if 1, check the number of emeralds to transformation
 SuperHyperSonKnux:			= 1	; if 1, enable Hyper transformation
 ExtendedCamera:				= 0	; if 1, enable extended camera
-RollInAir:					= 1	; if 1, enable roll in air for Sonic
+RollInAir:				= 1	; if 1, enable roll in air for Sonic
 PlayerMoveLock:				= 0	; if 1, lock control during the fall animation (Android, Mania, Origins style...)
-OptimiseStopZ80:				= 2	; if 1, remove stopZ80 and startZ80, if 2, use only for controllers (ignores sound driver)
-ZeroOffsetOptimization:		= 1	; if 1, makes a handful of zero-offset instructions smaller
+OptimiseStopZ80:			= 2	; if 1, remove stopZ80 and startZ80, if 2, use only for controllers (ignores sound driver)
+ZeroOffsetOptimization:			= 1	; if 1, makes a handful of zero-offset instructions smaller
 ChecksumCheck:				= 0	; if 1, enable checksum checking
-EnableSRAM:					= 0	; change to 1 to enable SRAM
+EnableSRAM:				= 0	; change to 1 to enable SRAM
 BackupSRAM:				= 0
 AddressSRAM:				= 0	; 0 = odd+even; 2 = even only; 3 = odd only
