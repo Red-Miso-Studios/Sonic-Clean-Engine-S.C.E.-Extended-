@@ -3,10 +3,10 @@
 ; ===========================================================================
 
 ; assembly options
-ZoneCount:					= 1	; discrete zones are: DEZ
-GameDebug:					= 1	; if 1, enable debug mode for Sonic
+ZoneCount:				= 1	; discrete zones are: DEZ
+GameDebug:				= 1	; if 1, enable debug mode for Sonic
 GameDebugAlt:				= 0	; if 1, enable alt debug mode for Sonic
-BossDebug:					= 0	; if 1, one hit for all bosses
+BossDebug:				= 0	; if 1, one hit for all bosses
 SonKnuxTransform:			= 1	; if 1, enable Super/Hyper transformation
 CheckChaosEmer:				= 0	; if 1, check the number of emeralds to transformation
 SuperHyperSonKnux:			= 1	; if 1, enable Hyper transformation

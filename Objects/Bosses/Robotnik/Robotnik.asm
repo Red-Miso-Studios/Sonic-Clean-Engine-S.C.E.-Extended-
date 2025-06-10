@@ -133,7 +133,7 @@ RobotnikShipFlame_Main:
 ; =============== S U B R O U T I N E =======================================
 
 sub_67B14:
-		move.l	#Map_EggRoboHead,mappings(a0)			; if player is Knuckles, use Egg Robo head
+		move.l	#Map_EggRoboHead,mappings(a0)					; if player is Knuckles, use Egg Robo head
 
 loc_67B1C:
 		move.l	#AniRaw_EggRoboHead,objoff_30(a0)
@@ -154,15 +154,15 @@ Obj_RobotnikShipPieces:
 		jsr	(SetUp_ObjAttributes).w
 		move.l	#Obj_FlickerMove,address(a0)
 		move.b	subtype(a0),d0
-		lsr.b	d0											; division by 2
+		lsr.b	d0								; division by 2
 		move.b	d0,mapping_frame(a0)
-		moveq	#2<<2,d0								; set index velocity
+		moveq	#2<<2,d0							; set index velocity
 		jmp	(Set_IndexedVelocity).w
 
 ; =============== S U B R O U T I N E =======================================
 
 ; mapping
-ObjDat_RobotnikShip:			subObjData Map_RobotnikShip, $52E, 0, 0, 64, 64, 4, $C, $F
+ObjDat_RobotnikShip:		subObjData Map_RobotnikShip, $52E, 0, 0, 64, 64, 4, $C, $F
 ObjDat_RobotnikShip_Glass:	subObjData Map_RobotnikShip, $52E, 0, 0, 64, 64, 4, 7, $F
 ObjDat_RobotnikHead:		subObjData Map_RobotnikShip, $52E, 0, 0, 16, 32, 5, 0, 0
 ObjDat2_RoboShipFlame:		subObjData3 8, 16, 5, 8, 0
