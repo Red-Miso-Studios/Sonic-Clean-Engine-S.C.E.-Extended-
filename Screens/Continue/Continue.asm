@@ -882,11 +882,11 @@ Continue_Icons_GetPos:
 		dc.w $80+184	; 2
 		dc.w $80+136	; 3
 		dc.w $80+208	; 4
-		dc.w $80+112		; 5
+		dc.w $80+112	; 5
 		dc.w $80+232	; 6
-		dc.w $80+88		; 7
+		dc.w $80+88	; 7
 		dc.w $80+256	; 8
-		dc.w $80+64		; 9
+		dc.w $80+64	; 9
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -912,9 +912,9 @@ Continue_Icons_LoadAnim:
 		dc.l byte_5CBB0		; 2 (Tails)
 		dc.l byte_5CBB2		; 3 (Knuckles)
 
-byte_5CBAE:		dc.b 0, 1		; frames
-byte_5CBB0:		dc.b 2, 3
-byte_5CBB2:		dc.b 7, 8
+byte_5CBAE:	dc.b 0, 1		; frames
+byte_5CBB0:	dc.b 2, 3
+byte_5CBB2:	dc.b 7, 8
 
 ; ---------------------------------------------------------------------------
 ; Load text
