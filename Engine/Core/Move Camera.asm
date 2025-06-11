@@ -30,8 +30,8 @@ DeformBgLayer:
 		move.w	(Distance_from_top).w,d3
 
 		; check player
-		cmpi.w	#PlayerModeID_Tails,(Player_mode).w					; is Tails?
-		bne.s	.nottails												; if not, branch
+		cmpi.w	#PlayerModeID_Tails,(Player_mode).w				; is Tails?
+		bne.s	.nottails							; if not, branch
 		move.w	(Distance_from_top_P2).w,d3
 
 .nottails
