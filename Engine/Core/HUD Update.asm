@@ -416,12 +416,20 @@ DrawTwoDigitNumber:
 		dbf	d6,.loop
 		rts
 
+; ---------------------------------------------------------------------------
+; Subroutine to update the HUD Lives
+; ---------------------------------------------------------------------------
+
 ; =============== S U B R O U T I N E =======================================
 
 HUD_Lives:
 		locVRAM	tiles_to_bytes(ArtTile_LifeIcon+9),d0					; set VRAM address
 		moveq	#0,d1
 		move.b	(Life_count).w,d1
+		cmpi.b	#99,d1
+		bhs.s	.return
+
+		; draw
 		lea	HUD_10(pc),a2
 		moveq	#2-1,d6
 
