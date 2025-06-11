@@ -87,7 +87,7 @@ VintID_Fade =							id(ptr_VInt_Fade)				; A
 VintID_LevelSelect =						id(ptr_VInt_LevelSelect)			; C
 
 ; ---------------------------------------------------------------------------
-; Game modes
+; Game mode routines
 ; ---------------------------------------------------------------------------
 
 offset :=	Game_Modes
@@ -96,7 +96,7 @@ idstart :=	0
 
 GameModeID_LevelSelectScreen =					id(GameMode_LevelSelectScreen)			; 0
 GameModeID_LevelScreen =					id(GameMode_LevelScreen)			; 4
-GameModeID_ContinueScreen =		id(GameMode_ContinueScreen)			; 8
+GameModeID_ContinueScreen =					id(GameMode_ContinueScreen)			; 8
 
 GameModeFlag_TitleCard =					7						; flag bit
 GameModeID_TitleCard =						1<<GameModeFlag_TitleCard			; flag mask
@@ -113,10 +113,10 @@ PlayerID_Knuckles						equ 2
 ; Player mode IDs
 ; ---------------------------------------------------------------------------
 
-PlayerModeID_SonicTails				equ 0
-PlayerModeID_Sonic					equ 1
-PlayerModeID_Tails					equ 2
-PlayerModeID_Knuckles				equ 3
+PlayerModeID_SonicTails						equ 0
+PlayerModeID_Sonic						equ 1
+PlayerModeID_Tails						equ 2
+PlayerModeID_Knuckles						equ 3
 
 ; ---------------------------------------------------------------------------
 ; Player routines (Sonic)
@@ -145,12 +145,12 @@ idstart :=	0
 ; Main
 PalID_Sonic =							id(PalPtr_Sonic)				; 0
 PalID_WaterSonic =						id(PalPtr_WaterSonic)				; 1
-PalID_Knuckles =						id(PalPtr_Knuckles)					; 2
-PalID_WaterKnuckles =				id(PalPtr_WaterKnuckles)				; 3
+PalID_Knuckles =						id(PalPtr_Knuckles)				; 2
+PalID_WaterKnuckles =						id(PalPtr_WaterKnuckles)			; 3
 
 ; Levels
-PalID_DEZ =							id(PalPtr_DEZ)						; 4
-PalID_WaterDEZ =					id(PalPtr_WaterDEZ)					; 5
+PalID_DEZ =							id(PalPtr_DEZ)					; 4
+PalID_WaterDEZ =						id(PalPtr_WaterDEZ)				; 5
 
 ; ---------------------------------------------------------------------------
 ; Sonic animation IDs
@@ -205,8 +205,8 @@ offset :=	AniTails
 ptrsize :=	2
 idstart :=	0
 
-AniIDTailsAni_Run2 =					id(ptr_TailsAni_Run2)					; 1F
-AniIDTailsAni_Transform =			id(ptr_TailsAni_Transform)			; 29
+AniIDTailsAni_Run2 =						id(ptr_TailsAni_Run2)				; 1F
+AniIDTailsAni_Transform =					id(ptr_TailsAni_Transform)			; 29
 
 ; ---------------------------------------------------------------------------
 ; Knuckles animation IDs
@@ -216,8 +216,8 @@ offset :=	AniKnuckles
 ptrsize :=	2
 idstart :=	0
 
-AniIDKnuxAni_Carry =				id(ptr_KnuxAni_Carry)				; 25
-AniIDKnuxAni_Carry2 =				id(ptr_KnuxAni_Carry2)				; 26
+AniIDKnuxAni_Carry =						id(ptr_KnuxAni_Carry)				; 25
+AniIDKnuxAni_Carry2 =						id(ptr_KnuxAni_Carry2)				; 26
 
 ; ---------------------------------------------------------------------------
 ; Levels
@@ -418,7 +418,7 @@ lrb_solid_bit =							objoff_47					; byte ; the bit to check for left/right/bot
 ; Conventions followed by some/most bosses
 ; ---------------------------------------------------------------------------
 
-boss_saved_player =					objoff_1C							; byte ; save player address after hit
+boss_saved_player =						objoff_1C					; byte ; save player address after hit
 boss_invulnerable_time =					objoff_1D					; byte ; flash time
 boss_backup_collision =						objoff_25					; byte ; restore boss collision after hit
 boss_hitcount2 =						objoff_29					; byte ; usage varies, bosses use it as a hit counter
@@ -430,7 +430,7 @@ boss_hitcount2 =						objoff_29					; byte ; usage varies, bosses use it as a hi
 obId =								address						; long
 obRender =							render_flags					; byte ; bitfield for x/y flip, display mode
 obRoutine =							routine						; byte ; routine number
-obHeight	 =						height_pixels					; byte ; height/2
+obHeight =							height_pixels					; byte ; height/2
 obWidth =							width_pixels					; byte ; width/2
 obPriority =							priority					; word ; sprite stack priority -- 0 is front
 obGfx =								art_tile					; word ; palette line & VRAM setting (2 bytes)
@@ -439,7 +439,7 @@ obX =								x_pos						; word ; x-axis position (2-4 bytes)
 obY =								y_pos						; word ; y-axis position (2-4 bytes)
 obVelX =							x_vel						; word ; x-axis velocity (2 bytes)
 obVelY =							y_vel						; word ; y-axis velocity (2 bytes)
-obInertia	 =						ground_vel					; word ; potential speed (2 bytes)
+obInertia =							ground_vel					; word ; potential speed (2 bytes)
 obAnim =							anim						; byte ; current animation
 obNextAni =							next_anim					; byte ; next animation
 obFrame =							mapping_frame					; byte ; current frame displayed
@@ -569,12 +569,12 @@ Status_Defeated							= 7						; some/most bosses
 ArtTile_VRAM_Start						= 0
 ArtTile_SpikesSprings						= $484
 ArtTile_Monitors						= $4AC
-ArtTile_CutsceneKnuckles				= $4DA
+ArtTile_CutsceneKnuckles					= $4DA
 ArtTile_Explosion						= $5A0
 ArtTile_StarPost						= $5E4
 ArtTile_Player_1						= $680
 ArtTile_Player_2						= $6A0
-ArtTile_Player_2_Tail					= $6B0
+ArtTile_Player_2_Tail						= $6B0
 ArtTile_Ring							= $6BC
 ArtTile_Ring_Sparks						= ArtTile_Ring+4
 ArtTile_HUD							= $6C4
@@ -582,7 +582,7 @@ ArtTile_Shield							= $79C
 ArtTile_Shield_Sparks						= ArtTile_Shield+$1F
 ArtTile_LifeIcon						= $7D4
 ArtTile_DashDust						= $7E0
-ArtTile_DashDust_P2					= $7F0
+ArtTile_DashDust_P2						= $7F0
 
 ; ---------------------------------------------------------------------------
 ; VRAM and tile art base addresses
@@ -825,6 +825,9 @@ VDP_Command_Buffer_Slot						= DMA_queue_slot				; alias from Sonic 2 (GitHub)
 ; camera variables
 v_screenposx							= Camera_X_pos					; alias from Sonic 1 (GitHub)
 v_screenposy							= Camera_Y_pos					; alias from Sonic 1 (GitHub)
+v_limitbtm1							= Camera_target_max_Y_pos			; alias from Sonic 1 (GitHub)
+v_limitbtm2							= Camera_max_Y_pos				; alias from Sonic 1 (GitHub)
+f_bgscrollvert							= Camera_max_Y_pos_changing			; alias from Sonic 1 (GitHub)
 v_trackpos							= Pos_table_index				; alias from Sonic 1 (GitHub)
 v_trackbyte							= Pos_table_index+1				; alias from Sonic 1 (GitHub)
 v_lookshift							= Distance_from_top				; alias from Sonic 1 (GitHub)
@@ -880,7 +883,7 @@ Sonic_deceleration						= Deceleration					; alias from Sonic 2 (GitHub)
 v_sonframenum							= Player_prev_frame				; alias from Sonic 1 (GitHub)
 Sonic_LastLoadedDPLC						= Player_prev_frame				; alias from Sonic 2 (GitHub)
 Tails_LastLoadedDPLC						= Player_prev_frame_P2				; alias from Sonic 2 (GitHub)
-TailsTails_LastLoadedDPLC				= Player_prev_frame_P2_tail			; alias from Sonic 2 (GitHub)
+TailsTails_LastLoadedDPLC					= Player_prev_frame_P2_tail			; alias from Sonic 2 (GitHub)
 f_lockscreen							= Boss_flag
 
 ; water variables
@@ -905,11 +908,12 @@ Vint_runcount							= V_int_run_count				; alias from Sonic 2 (GitHub)
 v_zone								= Current_zone					; alias from Sonic 1 (GitHub)
 v_act								= Current_act					; alias from Sonic 1 (GitHub)
 Last_star_pole_hit						= Last_star_post_hit				; alias from Sonic 2 (GitHub)
-v_lives								= Life_count							; alias from Sonic 1 (GitHub)
-v_continues							= Continue_count						; alias from Sonic 1 (GitHub)
+v_lives								= Life_count					; alias from Sonic 1 (GitHub)
+v_continues							= Continue_count				; alias from Sonic 1 (GitHub)
+v_emeralds							= Emerald_counts				; alias from Sonic 1 (GitHub)
 v_scorelife							= Next_extra_life_score				; alias from Sonic 1 (GitHub)
 f_timeover							= Time_over_flag				; alias from Sonic 1 (GitHub)
-v_lifecount							= Extra_life_flags						; alias from Sonic 1 (GitHub)
+v_lifecount							= Extra_life_flags				; alias from Sonic 1 (GitHub)
 v_score								= Score						; alias from Sonic 1 (GitHub)
 f_ringcount							= Update_HUD_ring_count				; alias from Sonic 1 (GitHub)
 f_timecount							= Update_HUD_timer				; alias from Sonic 1 (GitHub)
