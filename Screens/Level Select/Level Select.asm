@@ -8,7 +8,7 @@ LevelSelect_VRAM:			= 0
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActDEZCount:		= 4	; DEZ
+LevelSelect_ActDEZCount:		= 4								; DEZ
 
 LevelSelect_CharacterCount:		= 7
 LevelSelect_MusicTestCount:		= LevelSelect_CharacterCount+1
