@@ -465,6 +465,8 @@ HUD_Lives:
 .next
 		addi.l	#vdpCommDelta(tiles_to_bytes(2)),d0
 		dbf	d6,.loop
+
+.return
 		rts
 ; ---------------------------------------------------------------------------
 
