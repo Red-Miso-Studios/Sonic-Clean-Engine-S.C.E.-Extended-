@@ -129,7 +129,7 @@ loc_1E930:
 
 loc_1E934:
 		btst	#4,subtype(a0)
-		bne.s	locret_1E9B4
+		bne.s	locret_1E942
 		clr.b	spin_dash_flag(a1)
 
 locret_1E942:
@@ -272,7 +272,7 @@ locret_1EAAE:
 
 AutoSpin_MainY_Alt:
 		cmp.w	y_pos(a1),d1
-		bls.s	locret_1EB30
+		bls.s	locret_1EAAE
 		clr.b	-1(a2)
 		move.w	x_pos(a0),d2
 		move.w	d2,d3

@@ -138,8 +138,8 @@ Obj_LevelResults:
 		cmpi.w	#5*60-11,objoff_2E(a0)
 		bne.s	.return2							; play after eh, a second or so
 		moveq	#30,d0
-		move.b	d0,(Player_1+air_left).w					; reset air
-		move.b	d0,(Player_2+air_left).w					; reset air
+		move.b	d0,(Player_1+air_left).w					; reset air p1
+		move.b	d0,(Player_2+air_left).w					; reset air p2
 		st	(Music_results_flag).w
 		music	mus_GotThrough,1						; play level complete theme
 ; ---------------------------------------------------------------------------
