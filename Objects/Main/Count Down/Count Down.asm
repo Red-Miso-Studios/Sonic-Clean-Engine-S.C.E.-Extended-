@@ -253,9 +253,9 @@ loc_18218:
 ; ---------------------------------------------------------------------------
 
 AirCountdown_Display:
-		movea.w	parent(a0),a2								; a2=character
-		cmpi.b	#12,air_left(a2)							; check air remaining
-		bhi.s	AirCountdown_Delete							; if higher than 12, branch
+		movea.w	parent(a0),a2							; a2=character
+		cmpi.b	#12,air_left(a2)						; check air remaining
+		bhi.s	AirCountdown_Delete						; if higher than 12, branch
 		bsr.s	AirCountdown_ShowNumber
 		lea	Ani_AirCountdown(pc),a1
 		jsr	(Animate_Sprite).w
@@ -271,9 +271,9 @@ AirCountdown_Delete:
 ; =============== S U B R O U T I N E =======================================
 
 AirCountdown_AirLeft:
-		movea.w	parent(a0),a2								; a2=character
-		cmpi.b	#12,air_left(a2)							; check air remaining
-		bhi.s	AirCountdown_Delete							; if higher than 12, branch
+		movea.w	parent(a0),a2							; a2=character
+		cmpi.b	#12,air_left(a2)						; check air remaining
+		bhi.s	AirCountdown_Delete						; if higher than 12, branch
 		subq.w	#1,objoff_3C(a0)
 		bne.s	AirCountdown_Display2
 		move.l	#AirCountdown_DisplayNumber,address(a0)
@@ -287,15 +287,15 @@ AirCountdown_Display2:
 		tst.b	routine(a0)
 		bne.s	AirCountdown_Delete
 		bsr.s	AirCountdown_Load_Art
-		tst.b	render_flags(a0)							; object visible on the screen?
-		bpl.s	AirCountdown_Delete							; if not, branch
+		tst.b	render_flags(a0)						; object visible on the screen?
+		bpl.s	AirCountdown_Delete						; if not, branch
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
 AirCountdown_DisplayNumber:
-		movea.w	parent(a0),a2								; a2=character
-		cmpi.b	#12,air_left(a2)							; check air remaining
-		bhi.s	AirCountdown_Delete							; if higher than 12, branch
+		movea.w	parent(a0),a2							; a2=character
+		cmpi.b	#12,air_left(a2)						; check air remaining
+		bhi.s	AirCountdown_Delete						; if higher than 12, branch
 		bsr.s	AirCountdown_ShowNumber
 		lea	Ani_AirCountdown(pc),a1
 		jsr	(Animate_Sprite).w

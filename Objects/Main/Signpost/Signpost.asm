@@ -90,8 +90,8 @@ Obj_EndSign:
 		jsr	(CreateChild1_Normal).w
 
 		; set
-		move.w	(Camera_Y_pos).w,d0
-		subi.w	#32,d0
+		moveq	#-32,d0
+		add.w	(Camera_Y_pos).w,d0
 		move.w	d0,y_pos(a0)							; place vertical position at top of screen
 		sfx	sfx_Signpost
 
