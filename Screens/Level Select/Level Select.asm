@@ -174,9 +174,9 @@ LevelSelect_Controls:
 		bra.s	.getcharacter									; 0
 
 .return
-		rts		; nop
+		rts											; nop
 		bra.s	.getmusic									; 4
-		rts		; nop
+		rts											; nop
 		bra.w	.getsound									; 8
 
 ; ---------------------------------------------------------------------------

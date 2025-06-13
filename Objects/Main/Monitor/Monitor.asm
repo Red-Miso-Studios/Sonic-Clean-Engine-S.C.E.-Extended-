@@ -306,21 +306,21 @@ loc_1D850:
 ; ---------------------------------------------------------------------------
 
 .index
-		bra.s	Monitor_Give_Eggman			; 0
-		rts		; nop
-		bra.s	Monitor_Give_1up			; 2
-		rts		; nop
-		bra.s	Monitor_Give_Eggman			; 4
-		rts		; nop
-		bra.s	Monitor_Give_Rings			; 6
-		rts		; nop
-		bra.s	Monitor_Give_SpeedShoes			; 8
-		rts		; nop
-		bra.w	Monitor_Give_Fire_Shield		; A
-		bra.w	Monitor_Give_Lightning_Shield		; C
-		bra.w	Monitor_Give_Bubble_Shield		; E
-		bra.w	Monitor_Give_Invincibility		; 10
-		bra.w	Monitor_Give_SuperSonic			; 12
+		bra.s	Monitor_Give_Eggman						; 0
+		rts									; nop
+		bra.s	Monitor_Give_1up						; 2
+		rts									; nop
+		bra.s	Monitor_Give_Eggman						; 4
+		rts									; nop
+		bra.s	Monitor_Give_Rings						; 6
+		rts									; nop
+		bra.s	Monitor_Give_SpeedShoes						; 8
+		rts									; nop
+		bra.w	Monitor_Give_Fire_Shield					; A
+		bra.w	Monitor_Give_Lightning_Shield					; C
+		bra.w	Monitor_Give_Bubble_Shield					; E
+		bra.w	Monitor_Give_Invincibility					; 10
+		bra.w	Monitor_Give_SuperSonic						; 12
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Eggman:
