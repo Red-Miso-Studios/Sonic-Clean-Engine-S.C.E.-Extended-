@@ -69,7 +69,7 @@ TailsAni_Float1:	dc.b 9, $B5, $FF
 TailsAni_Float2:	dc.b 9, $B5, $B6, $B7, $B8, $B9, $BA, $BB, $BC, $FF
 TailsAni_Spring:	dc.b 3, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, $FD, 0
 TailsAni_Hang:		dc.b 1, $9D, $9E, $FF
-AniTails12:	dc.b $F, 1, 2, 3, $FE, 1
+AniTails12:		dc.b $F, 1, 2, 3, $FE, 1
 TailsAni_Landing:	dc.b $F, $A5, $A6, $FE, 1
 TailsAni_Hang2:		dc.b $13, $91, $FF
 TailsAni_GetAir:	dc.b $B, $9F, $9F, 3, 4, $FD, 0

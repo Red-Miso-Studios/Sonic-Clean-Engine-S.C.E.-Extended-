@@ -21,7 +21,7 @@ AniKnuckles: offsetTable
 		ptrTableEntry.w KnuxAni_Float2		; F
 		ptrTableEntry.w KnuxAni_Spring		; 10
 		ptrTableEntry.w KnuxAni_Hang		; 11
-		ptrTableEntry.w AniKnuckles12		; 12	(Unused?)
+		ptrTableEntry.w AniKnuckles12		; 12 (Unused?)
 		ptrTableEntry.w KnuxAni_Landing		; 13
 		ptrTableEntry.w KnuxAni_Hang2		; 14
 		ptrTableEntry.w KnuxAni_GetAir		; 15

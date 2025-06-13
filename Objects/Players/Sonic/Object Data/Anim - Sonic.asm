@@ -21,7 +21,7 @@ AniSonic: offsetTable
 		ptrTableEntry.w SonAni_Float2		; F
 		ptrTableEntry.w SonAni_Spring		; 10
 		ptrTableEntry.w SonAni_Hang		; 11
-		ptrTableEntry.w AniSonic12			; 12	(Unused?)
+		ptrTableEntry.w AniSonic12		; 12 (Unused?)
 		ptrTableEntry.w SonAni_Landing		; 13
 		ptrTableEntry.w SonAni_Hang2		; 14
 		ptrTableEntry.w SonAni_GetAir		; 15
@@ -65,7 +65,7 @@ SonAni_Float1:		dc.b 7, $C8, $FF
 SonAni_Float2:		dc.b 7, $C8, $C9, $CA, $CB, $CC, $CD, $CE, $CF, $FF
 SonAni_Spring:		dc.b $2F, $8E, $FD, 0
 SonAni_Hang:		dc.b 1, $AA, $AB, $FF
-AniSonic12:			dc.b $F, $43, $43, $43, $FE, 1
+AniSonic12:		dc.b $F, $43, $43, $43, $FE, 1
 SonAni_Landing:		dc.b 7, $B0, $B2, $B2, $B2, $B2, $B2, $B2, $B1, $B2, $B3, $B2, $FE, 4
 SonAni_Hang2:		dc.b $13, $91, $FF
 SonAni_GetAir:		dc.b $B, $AC, $AC, 3, 4, $FD, 0
