@@ -12,6 +12,8 @@ Continue_Offset:			= *
 
 Continue_countdown:			ds.w 1
 Continue_routine:			ds.b 1
+Continue_countdown_numbers:		ds.b 1
+Continue_countdown_update:		ds.b 1
 
 	dephase
 	!org	Continue_Offset
@@ -124,13 +126,13 @@ ContinueScreen:
 		jsr	(Process_Sprites).w
 		jsr	(Render_Sprites).w
 		music	mus_Continue
-		move.b	#VintID_Menu,(V_int_routine).w
+		move.b	#VintID_Continue,(V_int_routine).w
 		jsr	(Wait_VSync).w
 		enableScreen
 		jsr	(Pal_FadeFromBlack).w
 
 .loop
-		move.b	#VintID_Menu,(V_int_routine).w
+		move.b	#VintID_Continue,(V_int_routine).w
 		jsr	(Process_KosPlus_Queue).w
 		jsr	(Wait_VSync).w
 		jsr	(Process_Sprites).w
@@ -168,7 +170,7 @@ ContinueScreen:
 ; =============== S U B R O U T I N E =======================================
 
 Obj_Continue_Countdown:
-		move.b	#9+1,objoff_39(a0)								; set 10 seconds
+		move.b	#9+1,(Continue_countdown_numbers).w						; set 10 seconds
 		move.l	#.main,address(a0)
 
 .main
@@ -182,11 +184,12 @@ Obj_Continue_Countdown:
 		move.w	#60-1,objoff_2E(a0)
 
 		; sub and draw numbers
-		move.b	objoff_39(a0),d0
+		move.b	(Continue_countdown_numbers).w,d0
 		subq.b	#1,d0
 		bmi.s	.end
-		move.b	d0,objoff_39(a0)
-		bra.s	Continue_LoadNumbers
+		move.b	d0,(Continue_countdown_numbers).w
+		st	(Continue_countdown_update).w
+		rts
 ; ---------------------------------------------------------------------------
 
 .end
@@ -199,51 +202,6 @@ Obj_Continue_Countdown:
 		move.l	#.return,address(a0)
 
 .return
-		rts
-
-; ---------------------------------------------------------------------------
-; Load numbers
-; ---------------------------------------------------------------------------
-
-; =============== S U B R O U T I N E =======================================
-
-Continue_LoadNumbers:
-		move.b	d0,d1										; copy numbers
-
-		; calc left number (0)
-		andi.w	#$F0,d0
-		addq.w	#1,d0										; VRAM shift (numbers pos in VRAM)
-		move.w	d0,d2
-		swap	d0
-		move.w	d2,d0
-		addq.w	#1,d0										; next tile
-
-		; calc right number (9)
-		andi.w	#$F,d1
-		add.w	d1,d1
-		addq.w	#1,d1										; VRAM shift (numbers pos in VRAM)
-		move.w	d1,d2
-		swap	d1
-		move.w	d2,d1
-		addq.w	#1,d1										; next tile
-
-		disableIntsSave
-		lea	(VDP_data_port).l,a6
-		lea	VDP_control_port-VDP_data_port(a6),a5
-		move.w	#$8F80,VDP_control_port-VDP_control_port(a5)					; VRAM increment at $80 bytes (draw tiles vertically)
-		move.l	#vdpCommDelta(planeLocH40(1,0)),d4						; row increment value
-
-		; draw numbers
-		locVRAM	(VRAM_Plane_A_Name_Table+$726),d2
-		move.l	d2,VDP_control_port-VDP_control_port(a5)					; set pos
-		move.l	d0,VDP_data_port-VDP_data_port(a6)						; left number
-		add.l	d4,d2										; next pos
-		move.l	d2,VDP_control_port-VDP_control_port(a5)					; set pos
-		move.l	d1,VDP_data_port-VDP_data_port(a6)						; right number
-
-		; exit
-		move.w	#$8F02,VDP_control_port-VDP_control_port(a5)					; VRAM increment at 2 bytes (draw tiles horizontally)
-		enableIntsSave
 		rts
 
 ; ---------------------------------------------------------------------------
@@ -915,6 +873,54 @@ Continue_Icons_LoadAnim:
 byte_5CBAE:	dc.b 0, 1		; frames
 byte_5CBB0:	dc.b 2, 3
 byte_5CBB2:	dc.b 7, 8
+
+; ---------------------------------------------------------------------------
+; Load numbers (VInt)
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+Continue_LoadNumbers:
+		tst.b	(Continue_countdown_update).w							; does the numbers need updating?
+		beq.s	.return										; if not, branch
+		clr.b	(Continue_countdown_update).w
+
+		; get countdown numbers
+		move.b	(Continue_countdown_numbers).w,d0
+		move.b	d0,d1										; copy numbers
+
+		; calc left number (0)
+		andi.w	#$F0,d0
+		addq.w	#1,d0										; VRAM shift (numbers pos in VRAM)
+		move.w	d0,d2
+		swap	d0
+		move.w	d2,d0
+		addq.w	#1,d0										; next tile
+
+		; calc right number (9)
+		andi.w	#$F,d1
+		add.w	d1,d1
+		addq.w	#1,d1										; VRAM shift (numbers pos in VRAM)
+		move.w	d1,d2
+		swap	d1
+		move.w	d2,d1
+		addq.w	#1,d1										; next tile
+		move.w	#$8F80,VDP_control_port-VDP_control_port(a5)					; VRAM increment at $80 bytes (draw tiles vertically)
+		move.l	#vdpCommDelta(planeLoc(64,1,0)),d4						; row increment value
+
+		; draw numbers
+		locVRAM	(VRAM_Plane_A_Name_Table+$726),d2
+		move.l	d2,VDP_control_port-VDP_control_port(a5)					; set pos
+		move.l	d0,VDP_data_port-VDP_data_port(a6)						; left number
+		add.l	d4,d2										; next pos
+		move.l	d2,VDP_control_port-VDP_control_port(a5)					; set pos
+		move.l	d1,VDP_data_port-VDP_data_port(a6)						; right number
+
+		; exit
+		move.w	#$8F02,VDP_control_port-VDP_control_port(a5)					; VRAM increment at 2 bytes (draw tiles horizontally)
+
+.return
+		rts
 
 ; ---------------------------------------------------------------------------
 ; Load text
