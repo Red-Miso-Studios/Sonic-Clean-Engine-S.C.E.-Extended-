@@ -319,24 +319,24 @@ Tails_CPU_Control:
 ; ---------------------------------------------------------------------------
 
 off_139EC: offsetTable
-		offsetTableEntry.w loc_13A10		; 0
-		offsetTableEntry.w Tails_Catch_Up_Flying	; 2
-		offsetTableEntry.w Tails_FlySwim_Unknown	; 4
-		offsetTableEntry.w loc_13D4A		; 6
-		offsetTableEntry.w loc_13F40		; 8
-		offsetTableEntry.w locret_13FBE		; A
-		offsetTableEntry.w loc_13FC2		; C
-		offsetTableEntry.w loc_13FFA		; E
-		offsetTableEntry.w loc_1408A		; 10
-		offsetTableEntry.w loc_140C6		; 12
-		offsetTableEntry.w loc_140CE		; 14
-		offsetTableEntry.w loc_14106		; 16
-		offsetTableEntry.w loc_1414C		; 18
-		offsetTableEntry.w loc_141F2		; 1A
-		offsetTableEntry.w loc_1421C		; 1C
-		offsetTableEntry.w loc_14254		; 1E
-		offsetTableEntry.w loc_1425C		; 20
-		offsetTableEntry.w loc_14286		; 22
+		offsetTableEntry.w loc_13A10						; 0
+		offsetTableEntry.w Tails_Catch_Up_Flying				; 2
+		offsetTableEntry.w Tails_FlySwim_Unknown				; 4
+		offsetTableEntry.w loc_13D4A						; 6
+		offsetTableEntry.w loc_13F40						; 8
+		offsetTableEntry.w locret_13FBE						; A
+		offsetTableEntry.w loc_13FC2						; C
+		offsetTableEntry.w loc_13FFA						; E
+		offsetTableEntry.w loc_1408A						; 10
+		offsetTableEntry.w loc_140C6						; 12
+		offsetTableEntry.w loc_140CE						; 14
+		offsetTableEntry.w loc_14106						; 16
+		offsetTableEntry.w loc_1414C						; 18
+		offsetTableEntry.w loc_141F2						; 1A
+		offsetTableEntry.w loc_1421C						; 1C
+		offsetTableEntry.w loc_14254						; 1E
+		offsetTableEntry.w loc_1425C						; 20
+		offsetTableEntry.w loc_14286						; 22
 ; ---------------------------------------------------------------------------
 
 loc_13A10:
@@ -3303,15 +3303,17 @@ loc_15960:
 		move.b	d0,d3
 		add.b	d3,d3
 		add.b	d3,d3
+
+		; check
 		lea	(TailsAni_Walk).l,a1						; use walking animation
 		cmpi.w	#$600,d2
 		blo.s	loc_1598A
-		lea	(TailsAni_Run).l,a1						; use running animation
+		lea	(TailsAni_Run-TailsAni_Walk)(a1),a1				; use running animation
 		move.b	d0,d3
 		add.b	d3,d3
 		cmpi.w	#$700,d2
 		blo.s	loc_1598A
-		lea	(TailsAni_Run2).l,a1						; use running 2 animation
+		lea	(TailsAni_Run2-TailsAni_Run)(a1),a1				; use running 2 animation
 		move.b	d0,d3
 
 loc_1598A:
@@ -3354,10 +3356,12 @@ loc_159C8:
 		bpl.w	locret_158C8
 		mvabs.w	ground_vel(a0),d2
 		add.w	(Camera_H_scroll_shift).w,d2
+
+		; check
 		lea	(TailsAni_Roll2).l,a1						; use roll 2 animation
 		cmpi.w	#$600,d2
 		bhs.s	loc_15A00
-		lea	(TailsAni_Roll).l,a1						; use roll animation
+		lea	(TailsAni_Roll-TailsAni_Roll2)(a1),a1				; use roll animation
 
 loc_15A00:
 		neg.w	d2
