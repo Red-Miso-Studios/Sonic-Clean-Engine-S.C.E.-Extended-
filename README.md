@@ -2,6 +2,14 @@
 
 ![Title](https://i.imgur.com/CMy95r0.png)
 
+![GitHub Release](https://img.shields.io/github/v/release/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub watchers](https://img.shields.io/github/watchers/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/total?style=flat-square)
+
 # Download
 
 - [Current version](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/archive/refs/heads/Clone-Driver-v2.zip)
