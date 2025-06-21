@@ -13,6 +13,7 @@
 # Download
 
 - [Current version](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/archive/refs/heads/flamedriver.zip)
+- [Releases](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/releases)
 
 ## Disclaimer
 
