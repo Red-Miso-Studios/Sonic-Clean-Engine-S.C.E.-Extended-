@@ -39,10 +39,10 @@ loc_67C76:
 
 Obj_RobotnikHead3Main:
 		movea.w	parent3(a0),a3
-		cmpi.b	#PlayerID_Hurt,(Player_1+routine).w
-		bhs.s	Obj_RobotnikHead3_Laugh
-		cmpi.b	#PlayerID_Hurt,(Player_2+routine).w
-		bhs.s	Obj_RobotnikHead3_Laugh
+		cmpi.b	#PlayerID_Hurt,(Player_1+routine).w				; is Sonic falling back from getting hurt?
+		bhs.s	Obj_RobotnikHead3_Laugh						; if yes, branch
+		cmpi.b	#PlayerID_Hurt,(Player_2+routine).w				; is Tails falling back from getting hurt?
+		bhs.s	Obj_RobotnikHead3_Laugh						; if yes, branch
 		jsr	(Animate_Raw).w
 		btst	#7,status(a3)
 		bne.s	++
