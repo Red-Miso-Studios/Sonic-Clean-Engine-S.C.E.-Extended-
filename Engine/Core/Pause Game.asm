@@ -55,6 +55,6 @@ Pause_Game:
 	if GameDebug
 .frameadvance
 		st	(Game_paused).w
-		SMPS_UnpauseMusic
+		SMPS_UnpauseMusic							; unpause the music
 		rts
 	endif
