@@ -9,19 +9,19 @@ idstart :=	1
 
 mus__First = idstart
 ; Levels
-mus_DEZ1 =			SMPS_id(ptr_mus_dez1)
+mus_DEZ1 =			SMPS_id(ptr_mus01)
 
 ; Bosses
-mus_MidBoss =			SMPS_id(ptr_mus_boss)
-mus_ZoneBoss =			SMPS_id(ptr_mus_boss2)
+mus_MidBoss =			SMPS_id(ptr_mus02)
+mus_ZoneBoss =			SMPS_id(ptr_mus03)
 
 ; Misc
-mus_Invincible =		SMPS_id(ptr_mus_invin)
-mus_GotThrough =		SMPS_id(ptr_mus_through)
-mus_Drowning =			SMPS_id(ptr_mus_drowning)
-mus_GameOver =			SMPS_id(ptr_mus_gameover)
-mus_ExtraLife =			SMPS_id(ptr_mus_extralife)
-mus_Continue =			SMPS_id(ptr_mus_continue)
+mus_Invincible =		SMPS_id(ptr_mus04)
+mus_GotThrough =		SMPS_id(ptr_mus05)
+mus_Drowning =			SMPS_id(ptr_mus06)
+mus_GameOver =			SMPS_id(ptr_mus07)
+mus_ExtraLife =			SMPS_id(ptr_mus08)
+mus_Continue =			SMPS_id(ptr_mus09)
 
 mus__Last =			SMPS_id(ptr_musend)-1
 
