@@ -260,10 +260,10 @@ Obj_Continue_SonicWTails:
 		move.b	d0,anim_frame(a0)
 		lea	.aniraw(pc,d0.w),a2
 		move.b	(a2)+,mapping_frame(a0)
-		bclr	#0,render_flags(a0)								; clear flipx
+		bclr	#render_flags.x_flip,render_flags(a0)						; clear flipx
 		tst.b	(a2)
 		beq.s	.draw
-		bset	#0,render_flags(a0)								; set flipx
+		bset	#render_flags.x_flip,render_flags(a0)						; set flipx
 
 .draw
 		jsr	(Sonic_Load_PLC).l
@@ -609,7 +609,7 @@ Obj_Continue_EggRobo:
 		; init
 		lea	ObjDat_919A6(pc),a1
 		jsr	(SetUp_ObjAttributes).w
-		move.b	#1,render_flags(a0)								; flipx
+		move.b	#render_flags.y_flip,render_flags(a0)						; flipx
 		move.l	#.main,address(a0)
 		move.w	#$80-32,x_pos(a0)
 		move.w	#$80+(224/2),y_pos(a0)
@@ -652,9 +652,9 @@ Obj_Continue_EggRobo_Legs:
 
 		; check
 		movea.w	parent3(a0),a1
-		btst	#2,render_flags(a1)								; is parent uses screen coordinates flag?
+		btst	#render_flags.level,render_flags(a1)						; is parent uses screen coordinates flag?
 		bne.s	.main										; if yes, branch
-		bclr	#2,render_flags(a0)								; clear screen coordinates flag
+		bclr	#render_flags.level,render_flags(a0)						; clear screen coordinates flag
 
 .main
 		jsr	(Refresh_ChildPositionAdjusted).w
@@ -685,9 +685,9 @@ Obj_Continue_EggRobo_Gun:
 
 		; check
 		movea.w	parent3(a0),a1
-		btst	#2,render_flags(a1)								; is parent uses screen coordinates flag?
+		btst	#render_flags.level,render_flags(a1)						; is parent uses screen coordinates flag?
 		bne.s	.main										; if yes, branch
-		bclr	#2,render_flags(a0)								; clear screen coordinates flag
+		bclr	#render_flags.level,render_flags(a0)						; clear screen coordinates flag
 
 .main
 		pea	(Child_Draw_Sprite).w
@@ -701,11 +701,11 @@ Refresh_ChildPositionAdjusted_Continue:
 		move.w	x_pos(a1),d0
 		move.b	child_dx(a0),d1
 		ext.w	d1
-		bclr	#0,render_flags(a0)
-		btst	#0,render_flags(a1)
+		bclr	#render_flags.x_flip,render_flags(a0)
+		btst	#render_flags.x_flip,render_flags(a1)
 		beq.s	.notflipx
 		neg.w	d1
-		bset	#0,render_flags(a0)
+		bset	#render_flags.x_flip,render_flags(a0)
 
 .notflipx
 		add.w	d1,d0
@@ -717,11 +717,11 @@ Refresh_ChildPositionAdjusted_Continue:
 .skipypos
 		move.b	child_dy(a0),d1
 		ext.w	d1
-		bclr	#1,render_flags(a0)
-		btst	#1,render_flags(a1)
+		bclr	#render_flags.y_flip,render_flags(a0)
+		btst	#render_flags.y_flip,render_flags(a1)
 		beq.s	.notflipy
 		neg.w	d1
-		bset	#1,render_flags(a0)
+		bset	#render_flags.y_flip,render_flags(a0)
 
 .notflipy
 		add.w	d1,d0
@@ -865,12 +865,12 @@ Continue_Icons_LoadAnim:
 ; ---------------------------------------------------------------------------
 
 .index
-		dc.l byte_5CBAE		; 0 (Sonic and Tails)
-		dc.l byte_5CBAE		; 1 (Sonic)
-		dc.l byte_5CBB0		; 2 (Tails)
-		dc.l byte_5CBB2		; 3 (Knuckles)
+		dc.l byte_5CBAE										; 0 (Sonic and Tails)
+		dc.l byte_5CBAE										; 1 (Sonic)
+		dc.l byte_5CBB0										; 2 (Tails)
+		dc.l byte_5CBB2										; 3 (Knuckles)
 
-byte_5CBAE:	dc.b 0, 1		; frames
+byte_5CBAE:	dc.b 0, 1										; frames
 byte_5CBB0:	dc.b 2, 3
 byte_5CBB2:	dc.b 7, 8
 

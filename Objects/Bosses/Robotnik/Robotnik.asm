@@ -44,9 +44,9 @@ Obj_RobotnikHead3Main:
 		cmpi.b	#PlayerID_Hurt,(Player_2+routine).w				; is Tails falling back from getting hurt?
 		bhs.s	Obj_RobotnikHead3_Laugh						; if yes, branch
 		jsr	(Animate_Raw).w
-		btst	#7,status(a3)
+		btst	#status.npc.defeated,status(a3)
 		bne.s	++
-		btst	#6,status(a3)
+		btst	#status.npc.touch,status(a3)
 		beq.s	+
 		move.b	#2,mapping_frame(a0)
 +		rts
@@ -63,7 +63,7 @@ Obj_RobotnikHeadEnd:
 
 Obj_RobotnikHead3End:
 		movea.w	parent3(a0),a1
-		btst	#7,status(a1)
+		btst	#status.npc.defeated,status(a1)
 		bne.s	Obj_RobotnikHeadEnd
 		lea	AniRaw_RobotnikHead(pc),a1
 		jmp	(Animate_RawNoSST).w
