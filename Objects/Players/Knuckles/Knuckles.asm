@@ -135,7 +135,12 @@ loc_165AE:
 
 loc_165BE:
 		movem.l	a4-a6,-(sp)
-		moveq	#signextendB(setBit(status.player.in_air)|setBit(status.player.rolling)),d0
+
+		moveq	#signextendB( \
+			setBit(status.player.in_air) | \
+			setBit(status.player.rolling) \
+		),d0
+
 		and.b	status(a0),d0
 		move.w	Knux_Modes(pc,d0.w),d0
 		jsr	Knux_Modes(pc,d0.w)						; run Knuckles's movement control code
@@ -2683,9 +2688,18 @@ loc_17D58:
 		adda.w	(a1,d0.w),a1
 		move.b	(a1),d0
 		bmi.s	loc_17DC8
-		moveq	#signextendB(setBit(status.player.x_flip)),d1
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d1
+
 		and.b	status(a0),d1
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.s	locret_17D96
@@ -2748,7 +2762,11 @@ loc_17DC8:
 		subq.b	#1,d0
 
 loc_17DEC:
-		moveq	#signextendB(setBit(status.player.x_flip)),d2
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d2
+
 		and.b	status(a0),d2
 		bne.s	loc_17DF8
 		not.b	d0
@@ -2759,7 +2777,12 @@ loc_17DF8:
 		moveq	#3,d1
 
 loc_17E00:
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		eor.b	d1,d2
 		or.b	d2,render_flags(a0)
 		btst	#status.player.pushing,status(a0)
@@ -2816,9 +2839,18 @@ locret_17E82:
 ; ---------------------------------------------------------------------------
 
 loc_17E84:
-		moveq	#signextendB(setBit(status.player.x_flip)),d1
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d1
+
 		and.b	status(a0),d1
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.s	locret_17E82

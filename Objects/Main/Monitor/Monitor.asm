@@ -178,17 +178,32 @@ Obj_MonitorBreak:
 		move.b	d0,d1
 		andi.b	#p1_standing|p1_pushing,d1					; is it the main character?
 		beq.s	.notmainchar							; if not, branch
-		andi.b	#~(setBit(status.player.on_object)|setBit(status.player.pushing)),(Player_1+status).w
+
+		andi.b	#~( \
+			setBit(status.player.on_object) | \
+			setBit(status.player.pushing) \
+		),(Player_1+status).w
+
 		ori.b	#setBit(status.player.in_air),(Player_1+status).w		; prevent main character from walking in the air
 
 .notmainchar
 		andi.b	#p2_standing|p2_pushing,d0					; is it the sidekick?
 		beq.s	Obj_MonitorSpawnIcon						; if not, branch
-		andi.b	#~(setBit(status.player.on_object)|setBit(status.player.pushing)),(Player_2+status).w
+
+		andi.b	#~( \
+			setBit(status.player.on_object) | \
+			setBit(status.player.pushing) \
+		),(Player_2+status).w
+
 		ori.b	#setBit(status.player.in_air),(Player_2+status).w		; prevent sidekick from walking in the air
 
 Obj_MonitorSpawnIcon:
-		andi.b	#setBit(status.npc.x_flip)|setBit(status.npc.y_flip),status(a0)
+
+		andi.b	#( \
+			setBit(status.npc.x_flip) | \
+			setBit(status.npc.y_flip) \
+		),status(a0)
+
 		clr.b	collision_flags(a0)
 		jsr	(Create_New_Sprite3).w
 		bne.s	.skipiconcreation
@@ -240,7 +255,13 @@ Obj_MonitorContents:
 
 		; init
 		move.w	#make_art_tile(ArtTile_Monitors,0,0),art_tile(a0)
-		ori.b	#setBit(render_flags.level)|setBit(render_flags.static_mappings),render_flags(a0)	; set static mapping and screen coordinates flag
+
+		; set screen coordinates and static mapping flag
+		ori.b	#( \
+			setBit(render_flags.level) | \
+			setBit(render_flags.static_mappings) \
+		),render_flags(a0)
+
 		move.l	#bytes_word_to_long(16/2,16/2,priority_3),height_pixels(a0)	; set height, width and priority
 		move.l	#.main,address(a0)
 
@@ -356,7 +377,15 @@ Monitor_Give_Rings:
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Fire_Shield:
-		andi.b	#~(setBit(status_secondary.shield)|setBit(status_secondary.fire_shield)|setBit(status_secondary.lightning_shield)|setBit(status_secondary.bubble_shield)),status_secondary(a1)
+
+		; sets Status_Shield, Status_FireShield, Status_LtngShield, and Status_BublShield to 0
+		andi.b	#~( \
+			setBit(status_secondary.shield) | \
+			setBit(status_secondary.fire_shield) | \
+			setBit(status_secondary.lightning_shield) | \
+			setBit(status_secondary.bubble_shield) \
+		),status_secondary(a1)
+
 		bset	#status_secondary.shield,status_secondary(a1)
 		bset	#status_secondary.fire_shield,status_secondary(a1)
 		move.l	#Obj_FireShield,(Shield+address).w
@@ -365,7 +394,15 @@ Monitor_Give_Fire_Shield:
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Lightning_Shield:
-		andi.b	#~(setBit(status_secondary.shield)|setBit(status_secondary.fire_shield)|setBit(status_secondary.lightning_shield)|setBit(status_secondary.bubble_shield)),status_secondary(a1)
+
+		; sets Status_Shield, Status_FireShield, Status_LtngShield, and Status_BublShield to 0
+		andi.b	#~( \
+			setBit(status_secondary.shield) | \
+			setBit(status_secondary.fire_shield) | \
+			setBit(status_secondary.lightning_shield) | \
+			setBit(status_secondary.bubble_shield) \
+		),status_secondary(a1)
+
 		bset	#status_secondary.shield,status_secondary(a1)
 		bset	#status_secondary.lightning_shield,status_secondary(a1)
 		move.l	#Obj_LightningShield,(Shield+address).w
@@ -374,7 +411,15 @@ Monitor_Give_Lightning_Shield:
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Bubble_Shield:
-		andi.b	#~(setBit(status_secondary.shield)|setBit(status_secondary.fire_shield)|setBit(status_secondary.lightning_shield)|setBit(status_secondary.bubble_shield)),status_secondary(a1)
+
+		; sets Status_Shield, Status_FireShield, Status_LtngShield, and Status_BublShield to 0
+		andi.b	#~( \
+			setBit(status_secondary.shield) | \
+			setBit(status_secondary.fire_shield) | \
+			setBit(status_secondary.lightning_shield) | \
+			setBit(status_secondary.bubble_shield) \
+		),status_secondary(a1)
+
 		bset	#status_secondary.shield,status_secondary(a1)
 		bset	#status_secondary.bubble_shield,status_secondary(a1)
 		move.l	#Obj_BubbleShield,(Shield+address).w

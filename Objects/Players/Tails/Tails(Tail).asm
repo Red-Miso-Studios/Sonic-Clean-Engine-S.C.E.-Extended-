@@ -9,7 +9,13 @@ Obj_Tails_Tail:
 		; init
 		move.l	#Map_Tails_Tail,mappings(a0)
 		move.w	#make_art_tile(ArtTile_Player_2_Tail,0,0),art_tile(a0)
-		move.l	#bytes_to_long(setBit(render_flags.level),0,48/2,48/2),render_flags(a0)		; set screen coordinates flag and height and width
+
+		; set screen coordinates flag and height and width
+		move.l	#bytes_to_long( \
+			setBit(render_flags.level), \
+		0,48/2,48/2 \
+		),render_flags(a0)
+
 		move.l	#.main,address(a0)
 
 .main

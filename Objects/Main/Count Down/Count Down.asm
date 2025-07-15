@@ -217,7 +217,13 @@ loc_18676:
 
 Obj_AirCountdown_Bubbles:
 		move.b	subtype(a0),anim(a0)
-		move.b	#setBit(render_flags.level)|setBit(render_flags.on_screen),render_flags(a0)	; use screen coordinates
+
+		; use screen coordinates
+		move.b	#( \
+			setBit(render_flags.level) | \
+			setBit(render_flags.on_screen) \
+		),render_flags(a0)
+
 		move.w	x_pos(a0),objoff_34(a0)
 		move.w	#-$100,y_vel(a0)
 		move.l	#.animate,address(a0)
@@ -373,7 +379,12 @@ AirCountdown_Load_Art:
 		move.w	#tiles_to_bytes(ArtTile_DashDust_P2),d2				; 2P
 
 .notp2
-		moveq	#tiles_to_bytes(dmaLength(6)),d3				; size of art (in words) ; we only need one frame
+
+		; size of art (in words) ; we only need one frame
+		moveq	#tiles_to_bytes( \
+		dmaLength(6) \
+		),d3
+
 		jmp	(Add_To_DMA_Queue).w
 
 ; ----------------------------------------------------------------------------
@@ -413,7 +424,11 @@ AirCountdown_WobbleData:	binclude "Objects/Main/Count Down/Object Data/Wobble Da
 ; =============== S U B R O U T I N E =======================================
 
 ; mapping
-ObjDat_AirCountdown:		subObjMainData Obj_AirCountdown.countdown, setBit(render_flags.level)|setBit(render_flags.on_screen), 0, 32, 32, 1, $348, 0, 0, Map_Bubbler
+ObjDat_AirCountdown:		subObjMainData \
+				Obj_AirCountdown.countdown, \
+					setBit(render_flags.level) | \
+					setBit(render_flags.on_screen), \
+				0, 32, 32, 1, $348, 0, 0, Map_Bubbler
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Main/Count Down/Object Data/Anim - Air Countdown.asm"

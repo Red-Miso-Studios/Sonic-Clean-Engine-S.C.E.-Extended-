@@ -69,7 +69,13 @@ Tails_Init:										; Routine 0
 		move.w	y_radius(a0),default_y_radius(a0)				; set default_y_radius and default_x_radius
 		move.l	#Map_Tails,mappings(a0)
 		move.l	#bytes_word_to_long(48/2,48/2,priority_2),height_pixels(a0)	; set height, width and priority
-		move.b	#setBit(render_flags.level)|setBit(render_flags.on_screen),render_flags(a0)	; use screen coordinates
+
+		; use screen coordinates
+		move.b	#( \
+			setBit(render_flags.level) | \
+			setBit(render_flags.on_screen) \
+		),render_flags(a0)
+
 		move.b	#PlayerID_Tails,character_id(a0)
 		move.w	#$600,Max_speed_P2-Max_speed_P2(a4)
 		move.w	#$C,Acceleration_P2-Max_speed_P2(a4)
@@ -187,7 +193,12 @@ loc_1384A:
 
 loc_13872:
 		movem.l	a4-a6,-(sp)
-		moveq	#signextendB(setBit(status.player.in_air)|setBit(status.player.rolling)),d0
+
+		moveq	#signextendB( \
+			setBit(status.player.in_air) | \
+			setBit(status.player.rolling) \
+		),d0
+
 		and.b	status(a0),d0
 		move.w	Tails_Modes(pc,d0.w),d0
 		jsr	Tails_Modes(pc,d0.w)						; run Tails's movement control code
@@ -370,7 +381,11 @@ Tails_Catch_Up_Flying:
 		bne.s	locret_13B1E
 		tst.b	object_control(a1)
 		bmi.s	locret_13B1E
-		moveq	#signextendB(setBit(status.player.prevent_tails_respawn)),d0
+
+		moveq	#signextendB( \
+			setBit(status.player.prevent_tails_respawn) \
+		),d0
+
 		and.b	status(a1),d0
 		bne.s	locret_13B1E
 
@@ -1157,9 +1172,20 @@ loc_14474:
 		subi.w	#28+28,y_pos(a1)
 
 loc_14492:
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a1)
-		andi.b	#~(setBit(render_flags.x_flip)),status(a1)
-		moveq	#signextendB(setBit(status.player.x_flip)),d0
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a1)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) \
+		),status(a1)
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d0
+
 		and.b	status(a0),d0
 		or.b	d0,render_flags(a1)
 		or.b	d0,status(a1)
@@ -1265,9 +1291,20 @@ sub_1459E:
 		move.b	#3,object_control(a1)
 		bset	#status.player.in_air,status(a1)
 		clr.b	spin_dash_flag(a1)
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a1)
-		andi.b	#~(setBit(render_flags.x_flip)),status(a1)
-		moveq	#signextendB(setBit(status.player.x_flip)),d0
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a1)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) \
+		),status(a1)
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d0
+
 		and.b	status(a0),d0
 		or.b	d0,render_flags(a1)
 		or.b	d0,status(a1)
@@ -3208,9 +3245,18 @@ loc_1588A:
 		adda.w	(a1,d0.w),a1
 		move.b	(a1),d0
 		bmi.s	loc_158FA
-		moveq	#signextendB(setBit(status.player.x_flip)),d1
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d1
+
 		and.b	status(a0),d1
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.s	locret_158C8
@@ -3275,7 +3321,11 @@ loc_158FA:
 		subq.b	#1,d0
 
 loc_1591E:
-		moveq	#signextendB(setBit(status.player.x_flip)),d2
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d2
+
 		and.b	status(a0),d2
 		bne.s	loc_1592A
 		not.b	d0
@@ -3286,7 +3336,12 @@ loc_1592A:
 		moveq	#3,d1
 
 loc_15932:
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		eor.b	d1,d2
 		or.b	d2,render_flags(a0)
 		btst	#status.player.pushing,status(a0)
@@ -3354,9 +3409,18 @@ locret_159C6:
 loc_159C8:
 		addq.b	#1,d0
 		bne.s	loc_15A3C
-		moveq	#signextendB(setBit(status.player.x_flip)),d1
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d1
+
 		and.b	status(a0),d1
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.w	locret_158C8
@@ -3410,7 +3474,11 @@ loc_15A3C:
 		movem.w	x_vel(a2),d1-d2							; load xy speed
 		jsr	(GetArcTan).w
 		moveq	#0,d1
-		moveq	#signextendB(setBit(status.player.x_flip)),d2
+
+		moveq	#signextendB( \
+			setBit(status.player.x_flip) \
+		),d2
+
 		and.b	status(a0),d2
 		bne.s	loc_15A6E
 		not.b	d0
@@ -3426,7 +3494,12 @@ loc_15A72:
 		moveq	#3,d1
 
 loc_15A7A:
-		andi.b	#~(setBit(render_flags.x_flip)|setBit(render_flags.y_flip)),render_flags(a0)
+
+		andi.b	#~( \
+			setBit(render_flags.x_flip) | \
+			setBit(render_flags.y_flip) \
+		),render_flags(a0)
+
 		eor.b	d1,d2
 		or.b	d2,render_flags(a0)
 		tst.b	(Reverse_gravity_flag).w
