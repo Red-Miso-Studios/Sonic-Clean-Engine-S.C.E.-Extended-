@@ -411,7 +411,13 @@ Obj_Continue_TailsWSonic:
 .main
 		move.l	#.wait,address(a0)
 		move.l	#Map_Tails,mappings(a0)
-		move.l	#words_to_long(priority_5,make_art_tile(ArtTile_Player_2,0,0)),priority(a0)	; set priority and art_tile
+
+		; set priority and art_tile
+		move.l	#words_to_long( \
+		priority_5, \
+			make_art_tile(ArtTile_Player_2,0,0) \
+		),priority(a0)
+
 		clr.b	(Player_prev_frame_P2).w
 		move.w	#bytes_to_word(5,0),anim(a0)							; set anim and prev_anim
 		move.w	#bytes_to_word($AD,0),mapping_frame(a0)						; set frame and clear anim_frame
