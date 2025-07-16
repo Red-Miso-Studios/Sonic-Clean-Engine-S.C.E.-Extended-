@@ -53,7 +53,7 @@ VInt_Table: offsetTable
 		ptrTableEntry.w VInt_Level		; 8
 		ptrTableEntry.w VInt_Fade		; A
 		ptrTableEntry.w VInt_LevelSelect	; C
-		ptrTableEntry.w VInt_Continue			; E
+		ptrTableEntry.w VInt_Continue		; E
 
 ; ---------------------------------------------------------------------------
 ; Lag
