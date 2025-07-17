@@ -133,7 +133,12 @@ Obj_HyperSonic_Stars_Init:
 
 		; init
 		move.l	#Map_HyperSonicStars,mappings(a0)
-		move.l	#words_to_long(priority_1,make_art_tile(ArtTile_Shield,0,0)),priority(a0)	; set priority and art_tile
+
+		; set priority and art_tile
+		move.l	#words_to_long( \
+		priority_1, \
+			make_art_tile(ArtTile_Shield,0,0) \
+		),priority(a0)
 
 		; set screen coordinates flag and height and width
 		move.l	#bytes_to_long( \

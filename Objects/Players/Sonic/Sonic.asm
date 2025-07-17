@@ -3032,7 +3032,6 @@ loc_1281E:
 			setBit(render_flags.y_flip) \
 		),render_flags(a0)
 
-
 		ori.b	#( \
 			setBit(render_flags.x_flip) | \
 			setBit(render_flags.y_flip) \
@@ -3126,7 +3125,6 @@ loc_128FC:
 			setBit(render_flags.x_flip) | \
 			setBit(render_flags.y_flip) \
 		),render_flags(a0)
-
 
 		ori.b	#( \
 			setBit(render_flags.x_flip) | \
