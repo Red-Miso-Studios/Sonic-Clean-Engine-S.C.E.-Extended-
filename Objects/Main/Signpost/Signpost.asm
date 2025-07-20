@@ -79,10 +79,10 @@ Obj_EndSign:
 		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)				; set y_radius and x_radius
 		move.l	#AniRaw_EndSigns1,d0
 		cmpi.w	#PlayerModeID_Knuckles,(Player_mode).w
-		blo.s	.notknux
+		blo.s	.notKnux
 		move.l	#AniRaw_EndSigns2,d0
 
-.notknux
+.notKnux
 		move.l	d0,objoff_30(a0)
 
 		; create stub
