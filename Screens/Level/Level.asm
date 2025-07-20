@@ -229,7 +229,7 @@ SpawnLevelMainSprites:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3+address).w
 
 		move.w	(Player_mode).w,d0
-		bne.s	.sonicalone
+		bne.s	.SonicAlone
 
 		; Sonic and Tails
 		move.l	#Obj_Sonic,(Player_1+address).w
@@ -248,9 +248,9 @@ SpawnLevelMainSprites:
 		rts
 ; ---------------------------------------------------------------------------
 
-.sonicalone
+.SonicAlone
 		subq.w	#1,d0
-		bne.s	.tailsalone
+		bne.s	.TailsAlone
 
 		; Sonic alone
 		move.l	#Obj_Sonic,(Player_1+address).w
@@ -260,9 +260,9 @@ SpawnLevelMainSprites:
 		rts
 ; ---------------------------------------------------------------------------
 
-.tailsalone
+.TailsAlone
 		subq.w	#1,d0
-		bne.s	.knuxalone
+		bne.s	.KnuxAlone
 
 		; Tails alone
 		move.l	#Obj_Tails,(Player_1+address).w
@@ -272,7 +272,7 @@ SpawnLevelMainSprites:
 		rts
 ; ---------------------------------------------------------------------------
 
-.knuxalone
+.KnuxAlone
 
 		; Knuckles alone
 		move.l	#Obj_Knuckles,(Player_1+address).w
