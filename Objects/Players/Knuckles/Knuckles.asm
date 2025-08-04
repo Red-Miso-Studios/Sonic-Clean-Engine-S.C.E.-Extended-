@@ -251,7 +251,7 @@ Knux_ChkShoes:										; checks if Speed Shoes have expired and disables them i
 
 .nots
 		bclr	#status_secondary.speed_shoes,status_secondary(a0)
-		tempo	0,1									; slow down tempo
+		tempo	0,1								; slow down tempo
 
 ; =============== S U B R O U T I N E =======================================
 

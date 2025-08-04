@@ -272,7 +272,7 @@
 		include "Data/Objects Data.asm"
 
 ; ---------------------------------------------------------------------------
-; Level Select screen subroutines
+; Level Select screen Subroutine
 ; ---------------------------------------------------------------------------
 
 		include "Screens/Level Select/Level Select.asm"
@@ -405,7 +405,7 @@
 		include "Data/Uncompressed Data.asm"
 
 ; ---------------------------------------------------------------------------
-; Flamewing sound driver subroutines
+; Flamewing sound driver Subroutine
 ; ---------------------------------------------------------------------------
 
 		include "Sound/Flamedriver.asm"
