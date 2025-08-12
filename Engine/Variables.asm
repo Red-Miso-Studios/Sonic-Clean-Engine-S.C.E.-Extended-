@@ -28,7 +28,6 @@ Invincibility_stars:					ds.b object_size*4				; 4 objects
 Invincibility_stars_end					= *
 							ds.b object_size*3				; unused
 Wave_Splash:						ds.b object_size				; Obj_WaveSplash is loaded here
-							ds.b $34					; unused
 Object_RAM_end						= *
 
 ; kosinski plus moduled buffer variables
