@@ -4,6 +4,7 @@
 
 ![GitHub Release](https://img.shields.io/github/v/release/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
+![GitHub top language](https://img.shields.io/github/languages/top/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
 ![GitHub Repo stars](https://img.shields.io/github/stars/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
 ![GitHub watchers](https://img.shields.io/github/watchers/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-?style=flat-square)
@@ -14,6 +15,7 @@
 
 - [Current version](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/archive/refs/heads/flamedriver.zip)
 - [Releases](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/releases)
+- [ROMs](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/actions)
 
 ## Disclaimer
 
