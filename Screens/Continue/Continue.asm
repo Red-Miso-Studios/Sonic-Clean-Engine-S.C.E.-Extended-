@@ -941,10 +941,10 @@ Continue_LoadNumbers:
 
 Credits_LoadText:
 		disableIntsSave
-		lea	(VDP_data_port).l,a6
-		lea	VDP_control_port-VDP_data_port(a6),a5
+		lea	(VDP_data_port).l,a6								; load VDP data address to a6
+		lea	VDP_control_port-VDP_data_port(a6),a5						; load VDP control address to a5
 		move.w	#$8F80,VDP_control_port-VDP_control_port(a5)					; VRAM increment at $80 bytes (vertical write)
-		move.l	#vdpCommDelta(planeLocH40(1,0)),d4						; row increment value
+		move.l	#vdpCommDelta(planeLoc(64,1,0)),d4						; row increment value
 
 .loop
 		move.l	d5,d3
@@ -961,7 +961,7 @@ Credits_LoadText:
 		addi.w	#VRAM_Plane_A_Name_Table,d1
 		lsl.l	#2,d1
 		lsr.w	#2,d1
-		ori.w	#vdpComm($0000,VRAM,WRITE)>>16,d1
+		ori.w	#vdpComm(0,VRAM,WRITE)>>16,d1
 		swap	d1
 		jsr	Credits_DrawSmallText(pc,d0.w)
 		bra.s	.loop
@@ -1069,32 +1069,7 @@ Credits_DrawLargeText:
 ; ---------------------------------------------------------------------------
 
 .letters
-		dc.w 0, 2-1	; A (16x24)
-		dc.w 6, 2-1	; B (16x24)
-		dc.w $C, 2-1	; C (16x24)
-		dc.w $12, 2-1	; D (16x24)
-		dc.w $18, 2-1	; E (16x24)
-		dc.w $1E, 2-1	; F (16x24)
-		dc.w $24, 2-1	; G (16x24)
-		dc.w $2A, 2-1	; H (16x24)
-		dc.w $30, 1-1	; I (8x24)
-		dc.w $33, 1-1	; J (8x24)
-		dc.w $36, 2-1	; K (16x24)
-		dc.w $3C, 1-1	; L (8x24)
-		dc.w $3F, 3-1	; M (24x24)
-		dc.w $48, 2-1	; N (16x24)
-		dc.w $4E, 3-1	; O (24x24)
-		dc.w $57, 2-1	; P (16x24)
-		dc.w $5D, 3-1	; Q (24x24)
-		dc.w $66, 2-1	; R (16x24)
-		dc.w $6C, 2-1	; S (16x24)
-		dc.w $72, 2-1	; T (16x24)
-		dc.w $78, 2-1	; U (16x24)
-		dc.w $7E, 2-1	; V (16x24)
-		dc.w $84, 3-1	; W (24x24)
-		dc.w $8D, 2-1	; X (16x24)
-		dc.w $93, 2-1	; Y (16x24)
-		dc.w $99, 2-1	; Z (16x24)
+		creditsletters "ABCDEFGHIJKLMNOPQRSTUVWXYZ.()0123456789!"
 
 		restore	; reset character set
 
