@@ -86,7 +86,7 @@ Tails_Init:										; Routine 0
 		bne.s	Tails_Init_Continued
 
 		; only happens when not starting at a checkpoint:
-		move.w	#make_art_tile(ArtTile_Player_2,0,0),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_Player_2,0,FALSE),art_tile(a0)
 		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
 
 		; only happens when not starting at a Special Stage ring:
@@ -98,7 +98,7 @@ Tails_Init:										; Routine 0
 ; ---------------------------------------------------------------------------
 
 loc_1375E:
-		move.w	#make_art_tile(ArtTile_Player_2,0,0),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_Player_2,0,FALSE),art_tile(a0)
 		move.w	(Player_1+top_solid_bit).w,top_solid_bit(a0)
 		tst.w	(Player_1+art_tile).w
 		bpl.s	Tails_Init_Continued
