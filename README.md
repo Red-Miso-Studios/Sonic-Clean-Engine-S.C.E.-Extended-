@@ -25,9 +25,9 @@ Cleaned up and optimized the source code of Sonic 3 & Knuckles. Free use. You us
 
 ## Additional links
 
-#### If you are interested in the source code with the Z80 Sound Driver:
+#### If you are interested in the source code with the Sonic 2 Clone Driver v2 (Mega PCM 2.0 version):
 
-- [Sonic-Clean-Engine-S.C.E.-Extended-Flamedriver-](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/tree/flamedriver)
+- [Sonic-Clean-Engine-S.C.E.-Extended-Clone-Driver-v2-](https://github.com/TheBlad768/Sonic-Clean-Engine-S.C.E.-Extended-/tree/Clone-Driver-v2)
 
 #### Main source code:
 
