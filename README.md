@@ -19,7 +19,7 @@
 
 ## Disclaimer
 
-Sonic Clean Engine (S.C.E.) with the returned the Sonic & Tails, Tails and Knuckles characters, Life/Continue count, Continue screen, Super/Hyper transformation.
+Sonic Clean Engine (S.C.E.) Extended version with the returned the Sonic & Tails, Tails and Knuckles characters, Life/Continue count, Continue screen, Super/Hyper transformation.
 
 Heavily modified and improved Sonic 3 & Knuckles engine. Free use. You use it at your own risk. All code is provided “as is”.
 
