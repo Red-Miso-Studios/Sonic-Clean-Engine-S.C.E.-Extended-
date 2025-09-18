@@ -56,6 +56,10 @@ Game_Program:
 		jsr	(Init_VDP).w
 		jsr	(SoundDriverLoad).w
 		bsr.s	Init_Controllers
+
+		; set Sonic Alone player is only for DEBUG builds
+		ifdebug	move.w	#1,(Player_option).w						; set Sonic Alone player
+
 		move.b	#GameModeID_LevelSelectScreen,(Game_mode).w			; set screen mode to Level Select (SCE)
 
 .loop
