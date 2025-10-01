@@ -316,4 +316,5 @@ MoveSpikes_Delay:
 		rts
 ; ---------------------------------------------------------------------------
 
+		; mappings
 		include "Objects/Main/Spikes/Object Data/Map - Spikes.asm"

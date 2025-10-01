@@ -1012,10 +1012,11 @@ Credits_DrawSmallText:
 ; ---------------------------------------------------------------------------
 
 .exit
-		move.l	a1,d0										; load ROM address
-		btst	#0,d0										; is this an even address?
-		beq.s	.return										; if yes, branch
-		addq.w	#1,a1										; skip odd address (even)
+
+		; fix odd address
+		move.w	a1,d0										; load ROM address (lower 16 bits)
+		andi.w	#1,d0										; (0 = even, 1 = odd)
+		adda.w	d0,a1										; add 1 if it was odd, else add 0
 
 .return
 		rts
@@ -1075,7 +1076,7 @@ Credits_DrawLargeText:
 
 ; =============== S U B R O U T I N E =======================================
 
-; mapping
+; init
 ObjDat_Continue_SonicWTails:			subObjMainData Obj_Continue_SonicWTails.main, 0, 0, 40, 24, 5, $8C, 0, FALSE, Map_ContinueSprites
 ObjDat_Continue_SonicAlone:			subObjMainData Obj_Continue_SonicAlone.main, 0, 0, 40, 24, 5, ArtTile_Player_1, 0, FALSE, Map_Sonic
 ObjDat_Continue_TailsWSonic:			subObjMainData Obj_Continue_TailsWSonic.waitstart, 0, 0, 40, 32, 4, $8C, 0, FALSE, Map_ContinueSprites
@@ -1116,6 +1117,7 @@ PLC_Continue: plrlistheader
 PLC_Continue_end
 ; ---------------------------------------------------------------------------
 
+		; mappings
 		include "Screens/Continue/Object Data/Map - Player Sprites.asm"
 		include "Screens/Continue/Object Data/Map - Player Icons.asm"
 		include "Screens/Continue/Object Data/Map - Egg Robo Badnik.asm"

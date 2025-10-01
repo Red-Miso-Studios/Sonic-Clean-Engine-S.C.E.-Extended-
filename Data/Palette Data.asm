@@ -2,45 +2,56 @@
 ; Palette Main data
 ; ===========================================================================
 
-Pal_Sonic:					bincludeEntry "Objects/Players/Sonic/Palettes/Sonic.pal"
-	even
-Pal_WaterSonic:					bincludeEntry "Objects/Players/Sonic/Palettes/Water Sonic.pal"
-	even
-Pal_Knuckles:					bincludeEntry "Objects/Players/Knuckles/Palettes/Knuckles.pal"
-	even
-Pal_WaterKnuckles:				bincludeEntry "Objects/Players/Knuckles/Palettes/Water Knuckles.pal"
-	even
-Pal_LevelSelect:				bincludeEntry "Screens/Level Select/Palettes/1.pal"
-	even
-Pal_Continue:					bincludeEntry "Screens/Continue/Palettes/1.pal"
-	even
-Pal_DEZ:					bincludeEntry "Levels/DEZ/Palettes/Death Egg Zone.pal"
-	even
-Pal_WaterDEZ:					bincludeEntry "Levels/DEZ/Palettes/Water Death Egg Zone.pal"
-	even
+;		Attribute	| Filename	| Folder
+
+		incfile.be	Pal_Sonic, "Objects/Players/Sonic/Palettes/Sonic.pal"
+		incfile.be	Pal_WaterSonic, "Objects/Players/Sonic/Palettes/Water Sonic.pal"
+		incfile.be	Pal_Knuckles, "Objects/Players/Knuckles/Palettes/Knuckles.pal"
+		incfile.be	Pal_WaterKnuckles, "Objects/Players/Knuckles/Palettes/Water Knuckles.pal"
+
+; ===========================================================================
+; Palette Level Select screen data
+; ===========================================================================
+
+;		Attribute	| Filename	| Folder
+
+		incfile.b	Pal_LevelSelect, "Screens/Level Select/Palettes/1.pal"
+
+; ===========================================================================
+; Palette Continue screen data
+; ===========================================================================
+
+;		Attribute	| Filename	| Folder
+
+		incfile.b	Pal_Continue, "Screens/Continue/Palettes/1.pal"
+
+; ===========================================================================
+; Palette Level screen data
+; ===========================================================================
+
+;		Attribute	| Filename	| Folder
+
+		incfile.be	Pal_DEZ, "Levels/DEZ/Palettes/Death Egg Zone.pal"
+		incfile.be	Pal_WaterDEZ, "Levels/DEZ/Palettes/Water Death Egg Zone.pal"
 
 ; ===========================================================================
 ; Animated palette player data
 ; ===========================================================================
 
-PalCycle_SuperSonic:				bincludeEntry "Objects/Players/Sonic/Palettes/Animated/Super.pal"
-	even
-PalCycle_HyperSonic:				bincludeEntry "Objects/Players/Sonic/Palettes/Animated/Hyper.pal"
-	even
-PalCycle_SuperSonicUnderwater:			bincludeEntry "Objects/Players/Sonic/Palettes/Animated/Underwater.pal"
-	even
-PalCycle_SuperTails:				bincludeEntry "Objects/Players/Tails/Palettes/Animated/Super.pal"
-	even
-PalCycle_SuperHyperKnuckles:			bincludeEntry "Objects/Players/Knuckles/Palettes/Animated/Super and Hyper.pal"
-	even
-PalCycle_SuperHyperKnucklesRevert:		bincludeEntry "Objects/Players/Knuckles/Palettes/Animated/Revert.pal"
-	even
+;		Attribute	| Filename	| Folder
+
+		incfile.be	PalCycle_SuperSonic, "Objects/Players/Sonic/Palettes/Animated/Super.pal"
+		incfile.be	PalCycle_HyperSonic, "Objects/Players/Sonic/Palettes/Animated/Hyper.pal"
+		incfile.b	PalCycle_SuperSonicUnderwater, "Objects/Players/Sonic/Palettes/Animated/Underwater.pal"
+		incfile.be	PalCycle_SuperTails, "Objects/Players/Tails/Palettes/Animated/Super.pal"
+		incfile.be	PalCycle_SuperHyperKnuckles, "Objects/Players/Knuckles/Palettes/Animated/Super and Hyper.pal"
+		incfile.b	PalCycle_SuperHyperKnucklesRevert, "Objects/Players/Knuckles/Palettes/Animated/Revert.pal"
 
 ; ===========================================================================
 ; Animated palette Level screen data
 ; ===========================================================================
 
-AnPal_PalDEZ12_1:				bincludeEntry "Levels/DEZ/Palettes/Animated/Palettes/1.pal"
-	even
-AnPal_PalDEZ12_2:				bincludeEntry "Levels/DEZ/Palettes/Animated/Palettes/2.pal"
-	even
+;		Attribute	| Filename	| Folder
+
+		incfile.b	AnPal_PalDEZ12_1, "Levels/DEZ/Palettes/Animated/Palettes/1.pal"
+		incfile.b	AnPal_PalDEZ12_2, "Levels/DEZ/Palettes/Animated/Palettes/2.pal"

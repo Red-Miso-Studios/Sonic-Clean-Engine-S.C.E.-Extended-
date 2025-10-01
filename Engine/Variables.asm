@@ -142,7 +142,8 @@ Ring_end_addr_ROM:					ds.l 1						; address in the ring layout of the first rin
 Ring_start_addr_RAM:					ds.w 1						; address in the ring status table of the first ring whose X position is >= camera X position - 8
 Ring_consumption_table:					= *						; stores the addresses of all rings currently being consumed
 Ring_consumption_count:					ds.w 1						; the number of rings being consumed currently
-Ring_consumption_list:					ds.w $3F					; the remaining part of the ring consumption table
+Ring_consumption_list:					ds.w RingsList_Size				; the remaining part of the ring consumption table
+Ring_consumption_list_end				= *
 Ring_consumption_table_end				= *
 Camera_RAM_end						= *
 
@@ -190,7 +191,7 @@ WindTunnel_flag_P2:					ds.b 1
 Disable_death_plane:					ds.b 1						; if set, going below the screen wont kill the player
 Ctrl_1_locked:						ds.b 1
 Ctrl_2_locked:						ds.b 1
-Level_frame_counter:					ds.w 1						; the number of frames which have elapsed since the level started
+Level_frame_counter:					ds.l 1						; the number of frames which have elapsed since the level started
 Level_started_flag:					ds.b 1
 Game_paused:						ds.b 1
 Restart_level_flag:					ds.b 1
