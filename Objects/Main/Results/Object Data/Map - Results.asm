@@ -14,14 +14,14 @@ Map_Results:
 		dc.w word_2F31A-Map_Results		; 8 (Number 7)
 		dc.w word_2F322-Map_Results		; 9 (Number 8)
 		dc.w word_2F32A-Map_Results		; A (Number 9)
-		dc.w word_2F332-Map_Results		; B
+		dc.w word_2F332-Map_Results		; B (Total)
 		dc.w word_2F346-Map_Results		; C (Bonus)
 		dc.w word_2F35A-Map_Results		; D (Ring)
 		dc.w word_2F362-Map_Results		; E (Time)
 		dc.w word_2F36A-Map_Results		; F (ACT)
 		dc.w word_2F378-Map_Results		; 10
 		dc.w word_2F39E-Map_Results		; 11
-		dc.w word_2F3B2-Map_Results		; 12 (Special Stage Name?)
+		dc.w word_2F3B2-Map_Results		; 12 (SUPER/HYPER)
 		dc.w word_2F3C6-Map_Results		; 13 (SONIC)
 		dc.w word_2F3DA-Map_Results		; 14 (MILES)
 		dc.w word_2F3EE-Map_Results		; 15 (TAILS)
@@ -57,21 +57,21 @@ word_2F32A:
 		dc.w 1
 		dc.b 0, 1, $A0, $12, 0, 0
 word_2F332:
-		dc.w 3
+		dc.w 3					; Total
 		dc.b 0, 1, $A0, $24, 0, 0
 		dc.b 0, $D, $A0, $22, 0, 8
 		dc.b $F6, 6, $80, $14, 0, $24		; (Drop Art)
 word_2F346:						; Bonus
 		dc.w 3
 		dc.b 0, $D, $A0, $1A, $FF, $FF
-		dc.b 0, 1, $A1, $C4, 0, $20		; HUD address
+		dc.b 0, 1, $A1, $C8, 0, $20		; HUD address
 		dc.b $F6, 6, $80, $14, 0, $24		; (Drop Art)
 word_2F35A:
 		dc.w 1					; Ring
-		dc.b 0, $D, $A1, $CC, 0, 0		; HUD address
+		dc.b 0, $D, $A1, $CE, 0, 0		; HUD address
 word_2F362:
 		dc.w 1					; Time
-		dc.b 0, $D, $A1, $D4, 0, 0		; HUD address
+		dc.b 0, $D, $A1, $D6, 0, 0		; HUD address
 word_2F36A:						; ACT
 		dc.w 2
 		dc.b $10, 9, $80, $2A, 0, 0		; ACT
@@ -89,7 +89,7 @@ word_2F39E:
 		dc.b 0, 5, $80, $30, 0, 0
 		dc.b 0, 5, $80, $38, 0, $10
 		dc.b 0, 5, $80, $40, 0, $1E
-word_2F3B2:						; Special Stage Name?
+word_2F3B2:						; SUPER/HYPER
 		dc.w 3
 		dc.b 0, $D, $80, $48, 0, 0
 		dc.b 0, $D, $80, $50, 0, $20
