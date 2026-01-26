@@ -2,6 +2,8 @@
 ; Spikebonker (Object)
 ; ---------------------------------------------------------------------------
 
+; dynamic object variables
+
 ; =============== S U B R O U T I N E =======================================
 
 Obj_Spikebonker:
@@ -28,12 +30,12 @@ Obj_Spikebonker:
 		add.w	d1,d1
 		subq.w	#1,d1
 		move.w	d1,objoff_3A(a0)
-		move.l	#.changeside,jump(a0)
+		move.l	#.changeside,jump_ptr(a0)
 		moveq	#$40,d0
 		move.w	d0,objoff_3E(a0)
 		move.w	d0,y_vel(a0)
 		move.w	#4,objoff_40(a0)
-		bclr	#0,objoff_38(a0)						; clear swing flag
+		bclr	#0,state_flags(a0)						; clear swing flag
 		lea	ChildObjDat_Spikebonker_Control(pc),a2
 		jsr	(CreateChild1_Normal).w
 		jmp	(Sprite_CheckDeleteTouch).w
@@ -60,7 +62,7 @@ Obj_Spikebonker:
 
 .attack
 		move.l	#.wait,address(a0)
-		bset	#3,objoff_38(a0)						; set attack flag
+		bset	#3,state_flags(a0)						; set attack flag
 		sfx	sfx_Dash
 		jmp	(Sprite_CheckDeleteTouch).w
 ; ---------------------------------------------------------------------------
@@ -73,7 +75,7 @@ Obj_Spikebonker:
 ; ---------------------------------------------------------------------------
 
 .wait
-		btst	#3,objoff_38(a0)						; check attack flag
+		btst	#3,state_flags(a0)						; check attack flag
 		bne.s	.draw
 		move.l	#.main,address(a0)
 
@@ -83,6 +85,8 @@ Obj_Spikebonker:
 ; ---------------------------------------------------------------------------
 ; Spikebonker (Control)
 ; ---------------------------------------------------------------------------
+
+; dynamic object variables
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -97,7 +101,7 @@ Obj_Spikebonker_Control:
 		move.b	objoff_3C(a1),d0						; angle
 		bne.s	.loc_91B08
 		movea.w	parent3(a0),a2							; a2=parent object (spikebonker)
-		btst	#3,objoff_38(a2)						; check attack flag
+		btst	#3,state_flags(a2)						; check attack flag
 		bne.s	.loc_91B14
 
 .loc_91B08
@@ -116,7 +120,7 @@ Obj_Spikebonker_Control:
 .notflipx
 		move.w	d0,x_vel(a0)
 		move.w	#$1F,wait_timer(a0)
-		move.l	#.loc_91B68,jump(a0)
+		move.l	#.loc_91B68,jump_ptr(a0)
 		jmp	(Child_CheckParent).w
 ; ---------------------------------------------------------------------------
 
@@ -147,19 +151,21 @@ Obj_Spikebonker_Control:
 		move.l	#.loc_91B3E,address(a0)
 		neg.w	x_vel(a0)
 		move.w	#$1F,wait_timer(a0)
-		move.l	#.loc_91B56,jump(a0)
+		move.l	#.loc_91B56,jump_ptr(a0)
 		jmp	(Child_CheckParent).w
 ; ---------------------------------------------------------------------------
 
 .loc_91B56
 		move.l	#.main,address(a0)
 		movea.w	parent3(a0),a1							; a1=parent object (spikebonker)
-		bclr	#3,objoff_38(a1)						; clear attack flag
+		bclr	#3,state_flags(a1)						; clear attack flag
 		rts
 
 ; ---------------------------------------------------------------------------
 ; Spikebonker (SpikeBall)
 ; ---------------------------------------------------------------------------
+
+; dynamic object variables
 
 ; =============== S U B R O U T I N E =======================================
 
