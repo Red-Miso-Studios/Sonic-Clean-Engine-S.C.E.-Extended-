@@ -24,10 +24,10 @@ Obj_RobotnikHead3Init:
 		; init
 		lea	ObjDat_RobotnikHead(pc),a1
 		jsr	(SetUp_ObjAttributes).w
-		move.l	#AniRaw_RobotnikHead,objoff_30(a0)
+		move.l	#AniRaw_RobotnikHead,aniraw_ptr(a0)
 		cmpi.b	#PlayerID_Knuckles,(Player_1+character_id).w			; is player Knuckles?
 		bne.s	.notKnux							; if not, branch
-		bsr.w	sub_67B14
+		bsr.w	Load_EggRoboHead
 
 .notKnux
 
@@ -108,19 +108,20 @@ Obj_RobotnikHead4:
 
 		; check
 		movea.w	parent3(a0),a1							; a1=parent object
-		btst	#5,objoff_38(a1)
-		bne.s	loc_67CFE
+		btst	#5,state_flags(a1)
+		bne.s	.delete
 		jmp	(Draw_Sprite).w
+; ---------------------------------------------------------------------------
+
+.delete
+		jmp	(Delete_Current_Object).w
 ; ---------------------------------------------------------------------------
 
 RobotnikHead4_Index: offsetTable
 		offsetTableEntry.w Obj_RobotnikHead3Init				; 0
 		offsetTableEntry.w Obj_RobotnikHead3Main				; 2
 		offsetTableEntry.w Obj_RobotnikHead3End					; 4
-; ---------------------------------------------------------------------------
 
-.delete
-		jmp	(Delete_Current_Object).w
 
 ; ---------------------------------------------------------------------------
 ; Robotnik ship flame
@@ -137,8 +138,8 @@ Obj_RobotnikShipFlame:
 
 RobotnikShipFlame_Main:
 		movea.w	parent3(a0),a1							; a1=parent object
-		btst	#4,objoff_38(a1)
-		bne.s	loc_67CFE
+		btst	#4,state_flags(a1)
+		bne.s	Obj_RobotnikHead4.delete
 		jsr	(Refresh_ChildPositionAdjusted).w
 		btst	#0,(V_int_run_count+3).w
 		bne.s	Obj_RobotnikHeadEnd
@@ -148,13 +149,19 @@ RobotnikShipFlame_Main:
 		; draw
 		jmp	(Draw_Sprite).w
 
+; ---------------------------------------------------------------------------
+; Load Egg Robo head
+; ---------------------------------------------------------------------------
+
 ; =============== S U B R O U T I N E =======================================
 
-sub_67B14:
+Load_EggRoboHead:
 		move.l	#Map_EggRoboHead,mappings(a0)					; if player is Knuckles, use Egg Robo head
 
-loc_67B1C:
-		move.l	#AniRaw_EggRoboHead,objoff_30(a0)
+.skip
+		move.l	#AniRaw_EggRoboHead,aniraw_ptr(a0)
+
+		; load Egg Robo head art
 		lea	(ArtKosPM_EggRoboHead).l,a1
 		move.w	#tiles_to_bytes($52E),d2
 		jmp	(Queue_KosPlus_Module).w
