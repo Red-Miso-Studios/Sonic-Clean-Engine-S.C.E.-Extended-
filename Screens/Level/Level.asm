@@ -117,7 +117,7 @@ LevelScreen:
 		st	(V_int_flag).w							; set VInt flag
 		jsr	(Process_KosPlus_Queue).w
 		jsr	(Wait_VSync.skip).w
-		jsr	(Process_Sprites).w
+		jsr	(Process_Objects).w
 		jsr	(Render_Sprites).w
 		jsr	(Process_KosPlus_Module_Queue).w
 		tst.w	(Dynamic_object_RAM+(object_size*5)+objoff_48).w		; has title card sequence finished?
@@ -182,7 +182,7 @@ LevelScreen:
 		bsr.w	SpawnLevelMainSprites
 		jsr	(Load_Objects).w
 		jsr	(Load_Rings).w
-		jsr	(Process_Sprites).w
+		jsr	(Process_Objects).w
 		jsr	(Render_Sprites).w
 		jsr	(Animate_Tiles).w
 		move.w	#bytes_to_word(16*2,48-1),(Palette_fade_info).w			; set fade info and fade count
@@ -206,7 +206,7 @@ LevelScreen:
 		jsr	(Random_Number).w
 		jsr	(Special_Events).w
 		jsr	(Load_Objects).w
-		jsr	(Process_Sprites).w
+		jsr	(Process_Objects).w
 		tst.b	(Restart_level_flag).w
 		bne.w	LevelScreen
 		jsr	(DeformBgLayer).w
