@@ -233,9 +233,9 @@ VInt_Continue:
 		startZ80
 
 		; demo
-		tst.w	(Demo_timer).w										; is there time left on the demo?
-		beq.s	.return											; if not, branch
-		subq.w	#1,(Demo_timer).w									; subtract 1 from time left
+		tst.w	(Demo_timer).w							; is there time left on the demo?
+		beq.s	.return								; if not, branch
+		subq.w	#1,(Demo_timer).w						; subtract 1 from time left
 
 .return
 		rts
@@ -356,7 +356,7 @@ VInt_Level_Cont:
 ; =============== S U B R O U T I N E =======================================
 
 Do_Updates:
-		jsr	(UpdateHUD).w
+		jsr	(HUD_Update).w
 		clr.w	(Lag_frame_count).w
 
 		; demo
