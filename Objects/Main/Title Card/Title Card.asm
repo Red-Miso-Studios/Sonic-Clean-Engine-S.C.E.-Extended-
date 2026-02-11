@@ -1,5 +1,5 @@
 ; ---------------------------------------------------------------------------
-; TitleCard (Object)
+; Title Card (Object)
 ; ---------------------------------------------------------------------------
 
 ; dynamic object variables
@@ -122,9 +122,9 @@ Obj_TitleCard:
 
 		; load second main plc
 		lea	(PLC2_Sonic).l,a5
-		jsr	(LoadPLC_Raw_KosPlusM).w
-		movea.l	(Level_data_addr_RAM.PLC2).w,a5
 		jsr	(LoadPLC_Raw_KosPlusM).w					; load main art
+		movea.l	(Level_data_addr_RAM.PLC2).w,a5
+		jsr	(LoadPLC_Raw_KosPlusM).w					; load PLC2 art
 
 .skiplevel3
 		movea.l	(Level_data_addr_RAM.PLCAnimals).w,a5
@@ -145,6 +145,8 @@ Obj_TitleCardRedBanner:
 		beq.s	.loc_2D90A
 		tst.b	render_flags(a0)						; is the object visible on the screen?
 		bmi.s	.loc_2D8FC							; if yes, branch
+
+		; delete
 		subq.w	#1,objoff_30(a1)
 		jmp	(Delete_Current_Object).w
 ; ---------------------------------------------------------------------------
@@ -178,11 +180,13 @@ Obj_TitleCardName:
 ; =============== S U B R O U T I N E =======================================
 
 Obj_TitleCardElement:
-		movea.w	parent2(a0),a1
+		movea.w	parent2(a0),a1							; a1=parent object
 		move.w	objoff_32(a1),d0
 		beq.s	.loc_2D984
 		tst.b	render_flags(a0)						; is the object visible on the screen?
 		bmi.s	.loc_2D976							; if yes, branch
+
+		; delete
 		subq.w	#1,objoff_30(a1)
 		jmp	(Delete_Current_Object).w
 ; ---------------------------------------------------------------------------
@@ -210,68 +214,12 @@ Obj_TitleCardElement:
 Obj_TitleCardAct:
 		move.l	#Obj_TitleCardElement,address(a0)
 		bra.s	Obj_TitleCardElement
+; ---------------------------------------------------------------------------
 
 		; remove a number of the act, if not needed
 		movea.w	parent2(a0),a1							; a1=parent object
 		subq.w	#1,objoff_30(a1)
 		jmp	(Delete_Current_Object).w
-
-; ---------------------------------------------------------------------------
-; Title Card load letters to VRAM
-; ---------------------------------------------------------------------------
-
-; =============== S U B R O U T I N E =======================================
-
-TitleCard_LoadLetters:
-
-.decomp	= 0
-
-		lea	VDP_data_port-VDP_control_port(a5),a6				; load VDP data address to a6
-		locVRAM	tiles_to_bytes($54D),VDP_control_port-VDP_control_port(a5)
-
-	if .decomp
-		lea	(ArtKosP_TitleCardLargeText).l,a0
-		lea	(RAM_start).l,a1
-		lea	(a1),a3
-		jsr	(KosPlus_Decomp).w
-		lea	(a3),a2
-	else
-		lea	(ArtUnc_TitleCardLargeText).l,a2
-	endif
-
-		; load zone name art
-		moveq	#0,d0
-		move.b	(Current_zone).w,d0						; otherwise, just use current zone
-		add.w	d0,d0								; multiply by 2
-		lea	TitleCardLetters_Index(pc),a1
-		adda.w	(a1,d0.w),a1
-		lea	(Credits_DrawLargeText.letters).l,a3
-
-.find
-		moveq	#0,d0
-		move.b	(a1)+,d0
-		bmi.s	.exit								; if zero, exit
-		subq.b	#1,d0								; -1
-		add.w	d0,d0								; multiply by 4
-		add.w	d0,d0
-		movem.w	(a3,d0.w),d0-d1							; get id letter and size
-		lsl.w	#5,d0								; multiply by $20
-		lea	(a2,d0.w),a4
-
-.copy
-
-	rept 8*3
-		move.l	(a4)+,VDP_data_port-VDP_data_port(a6)
-	endr
-
-		dbf	d1,.copy
-
-		; next
-		bra.s	.find
-; ---------------------------------------------------------------------------
-
-.exit
-		rts
 ; ---------------------------------------------------------------------------
 
 ObjArray_TtlCard: titlecardresultsheader
@@ -285,6 +233,72 @@ ObjArray_TtlCardBonus: titlecardresultsheader
 	titlecardresultsobjdata	Obj_TitleCardElement, 72, 264, 104, $13, 256, 1		; 1
 	titlecardresultsobjdata	Obj_TitleCardElement, 168, 360, 104, $14, 256, 1	; 2
 ObjArray_TtlCardBonus_end
+
+; ---------------------------------------------------------------------------
+; Title Card load letters to VRAM
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+TitleCard_LoadLetters:
+
+.decomp	= 0
+
+		lea	VDP_data_port-VDP_control_port(a5),a6				; load VDP data address to a6
+
+	if .decomp
+		lea	(ArtKosP_TitleCardLargeText).l,a0
+		lea	(RAM_start).l,a1
+		lea	(a1),a3
+		jsr	(KosPlus_Decomp).w
+		lea	(a3),a2
+	else
+		lea	(ArtUnc_TitleCardLargeText).l,a2
+	endif
+
+		locVRAM	tiles_to_bytes($522),VDP_control_port-VDP_control_port(a5)
+
+		; load "ZONE" art
+		lea	TitleCard_ZONE(pc),a1
+		bsr.s	.main
+
+		locVRAM	tiles_to_bytes($54D),VDP_control_port-VDP_control_port(a5)
+
+		; load zone name art
+		moveq	#0,d0
+		move.b	(Current_zone).w,d0						; otherwise, just use current zone
+		add.w	d0,d0								; multiply by 2
+		lea	TitleCardLetters_Index(pc),a1
+		adda.w	(a1,d0.w),a1
+
+.main
+		lea	(Credits_DrawLargeText.letters).l,a3
+
+.find
+		moveq	#0,d0
+		move.b	(a1)+,d0							; get letter to d0
+		bmi.s	.exit								; if minus, branch
+		subq.b	#1,d0								; dbf fix
+		add.w	d0,d0								; multiply by 4
+		add.w	d0,d0								; "
+		movem.w	(a3,d0.w),d0-d1							; get id and size letter
+		lsl.w	#5,d0								; multiply by $20
+		lea	(a2,d0.w),a4							; load art letter address to a4
+
+.copy
+
+	rept 8*3
+		move.l	(a4)+,VDP_data_port-VDP_data_port(a6)				; copy to VRAM
+	endr
+
+		dbf	d1,.copy							; next data
+
+		; next letter
+		bra.s	.find
+; ---------------------------------------------------------------------------
+
+.exit
+		rts
 ; ---------------------------------------------------------------------------
 
 		; mappings
