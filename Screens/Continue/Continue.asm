@@ -1142,7 +1142,7 @@ PLC_Continue: plrlistheader
 		plreq 1, ArtKosPM_ContinueDigits
 		plreq $8C, ArtKosPM_ContinueSprites
 		plreq $D9, ArtKosPM_ContinueIcons
-PLC_Continue_end
+		plrlistend
 ; ---------------------------------------------------------------------------
 
 		; mappings
