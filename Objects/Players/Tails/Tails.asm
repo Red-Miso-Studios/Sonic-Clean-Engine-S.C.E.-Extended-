@@ -1817,14 +1817,14 @@ loc_14AA0:
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_14AD0
-		cmpi.w	#8,(a5)
+		cmpi.w	#tile_height,(a5)
 		beq.s	loc_14B26
 		subq.w	#2,(a5)
 		bra.s	loc_14B26
 ; ---------------------------------------------------------------------------
 
 loc_14AD0:
-		cmpi.w	#$D8,(a5)
+		cmpi.w	#screen_height-tile_height,(a5)
 		beq.s	loc_14B26
 		addq.w	#2,(a5)
 		bra.s	loc_14B26
@@ -1840,14 +1840,14 @@ loc_14ADA:
 		move.b	#2*60,scroll_delay_counter(a0)
 		tst.b	(Reverse_gravity_flag).w
 		bne.s	loc_14B0A
-		cmpi.w	#$C8,(a5)
+		cmpi.w	#screen_height-(block_height+tile_height),(a5)
 		beq.s	loc_14B26
 		addq.w	#2,(a5)
 		bra.s	loc_14B26
 ; ---------------------------------------------------------------------------
 
 loc_14B0A:
-		cmpi.w	#$18,(a5)
+		cmpi.w	#(block_height+tile_height),(a5)
 		beq.s	loc_14B26
 		subq.w	#2,(a5)
 		bra.s	loc_14B26
@@ -1857,10 +1857,10 @@ loc_14B14:
 		clr.b	scroll_delay_counter(a0)
 
 loc_14B1A:
-		cmpi.w	#$60,(a5)
+		cmpi.w	#(screen_height/2)-block_height,(a5)
 		beq.s	loc_14B26
 		bhs.s	loc_14B24
-		addq.w	#4,(a5)
+		addq.w	#2+2,(a5)
 
 loc_14B24:
 		subq.w	#2,(a5)
@@ -2162,10 +2162,10 @@ loc_14DDE:
 		neg.w	ground_vel(a0)
 
 loc_14DF0:
-		cmpi.w	#$60,(a5)
+		cmpi.w	#(screen_height/2)-block_height,(a5)
 		beq.s	loc_14DFC
 		bhs.s	loc_14DFA
-		addq.w	#4,(a5)
+		addq.w	#2+2,(a5)
 
 loc_14DFA:
 		subq.w	#2,(a5)
@@ -2280,7 +2280,7 @@ loc_14EC8:
 		move.w	d0,x_vel(a0)
 
 Tails_Jump_ResetScr:
-		cmpi.w	#$60,(a5)							; is screen in its default position?
+		cmpi.w	#(screen_height/2)-block_height,(a5)				; is screen in its default position?
 		beq.s	Tails_JumpPeakDecelerate					; if yes, branch
 		bhs.s	loc_14ED6							; depending on the sign of the difference
 		addq.w	#2+2,(a5)							; either add 2
@@ -2705,10 +2705,10 @@ loc_1537A:
 	endif
 
 		addq.w	#4,sp
-		cmpi.w	#$60,(a5)
+		cmpi.w	#(screen_height/2)-block_height,(a5)
 		beq.s	loc_15388
 		bhs.s	loc_15386
-		addq.w	#4,(a5)
+		addq.w	#2+2,(a5)
 
 loc_15386:
 		subq.w	#2,(a5)
