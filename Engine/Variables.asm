@@ -14,7 +14,7 @@ Player_1						ds.b object_size		; main character in 1 player mode
 Player_2						ds.b object_size		; Tails in a Sonic and Tails game
 Reserved_object_3					ds.b object_size		; during a level, an object whose sole purpose is to clear the collision response list is stored here
 Dynamic_object_RAM					ds.b object_size*90		; 90 objects
-Dynamic_object_RAM_end	 =				*
+Dynamic_object_RAM_end =				*
 							ds.b object_size		; unused
 Breathing_bubbles					ds.b object_size		; for the main character
 Breathing_bubbles_P2					ds.b object_size		; for Tails in a Sonic and Tails game
@@ -25,10 +25,10 @@ Dust_P2							ds.b object_size		; for Tails in a Sonic and Tails game
 Shield							ds.b object_size
 							ds.b object_size		; unused
 Invincibility_stars					ds.b object_size*4		; 4 objects
-Invincibility_stars_end					= *
+Invincibility_stars_end =				*
 							ds.b object_size*3		; unused
 Wave_Splash						ds.b object_size		; Obj_WaveSplash is loaded here
-Object_RAM_end						= *
+Object_RAM_end =					*
 
 ; kosinski plus moduled buffer variables
 KosPlus_decomp_buffer					ds.b $1000			; each module in a KosPlusM archive is decompressed here and then DMAed to VRAM
@@ -160,7 +160,7 @@ Game_mode						ds.b 1
 							ds.b 1				; even
 V_int_flag =						*
 V_int_ptr						ds.l 1
-Ctrl_1_logical	 =					*
+Ctrl_1_logical =					*
 Ctrl_1_held_logical					ds.b 1
 Ctrl_1_pressed_logical					ds.b 1
 Ctrl_1 =						*
@@ -234,7 +234,7 @@ Screen_event_flag					ds.b 1
 Background_event_routine				ds.b 1
 Background_event_flag					ds.b 1
 Background_collision_flag				ds.b 1				; if set, background collision is enabled
-Debug_placement_mode					= *				; both routine and type (word)
+Debug_placement_mode =					*				; both routine and type (word)
 Debug_placement_routine					ds.b 1
 Debug_placement_type					ds.b 1				; 0 = normal gameplay, 1 = normal object placement, 2 = frame cycling
 Debug_camera_delay					ds.b 1
@@ -244,7 +244,7 @@ Last_act_end_flag					ds.b 1
 Slotted_object_bits					ds.b 8				; index of slot array to use
 Signpost_addr						ds.w 1
 Render_sprite_first_RAM					ds.l 8
-Render_sprite_first_RAM_end				= *
+Render_sprite_first_RAM_end =				*
 Render_sprite_last_RAM					ds.l 1
 _unkFAAC						ds.b 1
 							ds.b 1				; even
@@ -400,14 +400,14 @@ Target_palette_line_3					ds.b palette_line_size
 Target_palette_line_4					ds.b palette_line_size
 
 ; oscillating variables
-Oscillating_variables					= *
-Oscillating_table					= *
-Oscillating_Numbers					= *
+Oscillating_variables =					*
+Oscillating_table =					*
+Oscillating_Numbers =					*
 Oscillation_Control					ds.w 1
 Oscillating_Data					ds.b $40
 Anim_Counters						ds.b $10			; each word stores data on animated level art, including duration and current frame
 Level_trigger_array					ds.b $10			; used by buttons, etc
-Level_trigger_array_end					= *
+Level_trigger_array_end =				*
 Rings_frame_timer					ds.b 1
 Rings_frame						ds.b 1
 Ring_spill_anim_counter					ds.b 1
@@ -435,7 +435,7 @@ Player_mode						ds.w 1				; 0 = Sonic and Tails, 1 = Sonic alone, 2 = Tails alo
 Player_option						ds.w 1
 Life_count						ds.b 1
 Continue_count						ds.b 1
-Emerald_counts						 = *				; both chaos and super emeralds
+Emerald_counts =					*				; both chaos and super emeralds
 Chaos_emerald_count					ds.b 1
 							ds.b 1				; even
 Next_extra_life_score					ds.l 1
