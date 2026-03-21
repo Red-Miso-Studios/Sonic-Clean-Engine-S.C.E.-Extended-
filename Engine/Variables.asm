@@ -425,10 +425,10 @@ CrossResetRAM =						*				; RAM in this region will not be cleared after a soft 
 
 ; main variables
 V_int_run_count						ds.l 1				; the number of times V-int has run
-Current_zone_and_act					= *
+Current_zone_and_act =					*
 Current_zone						ds.b 1
 Current_act						ds.b 1
-Apparent_zone_and_act					= *
+Apparent_zone_and_act =					*
 Apparent_zone						ds.b 1
 Apparent_act						ds.b 1
 Player_mode						ds.w 1				; 0 = Sonic and Tails, 1 = Sonic alone, 2 = Tails alone, 3 = Knuckles alone
