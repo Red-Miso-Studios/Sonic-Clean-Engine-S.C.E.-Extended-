@@ -345,7 +345,7 @@ MonitorContents_GivePowerup:
 		rts									; align
 		bra.w	Monitor_Give_Rings						; 6
 		bra.s	Monitor_Give_SpeedShoes						; 8
-		rts									; nop
+		rts									; align
 		bra.w	Monitor_Give_Fire_Shield					; A
 		bra.w	Monitor_Give_Lightning_Shield					; C
 		bra.w	Monitor_Give_Bubble_Shield					; E
