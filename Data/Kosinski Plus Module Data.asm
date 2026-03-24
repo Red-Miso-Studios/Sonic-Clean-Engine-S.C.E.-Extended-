@@ -22,7 +22,7 @@
 		incfile.ba	ArtKosPM_SpikesSprings, "Objects/Main/Spikes/KosinskiPM Art/SpikesSprings.kospm"
 		incfile.ba	ArtKosPM_BossExplosion, "Objects/Main/Explosion/KosinskiPM Art/Boss Explosion.kospm"
 		incfile.ba	ArtKosPM_Explosion, "Objects/Main/Explosion/KosinskiPM Art/Explosion.kospm"
-		incfile.ba	ArtKosPM_EnemyPtsStarPost, "Objects/Main/StarPost/KosinskiPM Art/Enemy points.kospm"
+		incfile.ba	ArtKosPM_EnemyPtsStarPost, "Objects/Main/Star Post/KosinskiPM Art/Enemy points.kospm"
 		incfile.ba	ArtKosPM_GrayButton, "Objects/Main/Button/KosinskiPM Art/Gray Button.kospm"
 		incfile.ba	ArtKosPM_DiagonalSpring, "Objects/Main/Spring/KosinskiPM Art/Diagonal Spring.kospm"
 		incfile.ba	ArtKosPM_Bubbles, "Objects/Main/Bubbler/KosinskiPM Art/Bubbles.kospm"
@@ -40,9 +40,9 @@
 		incfile.ba	ArtKosPM_ResultsMILES, "Objects/Main/Results/KosinskiPM Art/MILES.kospm"
 		incfile.ba	ArtKosPM_ResultsTAILS, "Objects/Main/Results/KosinskiPM Art/TAILS.kospm"
 		incfile.ba	ArtKosPM_ResultsKNUCKLES, "Objects/Main/Results/KosinskiPM Art/KNUCKLES.kospm"
-		incfile.ba	ArtKosPM_StarPostStars1, "Objects/Main/StarPost/KosinskiPM Art/StarPost Stars 1.kospm"
-		incfile.ba	ArtKosPM_StarPostStars2, "Objects/Main/StarPost/KosinskiPM Art/StarPost Stars 2.kospm"
-		incfile.ba	ArtKosPM_StarPostStars3, "Objects/Main/StarPost/KosinskiPM Art/StarPost Stars 3.kospm"
+		incfile.ba	ArtKosPM_StarPostStars1, "Objects/Main/Star Post/KosinskiPM Art/Star Post Stars 1.kospm"
+		incfile.ba	ArtKosPM_StarPostStars2, "Objects/Main/Star Post/KosinskiPM Art/Star Post Stars 2.kospm"
+		incfile.ba	ArtKosPM_StarPostStars3, "Objects/Main/Star Post/KosinskiPM Art/Star Post Stars 3.kospm"
 
 ;		Attribute	| Filename	| Folder
 
