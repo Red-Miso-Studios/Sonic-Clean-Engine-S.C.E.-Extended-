@@ -26,7 +26,7 @@ Obj_RobotnikHead3Init:
 		; init
 		lea	ObjDat_RobotnikHead(pc),a1
 		jsr	(SetUp_ObjAttributes).w
-		move.l	#AniRaw_RobotnikHead,aniraw_ptr(a0)
+		move.l	#AniRaw_RobotnikHead,animations(a0)
 		cmpi.b	#PlayerID_Knuckles,(Player_1+character_id).w			; is player Knuckles?
 		bne.s	.notKnux							; if not, branch
 		bsr.w	Load_EggRoboHead
@@ -140,7 +140,7 @@ Obj_RobotnikShipFlame:
 		; init
 		lea	ObjDat2_RoboShipFlame(pc),a1
 		jsr	(SetUp_ObjAttributes3).w
-		move.l	#RobotnikShipFlame_Main,address(a0)
+		move.l	#RobotnikShipFlame_Main,code_addr(a0)
 
 RobotnikShipFlame_Main:
 		movea.w	parent3(a0),a1							; a1=parent object
@@ -165,7 +165,7 @@ Load_EggRoboHead:
 		move.l	#Map_EggRoboHead,mappings(a0)					; if player is Knuckles, use Egg Robo head
 
 .skip
-		move.l	#AniRaw_EggRoboHead,aniraw_ptr(a0)
+		move.l	#AniRaw_EggRoboHead,animations(a0)
 
 		; load Egg Robo head art
 		lea	(ArtKosPM_EggRoboHead).l,a1
@@ -185,7 +185,7 @@ Obj_RobotnikShipPieces:
 		; init
 		lea	ObjDat_RobotnikShipPieces(pc),a1
 		jsr	(SetUp_ObjAttributes).w
-		move.l	#Obj_FlickerMove,address(a0)
+		move.l	#Obj_FlickerMove,code_addr(a0)
 		move.b	subtype(a0),d0
 		lsr.b	d0								; division by 2
 		move.b	d0,mapping_frame(a0)
