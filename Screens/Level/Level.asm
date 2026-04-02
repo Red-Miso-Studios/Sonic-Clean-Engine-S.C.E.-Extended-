@@ -111,7 +111,7 @@ LevelScreen:
 
 		; set
 		move.l	#VInt_Fade,(V_int_ptr).w					; set VInt pointer
-		move.l	#Obj_TitleCard,(Dynamic_object_RAM+(object_size*5)+address).w	; load title card object
+		move.l	#Obj_TitleCard,(Dynamic_object_RAM+(object_size*5)+code_addr).w	; load title card object
 
 .wait
 		st	(V_int_flag).w							; set VInt flag
@@ -178,7 +178,7 @@ LevelScreen:
 		; check water
 		tst.b	(Water_flag).w
 		beq.s	.notwater2
-		move.l	#Obj_WaveSplash,(Wave_Splash+address).w
+		move.l	#Obj_WaveSplash,(Wave_Splash+code_addr).w
 
 .notwater2
 		bsr.w	SpawnLevelMainSprites
@@ -236,24 +236,24 @@ LevelExtraRender_Data:
 ; =============== S U B R O U T I N E =======================================
 
 SpawnLevelMainSprites:
-		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3+address).w
+		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3+code_addr).w
 
 		move.w	(Player_mode).w,d0
 		bne.s	.SonicAlone
 
 		; Sonic and Tails
-		move.l	#Obj_Sonic,(Player_1+address).w
-		move.l	#Obj_DashDust,(Dust+address).w
-		move.l	#Obj_InstaShield,(Shield+address).w
+		move.l	#Obj_Sonic,(Player_1+code_addr).w
+		move.l	#Obj_DashDust,(Dust+code_addr).w
+		move.l	#Obj_InstaShield,(Shield+code_addr).w
 		move.w	#Player_1,(Shield+parent).w
-		move.l	#Obj_Tails,(Player_2+address).w
+		move.l	#Obj_Tails,(Player_2+code_addr).w
 		moveq	#-32,d0
 		add.w	(Player_1+x_pos).w,d0
 		move.w	d0,(Player_2+x_pos).w
 		move.w	(Player_1+y_pos).w,d0
 		addq.w	#4,d0
 		move.w	d0,(Player_2+y_pos).w
-		move.l	#Obj_DashDust,(Dust_P2+address).w
+		move.l	#Obj_DashDust,(Dust_P2+code_addr).w
 		clr.w	(Tails_CPU_routine).w
 		rts
 ; ---------------------------------------------------------------------------
@@ -263,9 +263,9 @@ SpawnLevelMainSprites:
 		bne.s	.TailsAlone
 
 		; Sonic alone
-		move.l	#Obj_Sonic,(Player_1+address).w
-		move.l	#Obj_DashDust,(Dust+address).w
-		move.l	#Obj_InstaShield,(Shield+address).w
+		move.l	#Obj_Sonic,(Player_1+code_addr).w
+		move.l	#Obj_DashDust,(Dust+code_addr).w
+		move.l	#Obj_InstaShield,(Shield+code_addr).w
 		move.w	#Player_1,(Shield+parent).w
 		rts
 ; ---------------------------------------------------------------------------
@@ -275,8 +275,8 @@ SpawnLevelMainSprites:
 		bne.s	.KnuxAlone
 
 		; Tails alone
-		move.l	#Obj_Tails,(Player_1+address).w
-		move.l	#Obj_DashDust,(Dust_P2+address).w
+		move.l	#Obj_Tails,(Player_1+code_addr).w
+		move.l	#Obj_DashDust,(Dust_P2+code_addr).w
 		addq.w	#4,(Player_1+y_pos).w
 		clr.w	(Tails_CPU_routine).w
 		rts
@@ -285,6 +285,6 @@ SpawnLevelMainSprites:
 .KnuxAlone
 
 		; Knuckles alone
-		move.l	#Obj_Knuckles,(Player_1+address).w
-		move.l	#Obj_DashDust,(Dust+address).w
+		move.l	#Obj_Knuckles,(Player_1+code_addr).w
+		move.l	#Obj_DashDust,(Dust+code_addr).w
 		rts
