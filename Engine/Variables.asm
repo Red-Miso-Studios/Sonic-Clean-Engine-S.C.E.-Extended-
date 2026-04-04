@@ -244,7 +244,7 @@ Signpost_addr						ds.w 1
 Render_sprite_first_RAM					ds.l 8
 Render_sprite_first_RAM_end =				*
 Render_sprite_last_RAM					ds.l 1
-_unkFAAC						ds.b 1
+Flying_catch_Sonic_flag					ds.b 1
 							ds.b 1				; even
 Palette_cycle_counters					ds.b $40
 Palette_frame						ds.w 1
