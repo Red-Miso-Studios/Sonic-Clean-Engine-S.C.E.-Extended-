@@ -169,8 +169,8 @@ loc_165D8:
 		btst	#1,object_control(a0)
 		bne.s	.touch
 		bsr.w	Animate_Knuckles
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	.plc
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	.plc								; if not, branch
 		eori.b	#setBit(render_flags.y_flip),render_flags(a0)
 
 .plc
@@ -563,8 +563,8 @@ Knuckles_Gliding_HitWall:
 		subq.w	#1,d3
 
 		; check gravity
-		tst.b	(Reverse_gravity_flag).w
-		bne.s	.reverseGravity
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.s	.reverseGravity							; if yes, branch
 
 .checkFloorCommon
 		moveq	#-11,d2
@@ -602,8 +602,8 @@ Knuckles_Gliding_HitWall:
 		ext.w	d0
 		add.w	d0,d3
 		addq.w	#1,d3
-		tst.b	(Reverse_gravity_flag).w
-		bne.s	Knuckles_Gliding_HitWall.reverseGravity
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.s	Knuckles_Gliding_HitWall.reverseGravity							; if yes, branch
 		bra.s	.checkFloorCommon
 ; ---------------------------------------------------------------------------
 
@@ -640,8 +640,8 @@ Knuckles_Fall_From_Glide:
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	.skip2
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	.skip2							; if not, branch
 		neg.w	d0
 
 .skip2
@@ -693,8 +693,8 @@ Knuckles_Sliding:
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	.skip1
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	.skip1								; if not, branch
 		neg.w	d0
 
 .skip1
@@ -716,9 +716,8 @@ Knuckles_Sliding:
 		; state.
 		cmpi.w	#14,d1
 		bge.s	.fail
-
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	.skip2
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	.skip2								; if not, branch
 		neg.w	d1
 
 .skip2
@@ -778,8 +777,8 @@ Knuckles_Wall_Climb:
 		beq.w	.notClimbingUp
 
 ;.climbingUp
-		tst.b	(Reverse_gravity_flag).w
-		bne.w	.climbingUp_ReverseGravity
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.w	.climbingUp_ReverseGravity					; if yes, branch
 
 		; get Knuckles' distance from the wall in 'd1'.
 		moveq	#-11,d2
@@ -910,8 +909,8 @@ Knuckles_Wall_Climb:
 		beq.w	.finishMoving
 
 ;.climbingDown
-		tst.b	(Reverse_gravity_flag).w
-		bne.w	.climbingDown_ReverseGravity
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.w	.climbingDown_ReverseGravity					; if yes, branch
 
 		; ...I'm not sure what this code is for.
 		cmpi.b	#$BD,mapping_frame(a0)
@@ -1170,8 +1169,8 @@ Knuckles_DoLedgeClimbingAnimation:
 		add.w	d0,x_pos(a0)
 		move.b	(a1)+,d1
 		ext.w	d1
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	.notgrav
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	.notgrav							; if not, branch
 		neg.w	d1
 
 .notgrav
@@ -1594,8 +1593,8 @@ loc_172A8:
 		cmpi.b	#2*60,scroll_delay_counter(a0)
 		blo.s	loc_17322
 		move.b	#2*60,scroll_delay_counter(a0)
-		tst.b	(Reverse_gravity_flag).w
-		bne.s	loc_172D8
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.s	loc_172D8							; if yes, branch
 		cmpi.w	#tile_height,(a5)
 		beq.s	loc_1732E
 		subq.w	#2,(a5)
@@ -1617,8 +1616,8 @@ loc_172E2:
 		cmpi.b	#2*60,scroll_delay_counter(a0)
 		blo.s	loc_17322
 		move.b	#2*60,scroll_delay_counter(a0)
-		tst.b	(Reverse_gravity_flag).w
-		bne.s	loc_17312
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.s	loc_17312							; if yes, branch
 		cmpi.w	#screen_height-(block_height+tile_height),(a5)
 		beq.s	loc_1732E
 		addq.w	#2,(a5)
@@ -1923,8 +1922,8 @@ loc_175A2:
 .skip
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_175E0
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_175E0							; if not, branch
 		neg.w	d0
 
 loc_175E0:
@@ -2107,8 +2106,8 @@ Knux_Jump:
 		beq.s	locret_1770E
 		moveq	#0,d0
 		move.b	angle(a0),d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17732
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17732							; if not, branch
 		addi.b	#$40,d0
 		neg.b	d0
 		subi.b	#$40,d0
@@ -2150,8 +2149,8 @@ loc_1775C:
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_177DC
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_177DC							; if not, branch
 		neg.w	d0
 
 loc_177DC:
@@ -2313,8 +2312,8 @@ loc_179B4:
 		bsr.w	sub_11FD6
 		tst.w	d1
 		bpl.s	locret_179D8
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_179C4
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_179C4							; if not, branch
 		neg.w	d1
 
 loc_179C4:
@@ -2342,8 +2341,8 @@ loc_179F2:
 		neg.w	d1
 		cmpi.w	#$14,d1
 		bhs.s	loc_17A1C
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17A0A
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17A0A							; if not, branch
 		neg.w	d1
 
 loc_17A0A:
@@ -2374,8 +2373,8 @@ loc_17A36:
 		bsr.w	sub_11FD6
 		tst.w	d1
 		bpl.s	locret_17A60
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17A4C
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17A4C							; if not, branch
 		neg.w	d1
 
 loc_17A4C:
@@ -2408,8 +2407,8 @@ loc_17A94:
 		bsr.w	sub_11FEE
 		tst.w	d1
 		bpl.s	locret_17AAE
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17AA4
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17AA4							; if not, branch
 		neg.w	d1
 
 loc_17AA4:
@@ -2432,8 +2431,8 @@ loc_17ACA:
 		bsr.w	sub_11FEE
 		tst.w	d1
 		bpl.s	loc_17AEC
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17ADA
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17ADA							; if not, branch
 		neg.w	d1
 
 loc_17ADA:
@@ -2452,8 +2451,8 @@ loc_17AEC:
 		bsr.w	sub_11FD6
 		tst.w	d1
 		bpl.s	locret_17B16
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17B02
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17B02							; if not, branch
 		neg.w	d1
 
 loc_17B02:
@@ -2481,8 +2480,8 @@ Knux_TouchFloor:
 		clr.b	anim(a0)							; AniIDKnuxAni_Walk
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17B56
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17B56							; if not, branch
 		neg.w	d0
 
 loc_17B56:
@@ -2555,8 +2554,8 @@ loc_17BFA:
 sub_17C10:
 		tst.b	(Disable_death_plane).w
 		bne.s	loc_17C3C
-		tst.b	(Reverse_gravity_flag).w
-		bne.s	loc_17C2E
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		bne.s	loc_17C2E							; if yes, branch
 		move.w	(Camera_max_Y_pos).w,d0
 		addi.w	#screen_height,d0
 		cmp.w	y_pos(a0),d0
@@ -2664,8 +2663,8 @@ Knuckles_Drown:
 
 sub_17D1E:
 		bsr.s	Animate_Knuckles
-		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_17D2C
+		tst.b	(Reverse_gravity_flag).w					; are we in reverse gravity mode?
+		beq.s	loc_17D2C							; if not, branch
 		eori.b	#setBit(render_flags.y_flip),render_flags(a0)
 
 loc_17D2C:
