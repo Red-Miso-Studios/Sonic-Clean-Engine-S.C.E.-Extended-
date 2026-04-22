@@ -503,7 +503,7 @@ HurtCharacter:
 
 .isleft
 		clr.w	ground_vel(a0)
-		move.b	#AniIDSonAni_Hurt2,anim(a0)
+		move.b	#AniIDSonAni_Hurt2,anim(a0)					; set hurt anim
 		move.b	#2*60,invulnerability_timer(a0)					; set temp invincible time to 2 seconds
 
 		; check
