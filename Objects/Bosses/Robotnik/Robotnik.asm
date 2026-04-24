@@ -168,7 +168,7 @@ Load_EggRoboHead:
 		move.l	#AniRaw_EggRoboHead,animations(a0)
 
 		; load Egg Robo head art
-		lea	(ArtKosPM_EggRoboHead).l,a1
+		lea	(ArtKosPlusM_EggRoboHead).l,a1
 		move.w	#tiles_to_bytes($52E),d2
 		jmp	(Queue_KosPlus_Module).w
 
