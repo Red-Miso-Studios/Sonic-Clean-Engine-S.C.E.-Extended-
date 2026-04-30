@@ -2203,7 +2203,7 @@ Knux_Test_For_Glide:
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	loc_1786C
 
-	if CheckChaosEmer
+	if CheckChaosEmerald
 		cmpi.b	#7,(Chaos_emerald_count).w
 		blo.s	loc_1786C
 	endif
