@@ -11,6 +11,7 @@ MSUMode =						0				; if 1, enable MSU
 GameDebug =						1				; if 1, enable debug mode for player
 GameDebugAlt =						0				; if 1, enable alt debug mode for player
 RollInAir =						1				; if 1, enable roll in air for players
+PlayerRollJumpLock =					0				; if 1, lock player control when jump roll
 PlayerMoveLock =					0				; if 1, lock control during the fall animation (Android, Mania, Origins style)
 SonKnuxTransform =					1				; if 1, enable Super/Hyper transformation
 CheckChaosEmerald =					1				; if 1, check the number of emeralds to transformation
