@@ -2019,6 +2019,12 @@ Knux_ChgJumpDir:
 		move.w	Max_speed-Max_speed(a4),d6
 		move.w	Acceleration-Max_speed(a4),d5
 		asl.w	d5
+
+	if PlayerRollJumpLock
+		btst	#status.player.rolljumping,status(a0)				; did Knuckles jump from rolling?
+		bne.s	Knux_Jump_ResetScr						; if yes, branch to skip midair control
+	endif
+
 		move.w	x_vel(a0),d0
 		btst	#button_left,(Ctrl_1_logical).w
 		beq.s	loc_176B4							; if not holding left, branch
@@ -2065,7 +2071,7 @@ loc_176DE:
 		subq.w	#2,(a5)								; or subtract 2
 
 Knux_JumpPeakDecelerate:
-		cmpi.w	#-$400,y_vel(a0)						; is Sonic moving faster than -$400 upwards?
+		cmpi.w	#-$400,y_vel(a0)						; is Knuckles moving faster than -$400 upwards?
 		blo.s	locret_1770E							; if yes, return
 		move.w	x_vel(a0),d0
 		move.w	d0,d1
@@ -2142,7 +2148,13 @@ loc_1775C:
 		sfx	sfx_Jump
 		move.w	default_y_radius(a0),y_radius(a0)				; set default_y_radius and default_x_radius
 		btst	#status.player.rolling,status(a0)
+
+	if PlayerRollJumpLock
+		bne.s	Knux_RollJump
+	else
 		bne.s	locret_177E0
+	endif
+
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)				; set y_radius and x_radius
 		move.b	#AniIDSonAni_Roll,anim(a0)					; use "jumping" animation
 		bset	#status.player.rolling,status(a0)
@@ -2158,6 +2170,13 @@ loc_177DC:
 
 locret_177E0:
 		rts
+; ---------------------------------------------------------------------------
+
+	if PlayerRollJumpLock
+Knux_RollJump:
+		bset	#status.player.rolljumping,status(a0)				; set the rolling+jumping flag
+		rts
+	endif
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -2217,6 +2236,11 @@ loc_1786C:
 		endif
 
 		bclr	#status.player.rolling,status(a0)
+
+	if PlayerRollJumpLock
+		bclr	#status.player.rolljumping,status(a0)
+	endif
+
 		move.w	#bytes_to_word(20/2,20/2),y_radius(a0)				; set y_radius and x_radius
 		move.b	#1,double_jump_flag(a0)
 		addi.w	#$200,y_vel(a0)
@@ -2498,6 +2522,11 @@ loc_17B64:
 loc_17B6A:
 		bclr	#status.player.in_air,status(a0)
 		bclr	#status.player.pushing,status(a0)
+
+	if PlayerRollJumpLock
+		bclr	#status.player.rolljumping,status(a0)
+	endif
+
 		moveq	#0,d0
 		move.b	d0,jumping(a0)
 		move.w	d0,(Chain_bonus_counter).w
