@@ -97,7 +97,7 @@ Obj_Signpost:
 		move.l	#AniRaw_Signpost2,d0
 
 .notKnux
-		move.l	d0,animations(a0)
+		move.l	d0,animations_addr(a0)
 
 		; create stub
 		lea	Child1_Signpost_Stub(pc),a2					; make the little stub at the bottom of the signpost
@@ -217,7 +217,7 @@ Obj_Signpost:
 
 ; dynamic object variables
 
-	dsset animations								; pretend we're in the RAM
+	dsset animations_addr								; pretend we're in the RAM
 
 signpost_sparkle.origX			ds.w 1						; original x-axis position (2 bytes)
 
