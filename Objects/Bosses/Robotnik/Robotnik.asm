@@ -26,7 +26,7 @@ Obj_RobotnikHead3Init:
 		; init
 		lea	ObjDat_RobotnikHead(pc),a1
 		jsr	(SetUp_ObjAttributes).w
-		move.l	#AniRaw_RobotnikHead,animations(a0)
+		move.l	#AniRaw_RobotnikHead,animations_addr(a0)
 		cmpi.b	#PlayerID_Knuckles,(Player_1+character_id).w			; is player Knuckles?
 		bne.s	.notKnux							; if not, branch
 		bsr.w	Load_EggRoboHead
@@ -162,10 +162,10 @@ RobotnikShipFlame_Main:
 ; =============== S U B R O U T I N E =======================================
 
 Load_EggRoboHead:
-		move.l	#Map_EggRoboHead,mappings(a0)					; if player is Knuckles, use Egg Robo head
+		move.l	#Map_EggRoboHead,mappings_addr(a0)				; if player is Knuckles, use Egg Robo head
 
 .skip
-		move.l	#AniRaw_EggRoboHead,animations(a0)
+		move.l	#AniRaw_EggRoboHead,animations_addr(a0)
 
 		; load Egg Robo head art
 		lea	(ArtKosPlusM_EggRoboHead).l,a1
