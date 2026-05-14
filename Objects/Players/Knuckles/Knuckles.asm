@@ -436,7 +436,7 @@ Knuckles_Glide:
 		bne.w	Knuckles_Gliding_HitWall
 
 		moveq	#button_A_mask|button_B_mask|button_C_mask,d0
-		and.b	(Ctrl_1_logical).w,d0
+		and.b	(Ctrl_1_held_logical).w,d0
 		bne.s	.continueGliding
 
 		; the player has let go of the jump button, so exit the gliding state
@@ -665,7 +665,7 @@ Knuckles_Fall_From_Glide:
 
 Knuckles_Sliding:
 		moveq	#button_A_mask|button_B_mask|button_C_mask,d0
-		and.b	(Ctrl_1_logical).w,d0
+		and.b	(Ctrl_1_held_logical).w,d0
 		beq.s	.getUp
 
 		tst.w	x_vel(a0)
@@ -773,7 +773,7 @@ Knuckles_Wall_Climb:
 		moveq	#0,d1								; climbing animation delta: make the animation pause.
 
 		; check button
-		btst	#button_up,(Ctrl_1_logical).w
+		btst	#button_up,(Ctrl_1_held_logical).w
 		beq.w	.notClimbingUp
 
 ;.climbingUp
@@ -905,7 +905,7 @@ Knuckles_Wall_Climb:
 ; ---------------------------------------------------------------------------
 
 .notClimbingUp
-		btst	#button_down,(Ctrl_1_logical).w
+		btst	#button_down,(Ctrl_1_held_logical).w
 		beq.w	.finishMoving
 
 ;.climbingDown
@@ -1301,7 +1301,7 @@ Knuckles_Move_Glide:
 		move.w	d0,ground_vel(a0)
 
 		move.b	double_jump_property(a0),d0
-		btst	#button_left,(Ctrl_1_logical).w
+		btst	#button_left,(Ctrl_1_held_logical).w
 		beq.s	.notHoldingLeft
 
 ;.holdingLeft
@@ -1318,7 +1318,7 @@ Knuckles_Move_Glide:
 ; ---------------------------------------------------------------------------
 
 .notHoldingLeft
-		btst	#button_right,(Ctrl_1_logical).w
+		btst	#button_right,(Ctrl_1_held_logical).w
 		beq.s	.notHoldingRight
 
 ;.holdingRight
@@ -1470,12 +1470,12 @@ Knux_InputAcceleration_Path:
 		bmi.w	loc_17364
 		tst.w	move_lock(a0)
 		bne.w	loc_1731C
-		btst	#button_left,(Ctrl_1_logical).w
+		btst	#button_left,(Ctrl_1_held_logical).w
 		beq.s	loc_17168
 		bsr.w	sub_17428
 
 loc_17168:
-		btst	#button_right,(Ctrl_1_logical).w
+		btst	#button_right,(Ctrl_1_held_logical).w
 		beq.s	loc_17174
 		bsr.w	sub_174B4
 
@@ -1586,7 +1586,7 @@ loc_1728C:
 loc_172A8:
 		tst.w	(Camera_H_scroll_shift).w
 		bne.s	loc_172E2
-		btst	#button_down,(Ctrl_1_logical).w
+		btst	#button_down,(Ctrl_1_held_logical).w
 		beq.s	loc_172E2
 		move.b	#AniIDSonAni_Duck,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
@@ -1609,7 +1609,7 @@ loc_172D8:
 ; ---------------------------------------------------------------------------
 
 loc_172E2:
-		btst	#button_up,(Ctrl_1_logical).w
+		btst	#button_up,(Ctrl_1_held_logical).w
 		beq.s	loc_1731C
 		move.b	#AniIDSonAni_LookUp,anim(a0)
 		addq.b	#1,scroll_delay_counter(a0)
@@ -1650,7 +1650,7 @@ loc_1732E:
 
 loc_17338:
 		moveq	#btnLR,d0
-		and.b	(Ctrl_1_logical).w,d0
+		and.b	(Ctrl_1_held_logical).w,d0
 		bne.s	loc_17364
 		move.w	ground_vel(a0),d0
 		beq.s	loc_17364
@@ -1873,12 +1873,12 @@ loc_1754E:
 		bne.s	loc_17580
 		tst.w	(Camera_H_scroll_shift).w
 		bne.s	loc_17580
-		btst	#button_left,(Ctrl_1_logical).w
+		btst	#button_left,(Ctrl_1_held_logical).w
 		beq.s	loc_17574
 		bsr.w	sub_1763A
 
 loc_17574:
-		btst	#button_right,(Ctrl_1_logical).w
+		btst	#button_right,(Ctrl_1_held_logical).w
 		beq.s	loc_17580
 		bsr.w	sub_1765E
 
@@ -2026,7 +2026,7 @@ Knux_ChgJumpDir:
 	endif
 
 		move.w	x_vel(a0),d0
-		btst	#button_left,(Ctrl_1_logical).w
+		btst	#button_left,(Ctrl_1_held_logical).w
 		beq.s	loc_176B4							; if not holding left, branch
 		bset	#status.player.x_flip,status(a0)
 
@@ -2047,7 +2047,7 @@ Knux_ChgJumpDir:
 		move.w	d1,d0
 
 loc_176B4:
-		btst	#button_right,(Ctrl_1_logical).w
+		btst	#button_right,(Ctrl_1_held_logical).w
 		beq.s	loc_176D0							; if not holding right, branch
 		bclr	#status.player.x_flip,status(a0)
 		add.w	d5,d0								; accelerate right in the air
@@ -2192,7 +2192,7 @@ loc_17800:
 		cmp.w	y_vel(a0),d1
 		ble.s	Knux_Test_For_Glide
 		moveq	#btnABC,d0
-		and.b	(Ctrl_1_logical).w,d0
+		and.b	(Ctrl_1_held_logical).w,d0
 		bne.s	locret_17816
 		move.w	d1,y_vel(a0)
 
