@@ -4,58 +4,24 @@
 ; ===========================================================================
 
 ; ===========================================================================
-; Pattern load cues - Sonic
+; Pattern load cues - Main (Primary)
 ; ===========================================================================
 
-PLC1_Sonic: plrlistheader
+PLC_Main_Primary: plrlistheader
 		plreq ArtTile_StarPost, ArtKosPlusM_EnemyScoreStarPost			; starpost
 		plreq ArtTile_Ring_Sparks, ArtKosPlusM_Ring_Sparks			; rings
 		plreq ArtTile_HUD, ArtKosPlusM_HUD					; HUD
-		plreq ArtTile_LifeIcon, ArtKosPlusM_SonicLifeIcon			; life icon
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Miles
+; Pattern load cues - Main (Secondary)
 ; ===========================================================================
 
-PLC1_Miles: plrlistheader
-		plreq ArtTile_StarPost, ArtKosPlusM_EnemyScoreStarPost			; starPost
-		plreq ArtTile_Ring_Sparks, ArtKosPlusM_Ring_Sparks			; rings
-		plreq ArtTile_HUD, ArtKosPlusM_HUD					; HUD
-		plreq ArtTile_LifeIcon, ArtKosPlusM_MilesLifeIcon			; life icon
-		plrlistend
-
-; ===========================================================================
-; Pattern load cues - Tails
-; ===========================================================================
-
-PLC1_Tails: plrlistheader
-		plreq ArtTile_StarPost, ArtKosPlusM_EnemyScoreStarPost			; starpost
-		plreq ArtTile_Ring_Sparks, ArtKosPlusM_Ring_Sparks			; rings
-		plreq ArtTile_HUD, ArtKosPlusM_HUD					; HUD
-		plreq ArtTile_LifeIcon, ArtKosPlusM_TailsLifeIcon			; life icon
-		plrlistend
-
-; ===========================================================================
-; Pattern load cues - Knuckles
-; ===========================================================================
-
-PLC1_Knuckles: plrlistheader
-		plreq ArtTile_StarPost, ArtKosPlusM_EnemyScoreStarPost			; starpost
-		plreq ArtTile_Ring_Sparks, ArtKosPlusM_Ring_Sparks			; rings
-		plreq ArtTile_HUD, ArtKosPlusM_HUD					; HUD
-		plreq ArtTile_LifeIcon, ArtKosPlusM_KnucklesLifeIcon			; life icon
-		plrlistend
-
-; ===========================================================================
-; Pattern load cues 2 - Sonic
-; ===========================================================================
-
-PLC2_Sonic: plrlistheader
+PLC_Main_Secondary: plrlistheader
 		plreq ArtTile_SpikesSprings, ArtKosPlusM_SpikesSprings			; spikes and normal spring
 		plreq ArtTile_Monitors, ArtKosPlusM_Monitors				; monitors
 		plreq ArtTile_Explosion, ArtKosPlusM_Explosion				; explosion
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
 ; Level pattern load cues
@@ -63,68 +29,68 @@ PLC2_Sonic: plrlistheader
 ; ===========================================================================
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (Before)
+; Pattern load cues - Death Egg Zone (Primary)
 ; ===========================================================================
 
-PLC1_DEZ1_Before: plrlistheader
+PLC_DEZ1_Primary: plrlistheader
 		plreq $47E, ArtKosPlusM_GrayButton					; button
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (After)
+; Pattern load cues - Death Egg Zone (Secondary)
 ; ===========================================================================
 
-PLC2_DEZ1_After: plrlistheader
+PLC_DEZ1_Secondary: plrlistheader
 		plreq $500, ArtKosPlusM_Spikebonker					; spikebonker badnik
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (Before)
+; Pattern load cues - Death Egg Zone (Primary)
 ; ===========================================================================
 
-PLC1_DEZ2_Before: plrlistheader
+PLC_DEZ2_Primary: plrlistheader
 		plreq $47E, ArtKosPlusM_GrayButton					; button
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (After)
+; Pattern load cues - Death Egg Zone (Secondary)
 ; ===========================================================================
 
-PLC2_DEZ2_After: plrlistheader
+PLC_DEZ2_Secondary: plrlistheader
 		plreq $500, ArtKosPlusM_Spikebonker					; spikebonker badnik
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (Before)
+; Pattern load cues - Death Egg Zone (Primary)
 ; ===========================================================================
 
-PLC1_DEZ3_Before: plrlistheader
+PLC_DEZ3_Primary: plrlistheader
 		plreq $47E, ArtKosPlusM_GrayButton					; button
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (After)
+; Pattern load cues - Death Egg Zone (Secondary)
 ; ===========================================================================
 
-PLC2_DEZ3_After: plrlistheader
+PLC_DEZ3_Secondary: plrlistheader
 		plreq $500, ArtKosPlusM_Spikebonker					; spikebonker badnik
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (Before)
+; Pattern load cues - Death Egg Zone (Primary)
 ; ===========================================================================
 
-PLC1_DEZ4_Before: plrlistheader
+PLC_DEZ4_Primary: plrlistheader
 		plreq $47E, ArtKosPlusM_GrayButton					; button
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
-; Pattern load cues - Death Egg Zone (After)
+; Pattern load cues - Death Egg Zone (Secondary)
 ; ===========================================================================
 
-PLC2_DEZ4_After: plrlistheader
+PLC_DEZ4_Secondary: plrlistheader
 		plreq $500, ArtKosPlusM_Spikebonker					; spikebonker badnik
-		plrlistend
+		plrlistend								; end marker
 
 ; ===========================================================================
 ; Level pattern load cues
@@ -135,7 +101,7 @@ PLC2_DEZ4_After: plrlistheader
 ; Pattern load cues - Animals (DEZ1)
 ; ===========================================================================
 
-PLCAnimals_DEZ1: plrlistheader
-		plreq $580, ArtKosPlusM_BlueFlicky
-		plreq $592, ArtKosPlusM_Chicken
-		plrlistend
+PLC_Animals_DEZ1: plrlistheader
+		plreq $580, ArtKosPlusM_BlueFlicky					; blue flicky animal
+		plreq $592, ArtKosPlusM_Chicken						; chicken animal
+		plrlistend								; end marker
