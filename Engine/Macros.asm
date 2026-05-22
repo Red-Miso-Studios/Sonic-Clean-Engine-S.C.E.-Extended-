@@ -1586,7 +1586,7 @@ titlecardVRAMLetters macro opt,opt2,str
 	    endif
 	endm
     endif
-	dc.b -1	; end marker
+	dc.b -1										; end marker
 	restore
     endm
 
@@ -1728,13 +1728,13 @@ creditstr macro plane, str
     endif
 	dc.b str
 	restore
-	dc.b 0	; end marker
+	dc.b 0										; end marker
 	even
     endm
 
 ; macro for a credits text list header
 creditstr_end macro
-	dc.w 0	; end marker
+	dc.w 0										; end marker
     endm
 ; ---------------------------------------------------------------------------
 
