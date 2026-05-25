@@ -360,8 +360,8 @@
 ; Palette data pointers
 ; ---------------------------------------------------------------------------
 
-		include "Data/Palette Pointers.asm"
 		include "Data/Palette Data.asm"
+		include "Data/Palette Pointers.asm"
 
 ; ---------------------------------------------------------------------------
 ; Object pointers
