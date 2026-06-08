@@ -2,9 +2,9 @@
 ; Sound IDs
 ; ---------------------------------------------------------------------------
 ; Background music
-offset :=	MusicIndex
-ptrsize :=	4
-idstart :=	1
+offset := MusicIndex
+ptrsize := 4
+idstart := 1
 ; $00 is reserved for silence
 
 mus__First = idstart
@@ -26,9 +26,9 @@ mus_Continue =			SMPS_id(ptr_mus09)
 mus__Last =			SMPS_id(ptr_musend)-1
 
 ; Sound effects
-offset :=	SoundIndex
-ptrsize :=	4
-idstart :=	$40
+offset := SoundIndex
+ptrsize := 4
+idstart := $40
 
 sfx__First = idstart
 sfx_RingRight =			SMPS_id(ptr_snd01)
@@ -73,9 +73,9 @@ sfx_Thump =			SMPS_id(ptr_snd26)
 sfx__Last =			SMPS_id(ptr_sndend)-1
 
 ; Sound commands
-offset :=	Sound_ExIndex
-ptrsize :=	2
-idstart :=	$F9
+offset := Sound_ExIndex
+ptrsize := 2
+idstart := $F9
 
 flg__First = idstart
 specsfx_Stop =			SMPS_id(ptr_flgF9)
